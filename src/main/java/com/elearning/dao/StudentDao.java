@@ -11,7 +11,7 @@ import com.elearning.entity.Student;
 public interface StudentDao {
 	
 	public void insertBasicInformation(@Param("ID") String ID, @Param("name") String name);
-
+      //只是添加一行注释
 	//public void register(@Param("ID") String ID, @Param("password") String password);
 	public void register(Student student);
 	

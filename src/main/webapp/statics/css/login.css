@@ -1,4 +1,4 @@
-*.{
+*{
 	padding:0px auto;
 	margin:0px auto;
 	border:0px;
@@ -11,8 +11,6 @@ body {
   background-color: #ffffff;
 }
 #alertinfo{
-	
-	display:;
 	width:340px;
 	height:50px;
 	text-align:center;
@@ -30,7 +28,7 @@ body {
 	height:400px;
 	left:50%;
 	top:50%;
-   	border:1px solid #;
+   	border:1px solid ;
 	-webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -51,7 +49,7 @@ body {
 .box-login{
 	
 	padding:0;
-	margin-top:100px;
+	margin-top:120px;
 	position:absolute;
 	width:350px;
 	height:250px;
