@@ -1,0 +1,36 @@
+*{
+	margin:0 auto;
+	padding:0;
+	border:0;
+}
+html,body{
+	height:100%;
+}
+#alertinfo{
+	display:none;
+}
+#header{
+	height:70px;
+	width:100%;
+	background-color:green;
+	text-align:right;
+	line-height:70px;
+}
+#all{
+	height:90%;
+	width:100%;
+	position:relative;
+	overflow:auto;   
+}
+#nav{
+	height:100%;
+	width:14%;
+	background-color:#555;
+	float:left;
+}
+#main{
+	height:100%;
+	width:86%;
+	background-color:gray;
+	float:right;
+}
