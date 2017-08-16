@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+       
+<mapper namespace="com.elearning.dao.StudentDao">
+	<insert id="insertBasicInformation" parameterType="String">
+		insert into tb_student(studentID,password,studentName,studenImage,preferences) values(#{ID},null,#{name},null,null)
+	</insert>
+	
+	<!--  update id="register" parameterType="String">
+		update tb_student set password = ${password} where studentID = #{ID}
+	</update -->
+	
+	<update id="register" parameterType="Student">
+		update tb_student set password = #{password}, studenImage = #{image}, preferences = #{preferences} where studentID = #{ID}
+	</update>
+	
+	<update id="modifyPassword" parameterType="String">
+		update tb_student set password = #{password} where studentID = #{ID}
+	</update>
+	
+	<update id="editInfomation" parameterType="String">
+		update tb_student set studentName = #{name},studenImage = #{image},preferences = #{preferences}
+		where studentID = #{ID}
+	</update>
+	
+	<select id="getPassword" parameterType="String">
+		select password from tb_student where studentID = #{ID}
+	</select>
+	
+	<delete id="delete" parameterType="String">
+		delete from tb_student where studentID = #{ID}
+	</delete>
+	
+	<select id="findByID" parameterType="String" resultType="Student">
+		select * from tb_student where studentID = #{ID}
+	</select>
+	
+	<resultMap type="Student" id="studentMap">
+		<id column="studentID" property="ID"/>
+		<result column="studentName" property="name"/>
+		<result column="password" property="password"/>
+		<result column="studenImage" property="image"/>
+		<result column="preferences" property="preferences"/>
+	</resultMap>
+	
+	<select id="findAll" resultMap="studentMap">
+		select * from tb_student
+	</select>
+</mapper>

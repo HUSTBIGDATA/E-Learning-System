@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+       
+<mapper namespace="com.elearning.dao.ManagerDao">
+	<insert id="insertBasicInformation" parameterType="String">
+		insert into tb_manager(managerID,password,managerName,managerImage) values(#{ID},null,#{name},null)
+	</insert>
+	
+	<update id="register" parameterType="Manager">
+		update tb_manager set password = #{password}, managerImage = #{image} where managerID = #{ID}
+	</update>
+	
+	<update id="modifyPassword" parameterType="String">
+		update tb_manager set password = #{password} where managerID = #{ID}
+	</update>
+	
+	<update id="editInfomation" parameterType="String">
+		update tb_manager set managerName = #{name},managerImage = #{image} where managerID = #{ID}
+	</update>
+	
+	<select id="getPassword" parameterType="String">
+		select password from tb_manager where managerID = #{ID}
+	</select>
+	
+	<delete id="delete" parameterType="String">
+		delete from tb_manager where managerID = #{ID}
+	</delete>
+	
+	<select id="findByID" parameterType="String" resultType="Manager">
+		select * from tb_manager where managerID = #{ID}
+	</select>
+	
+	<resultMap type="Manager" id="managerMap">
+		<id column="managerID" property="ID"/>
+		<result column="managerName" property="name"/>
+		<result column="password" property="password"/>
+		<result column="managerImage" property="image"/>
+	</resultMap>
+	
+	<select id="findAll" resultMap="managerMap">
+		select * from tb_manager
+	</select>
+</mapper>
