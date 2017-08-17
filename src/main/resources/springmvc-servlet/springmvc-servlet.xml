@@ -20,8 +20,10 @@
   <mvc:annotation-driven/>
   
   <!-- 静态资源 -->
-  <mvc:resources location="/image/" mapping="/image/**"/>
-  
+    <mvc:resources location="/statics/img/" mapping="/image/**"/>
+    <mvc:resources location="/statics/css/" mapping="/css/**"/>
+    <mvc:resources location="/statics/js/" mapping="/js/**"/>
+    <mvc:resources location="/statics/fonts-awesome/" mapping="/fonts-awesome/**"/>
   <!-- 拦截器 -->
   
   <!-- 扫描spring组件支持的注解 -->
