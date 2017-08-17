@@ -12,7 +12,7 @@
 		  
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </head>
+       </head>
     <body background="img/login_background.jpg" align="center" onload="scan()">
 	   
         <div class="clearfix">
@@ -25,18 +25,18 @@
             <div class="box-login">
             <!-- adminLogin -->
                <form id="adminlog" role="form" class="form-horizontal">
-			    <div class="form-group">
-                    <label for="name" class="col-sm-2 control-label">帐号:</label>
-                    <div class="col-sm-8">
-                       <input type="text" class="form-control" id="name" name="name" placeholder="请输入帐号">
-                    </div>
-                </div>
-                <div class="form-group">
-                     <label for="password" class="col-sm-2 control-label">密码:</label>
-                     <div class="col-sm-8">
-                     <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
-                     </div>
-                 </div>
+                       <div class="form-group" >
+                           <label for="name" class="col-sm-3 control-label"><span class="glyphicon glyphicon-user"></span>&nbsp帐号:</label>
+                           <div class="col-sm-7">
+                               <input type="text" class="form-control" id="name" name="name" placeholder="请输入帐号">
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label for="password" class="col-sm-3 control-label"><span class="glyphicon glyphicon-lock"></span>&nbsp密码:</label>
+                           <div class="col-sm-7">
+                               <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+                           </div>
+                       </div>
 				 
 				<c:if test="${!empty error}">
 				    <div class="alert alert-warning alert-dismissable" id="alertinfo">
@@ -45,10 +45,7 @@
                     </div> 
 		        </c:if>
 				
-          <div class="alert alert-warning alert-dismissable" id="alertinfo">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>账户或者密码错误!
-          </div>
-		  
+
             <div class="form-group">
              <div class="col-sm-offset-2 col-sm-8">
                 <button type="submit" id="btn" class="btn btn-default" onclick="check();">登录</button>
@@ -61,6 +58,12 @@
 			
 	    </div>
 		 <script>
+		     	
+             function scan(){	      
+			     document.getElementById("alertinfo").style.display="none";  
+			 }	
+           
+       	
 		 </script>
 		
     </body>

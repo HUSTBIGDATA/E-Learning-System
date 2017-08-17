@@ -23,14 +23,14 @@
     <div class="box-login">
         <form id="adminlog" role="form" class="form-horizontal">
             <div class="form-group">
-                <label  class="col-sm-2 control-label">帐号:</label>
-                <div class="col-sm-8">
+                <label  class="col-sm-3 control-label"><span class="glyphicon glyphicon-user"></span>&nbsp帐号:</label>
+                <div class="col-sm-7">
                     <input type="text" class="form-control" id="username" name="username" placeholder="请输入帐号">
                 </div>
             </div>
             <div class="form-group">
-                <label  class="col-sm-2 control-label">密码:</label>
-                <div class="col-sm-8">
+                <label  class="col-sm-3 control-label"><span class="glyphicon glyphicon-lock"></span>&nbsp密码:</label>
+                <div class="col-sm-7">
                     <input type="password" class="form-control" id="userpassword" name="userpassword" placeholder="请输入密码">
                 </div>
             </div>
@@ -48,7 +48,6 @@
                     <button type="reset"  class="btn btn-default">重置</button>
                 </div>
             </div>
-
         </form>
     </div>
 </div>
@@ -67,6 +66,7 @@
             box-register.reset();
         }
     }
+
 </script>
 </body>
 </html>
