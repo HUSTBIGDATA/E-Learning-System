@@ -11,7 +11,7 @@ import com.elearning.entity.Manager;
 import com.elearning.service.ManagerService;
 import com.elearning.tools.Md5Hash;
 
-@Service(value="studentServiceImpl")
+@Service(value="managerServiceImpl")
 @Transactional
 public class ManagerServiceImpl implements ManagerService{
 

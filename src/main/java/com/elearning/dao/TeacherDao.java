@@ -5,15 +5,14 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import com.elearning.entity.Manager;
+import com.elearning.entity.Teacher;
 
-@Repository(value = "managerDao")
-public interface ManagerDao {
+@Repository(value = "teacherDao")
+public interface TeacherDao {
 	
 	public void insertBasicInformation(@Param("ID") String ID, @Param("name") String name);
 
-	//public void register(@Param("ID") String ID, @Param("password") String password);
-	public void register(Manager manager);
+	public void register(Teacher manager);
 	
 	public void modifyPassword(@Param("ID") String ID, @Param("password") String password);
 	
@@ -23,7 +22,7 @@ public interface ManagerDao {
 	
 	public void delete(String ID);
 	
-	public Manager findByID(String ID);
+	public Teacher findByID(String ID);
 	
-	public List<Manager> findAll();
+	public List<Teacher> findAll();
 }
