@@ -176,3 +176,17 @@ html,body{
 	margin: 0px;
 }
 
+/*********** 以下为studentImport.jsp样式**************/
+#dataimportDiv{
+
+	margin:200px;
+	text-align:center;
+	width:400px;
+	height:200px;
+	border:1px solid black;
+
+}
+#formDIv{
+	text-align:center;
+	padding:80px 20px 20px 20px;
+}
