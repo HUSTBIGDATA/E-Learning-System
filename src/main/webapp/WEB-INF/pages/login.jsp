@@ -2,18 +2,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <html>
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
-    <link href="css/login.css" rel="stylesheet">
+    <link href="<%=basePath%>statics/css/login.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-<body background="img/login_background.jpg" align="center" onload="scan()">
+<body background="<%=basePath%>statics/img/login_background.jpg" align="center" onload="scan()">
 
 <!-- Login -->
 <div id="userloginDiv" class="clearfix">

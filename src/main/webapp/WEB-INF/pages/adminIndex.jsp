@@ -9,6 +9,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,9 +23,9 @@
 
     <!-- 引入各种CSS样式表 -->
 
-    <link rel="stylesheet" href="statics/css/font-awesome.css">
-    <link rel="stylesheet" href="css/font-change.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="<%=basePath%>statics/css/login.css">
+    <link rel="stylesheet" href="<%=basePath%>statics/css/font-change.css">
+    <link rel="stylesheet" href="<%=basePath%>statics/css/admin.css">
 
     <!--script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
