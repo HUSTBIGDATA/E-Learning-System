@@ -22,10 +22,9 @@
 
     <!-- 引入各种CSS样式表 -->
 
-    <link rel="stylesheet" href="<%=basePath%>statics/css/login.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-change.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/admin.css">
-
+    <link rel="stylesheet" href="<%=basePath%>statics/css/font-awesome.css">
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -36,7 +35,7 @@
 </head>
 
 <body>
-<div id="all">
+<div class="all">
 
     <div id="dataimportDiv">
         <form class="form-inline" role="form" id="formDIv">

@@ -23,9 +23,9 @@
 
     <!-- 引入各种CSS样式表 -->
 
-    <link rel="stylesheet" href="<%=basePath%>statics/css/login.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-change.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/admin.css">
+    <link rel="stylesheet" href="<%=basePath%>statics/css/font-awesome.css">
 
     <!--script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -41,7 +41,7 @@
 
 <body>
 
-<div id="all">
+<div class="all">
     <!-- 顶部菜单（来自bootstrap官方Demon）==================================== -->
     <div class="navbar navbar-inverse " id="navHeader">
         <div id="sysName"><h3><span>E-Learning学习系统</span></h3></div>
