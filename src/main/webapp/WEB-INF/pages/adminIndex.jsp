@@ -76,7 +76,7 @@
                     </ul>
                     <!-- 一级菜单 -->
                     <li ><a href="#studentMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        </i>&nbsp; 学生管理 <span class="sr-only">(current)</span></a>
+                        &nbsp; 学生管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <!-- 二级菜单 -->
                     <!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->

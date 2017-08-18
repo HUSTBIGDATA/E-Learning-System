@@ -25,7 +25,7 @@
     <h1 align="center"><span>用户登录</span></h1>
     <hr>
     <div>
-        <h4><span color="#EBEBEB"><p align="center">欢迎来到E-learning大数据学习平台</p></span><h4>
+        <h4><span color="#EBEBEB"><p align="center">欢迎来到E-learning大数据学习平台</p></span></h4>
     </div>
     <div class="box-login">
         <form id="userlog" role="form" class="form-horizontal">
@@ -66,7 +66,7 @@
     <h1 align="center"><span>管理员登录</span></h1>
     <hr>
     <div>
-        <h4><span color="#EBEBEB"><p align="center">欢迎来到E-learning大数据学习平台</p></span><h4>
+        <h4><span color="#EBEBEB"><p align="center">欢迎来到E-learning大数据学习平台</p></span></h4>
     </div>
 
     <div class="box-login">
