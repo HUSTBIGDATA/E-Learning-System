@@ -43,30 +43,25 @@
 
 <div class="all">
     <!-- 顶部菜单（来自bootstrap官方Demon）==================================== -->
+
     <div class="navbar navbar-inverse " id="navHeader">
-        <div id="sysName"><h3><span>E-Learning学习系统</span></h3></div>
+        <div id="sysName">
+            <h3><span>E-Learning学习系统</span></h3>
+        </div>
         <div id="userName">
-            <h5>管理员：
-                <a class="" href="#">
-                    <span id="adminName">
+            管理员：<span id="adminName">
 					       <c:if test="${!empty adminName}">
-                                  <font color="blue"><c:out value="${adminName}" /></font>
-                           </c:if>
-                    </span>
-                </a>
-                &nbsp;&nbsp;&nbsp;&nbsp;欢迎进入大数据学习系统&nbsp;&nbsp;
-                <a href="###" onclick="logout()">退出系统</a>
-            </h5>
+                               <font color="blue"><c:out value="${adminName}" /></font>
+                           </c:if>胡俊辉
+					   </span> &nbsp;&nbsp;&nbsp;&nbsp;欢迎进入大数据学习系统&nbsp;&nbsp;
+            <a href="#" onclick="logout()">退出系统</a>
         </div>
     </div>
 
-    <div class="contt">
+    <div>
         <!-- 左侧菜单选项========================================= -->
         <div id="navi" class="row-fluid">
             <div class="sidebar">
-                <div style="background-color:red">
-
-                </div>
                 <ul class="nav nav-sidebar">
                     <li class="active"><a href="#info" class="nav-header menu-first collapsed" data-toggle="collapse">
                         &nbsp; 个人中心 <span class="sr-only">(current)</span></a>
@@ -75,7 +70,7 @@
                         <li><a href="###" onclick="showAtRight('adminInfo.html')"> 个人信息</a></li>
                     </ul>
                     <!-- 一级菜单 -->
-                    <li ><a href="#studentMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
+                    <li><a href="#studentMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
                         &nbsp; 学生管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <!-- 二级菜单 -->
@@ -85,7 +80,7 @@
                         <li><a href="###" onclick="showAtRight('studentImport.html')"> 导入名单</a></li>
                     </ul>
 
-                    <li ><a href="#teacherMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
+                    <li><a href="#teacherMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
                         &nbsp; 教师管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <!-- 二级菜单 -->
@@ -107,8 +102,8 @@
                         &nbsp; 视频管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <ul id="recordMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('videoScan.html')" > 查看视频</a></li>
-                        <li><a href="###" onclick="showAtRight('videoUpload.html')" > 上传视频</a></li>
+                        <li><a href="###" onclick="showAtRight('videoScan.html')"> 查看视频</a></li>
+                        <li><a href="###" onclick="showAtRight('videoUpload.html')"> 上传视频</a></li>
                     </ul>
 
                 </ul>
@@ -116,6 +111,8 @@
             </div>
         </div>
     </div>
+
+
        <!--右侧内容展示==================================================   -->
         <div class="main">
             <h1 class="page-header"><small>欢迎使用大数据学习平台管理系统</small></h1>
