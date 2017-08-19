@@ -8,6 +8,8 @@
     <base href="${ctx}">
 </head>
 <body>
-	<a href="${ctx}/student/studentList">student，删改查</a><br>
+<script language="javascript">
+	window.document.location.href="${ctx}/login/login.html";
+</script>
 </body>
 </html>

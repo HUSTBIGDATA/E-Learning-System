@@ -28,7 +28,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login.html", method = RequestMethod.GET)
 	public ModelAndView login() {
-		return new ModelAndView("login");
+		return new ModelAndView("public/login");
 	}
 	
 	@RequestMapping(value = "/loginCheck.html", method = RequestMethod.POST)
@@ -39,28 +39,28 @@ public class LoginController {
 		
 		if(studentService.findByID(ID) != null) {
 			if (Md5Hash.toMD5(password).equals(studentService.findByID(ID).getPassword())) {
-				return new ModelAndView("studentIndex");
+				return new ModelAndView("student/studentIndex");
 			}
 			else {
-				return new ModelAndView("login", "error", "用户名或密码错误。");
+				return new ModelAndView("public/login", "error", "用户名或密码错误。");
 			}
 		}
 		else if(teacherService.findByID(ID) != null) {
 			if (Md5Hash.toMD5(password).equals(teacherService.findByID(ID).getPassword())) {
-				return new ModelAndView("teacherIndex");
+				return new ModelAndView("teacher/teacherIndex");
 			}
 			else {
-				return new ModelAndView("login", "error", "用户名或密码错误。");
+				return new ModelAndView("public/login", "error", "用户名或密码错误。");
 			}
 		}
 		else if(managerService.findByID(ID) != null) {
 			if (Md5Hash.toMD5(password).equals(managerService.findByID(ID).getPassword())) {
-				return new ModelAndView("adminIndex");
+				return new ModelAndView("admin/adminIndex");
 			}
 			else {
-				return new ModelAndView("login", "error", "用户名或密码错误。");
+				return new ModelAndView("public/login", "error", "用户名或密码错误。");
 			}
 		}
-		return new ModelAndView("login", "error", "用户名或密码错误。");
+		return new ModelAndView("public/login", "error", "用户名或密码错误。");
 	}
 }

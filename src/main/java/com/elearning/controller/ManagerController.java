@@ -25,14 +25,9 @@ public class ManagerController {
 	@Autowired
 	private ManagerService managerService;
 	
-	@RequestMapping(value = "/index.html", method = RequestMethod.GET)
-	public ModelAndView mainLoad() {
-		return new ModelAndView("adminIndex");
-	}
-	
 	@RequestMapping(value = "/studentImport.html", method = RequestMethod.GET)
 	public ModelAndView studentImportLoad() {
-		return new ModelAndView("studentImport");
+		return new ModelAndView("admin/studentImport");
 	}
 	
 	@RequestMapping(value = "/upLoadFile.html", method = RequestMethod.POST)
