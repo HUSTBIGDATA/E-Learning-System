@@ -20,10 +20,10 @@
   <mvc:annotation-driven/>
   
   <!-- 静态资源 -->
-    <mvc:resources location="/statics/img/" mapping="/image/**"/>
-    <mvc:resources location="/statics/css/" mapping="/css/**"/>
-    <mvc:resources location="/statics/js/" mapping="/js/**"/>
-    <mvc:resources location="/statics/fonts-awesome/" mapping="/fonts-awesome/**"/>
+    <mvc:resources location="/statics/img/" mapping="/*/statics/image/**"/>
+    <mvc:resources location="/statics/css/" mapping="/*/statics/css/**"/>
+    <mvc:resources location="/statics/js/" mapping="/*/statics/js/**"/>
+    <mvc:resources location="/statics/fonts-awesome/" mapping="/*/statics/fonts-awesome/**"/>
   <!-- 拦截器 -->
   
   <!-- 扫描spring组件支持的注解 -->
@@ -36,4 +36,11 @@
   	<property name="prefix" value="/WEB-INF/pages/"/>
   	<property name="suffix" value=".jsp"/>
   </bean>
+  
+  <bean id="multipartResolver"  
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+  
+    <!-- one of the properties available; the maximum file size in bytes -->  
+    <property name="maxUploadSize" value="1000000000"/>  
+</bean>  
 </beans>
