@@ -10,6 +10,13 @@ body {
 	color: #333333;
 	background-color: #ffffff;
 }
+#reconnmendInfo{
+	display:none;
+	width:340px;
+	height:50px;
+	text-align:center;
+	display:none;
+}
 #alertinfo{
 
 	display:none;
