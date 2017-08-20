@@ -45,10 +45,10 @@
             </div>
 
 
-                <div class="alert alert-warning alert-dismissable" id="alertinfo">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <font color="red"><span id="reconnmendInfo"></span></font>
-                </div>
+            <div class="alert alert-warning alert-dismissable" id="alertinfo">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <font color="red"><span id="reconnmendInfo"></span></font>
+            </div>
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-8">
@@ -69,7 +69,7 @@
 <script language="javascript" type="text/javascript">
 
     function scan() {
-      //  document.getElementById("userloginDiv").style.display = "";
+        //  document.getElementById("userloginDiv").style.display = "";
         document.getElementById("adminlogDiv").style.display = "none";
     }
     function admin() {
@@ -91,43 +91,54 @@
         } else {
 
             reUrl = "${pageContext.request.contextPath}/" + url;
-            $.ajax({
-                url :reUrl ,
-                data : {
-                    name : ID,
-                    password : password
-                },
-                dataType : 'json',
-                success : function(data) {
-                    //从这里开始处理 返回的数据并根据状态码跳转 error 密码错误，noexist 帐号不存在，admin 密码正确，登录管理员主页
-                    // student 密码正确，登录学生主页 teacher 密码正确，登录教师主页
-                    if (data.status == 'error') {
-                        document.getElementById("alertinfo").style.display = "";
-                        var info = document.getElementById("reconnmendInfo");
-                        info.innerText="密码错误";
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4) {
+                    var res = xmlHttp.responseText;   //结果返回一个字符串
+                    switch (res) {
+                        case "error": {
+                            document.getElementById("alertinfo").style.display = "";
+                            var info = document.getElementById("reconnmendInfo");
+                            info.innerText = "密码错误";
+                            break;
+                        }
+                        case "noexist": {
+                            document.getElementById("alertinfo").style.display = "";
+                            var info = document.getElementById("reconnmendInfo");
+                            info.innerText = "帐号不存在";
+                            break;
+                        }
+                        case "admin": {
+                            window.location.href = '/admin/adminindex.html';
+                            break;
+                        }
+                        case "student": {
+                            window.location.href = '/student/studentindex.html';
+                            break;
+                        }
+                        case "teacher": {
+                            window.location.href = '/teacher/teachetindex.html';
+                            break;
+                        }
+                        default: {
+                            alert("返回数据出错!");
+                        }
                     }
-                    if(data.status== 'noexist'){
-                        document.getElementById("alertinfo").style.display = "";
-                        var info = document.getElementById("reconnmendInfo");
-                        info.innerText="帐号不存在";
-                    }
-                    if(data.status== 'admin'){
 
-                        window.location.href ='/admin/adminindex.html';
-                    }
-                    if(data.status== 'student'){
-
-                        window.location.href ='/student/studentindex.html';
-                    }
-                    if(data.status== 'teacher'){
-
-                        window.location.href ='/teacher/teachetindex.html';
-                    }
-                },
-                error : function() {
-                    alert("链接服务器失败失败");
                 }
-            });
+            }
+            xmlhttp.open("POST", reUrl, true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("ID=" + ID + "&" + "password=" + password);
+
         }
     }
 </script>
