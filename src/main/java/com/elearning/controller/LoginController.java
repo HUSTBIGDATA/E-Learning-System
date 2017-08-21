@@ -1,9 +1,13 @@
 package com.elearning.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,35 +36,53 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/loginCheck.html", method = RequestMethod.POST)
-	public ModelAndView loginCheck(HttpServletRequest httpServletRequest, LoginCommand loginCommand) {
+	public String loginCheck(HttpServletResponse httpServletResponse, LoginCommand loginCommand) throws IOException {
 		
 		String ID = loginCommand.getID();
 		String password = loginCommand.getPassword();
+		String res = "";
 		
-		if(studentService.findByID(ID) != null) {
+	    System.out.println(ID);
+		System.out.println(password);
+		//String string = managerService.findByID(ID).getID();
+		//String string2 = managerService.findByID(ID).getPassword();
+		//System.out.println(string);
+		//System.out.println(string2);
+		//httpServletResponse.getWriter().write("admin");
+		/*if(studentService.findByID(ID) != null) {
 			if (Md5Hash.toMD5(password).equals(studentService.findByID(ID).getPassword())) {
-				return new ModelAndView("student/studentIndex");
+				res = "student";
 			}
 			else {
-				return new ModelAndView("public/login", "error", "用户名或密码错误。");
+				res = "error";
 			}
 		}
 		else if(teacherService.findByID(ID) != null) {
 			if (Md5Hash.toMD5(password).equals(teacherService.findByID(ID).getPassword())) {
-				return new ModelAndView("teacher/teacherIndex");
+				res = "teacher";
 			}
 			else {
-				return new ModelAndView("public/login", "error", "用户名或密码错误。");
+				res = "error";
 			}
 		}
 		else if(managerService.findByID(ID) != null) {
 			if (Md5Hash.toMD5(password).equals(managerService.findByID(ID).getPassword())) {
-				return new ModelAndView("admin/adminIndex");
+				res = "admin";
+				System.out.println("go");
 			}
 			else {
-				return new ModelAndView("public/login", "error", "用户名或密码错误。");
+				res = "error";
 			}
 		}
-		return new ModelAndView("public/login", "error", "用户名或密码错误。");
+		else {
+			res = "noexist";
+		}*/
+		httpServletResponse.getWriter().write("error");
+		return null;
+	}
+	
+	@RequestMapping(value = "/adminIndex.html", method = RequestMethod.GET)
+	public ModelAndView adminIndex() {
+		return new ModelAndView("admin/adminIndex");
 	}
 }
