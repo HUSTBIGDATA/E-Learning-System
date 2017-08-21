@@ -14,6 +14,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +39,7 @@
 <div class="all">
 
     <div id="dataimportDiv">
-        <form class="form-inline" role="form" id="formDIv" method="post" enctype="multipart/form-data">
+        <form class="form-inline" role="form" id="formDIv" method="post" enctype="multipart/form-data" action="${ctx}/manager/upLoadFile.html">
 
             <div class="form-group">
                 <label class="sr-only" for="inputfile">文件输入</label>

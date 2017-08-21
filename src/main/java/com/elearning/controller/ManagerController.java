@@ -27,29 +27,29 @@ public class ManagerController {
 	
 	@RequestMapping(value = "/studentImport.html", method = RequestMethod.GET)
 	public ModelAndView studentImportLoad() {
+		System.out.println("fuck");
 		return new ModelAndView("admin/studentImport");
 	}
 	
 	@RequestMapping(value = "/upLoadFile.html", method = RequestMethod.POST)
-	public String upLoadFile(HttpServletRequest httpServletRequest,
+	public ModelAndView upLoadFile(HttpServletRequest httpServletRequest,
 			@RequestParam(value = "inputfile") MultipartFile inputfile) throws IOException {
-		if(!inputfile.isEmpty()) {
 			//byte[] bytes = inputfile.getBytes();
-			String path = httpServletRequest.getSession().getServletContext().getRealPath("upload");
-			String fileName = inputfile.getOriginalFilename();
+		String path = httpServletRequest.getSession().getServletContext().getRealPath("upload");
+		String fileName = inputfile.getOriginalFilename();
+		System.out.println(fileName);
+		System.out.println(path);
+		File targetFile = new File(path, fileName);
+		System.out.println(targetFile);
+		if(!targetFile.exists()) {  
+	       targetFile.mkdirs();
+	    }
 			
-			System.out.println(path);
-			File targetFile = new File(path, fileName);
-			if(!targetFile.exists()) {  
-	            targetFile.mkdirs();
-	        }
-			
-			try {  
-				inputfile.transferTo(targetFile);  
-	        } catch (Exception e) {  
-	            e.printStackTrace();  
-	        }  
-		}
-		return "redirect:/manager/studentImport.html";
+		try {  
+			inputfile.transferTo(targetFile);  
+	    } catch (Exception e) {  
+	        e.printStackTrace();  
+	    }  
+		return new ModelAndView("admin/adminIndex");
 	}
 }

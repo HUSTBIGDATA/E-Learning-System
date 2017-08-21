@@ -2,12 +2,11 @@ package com.elearning.controller;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,15 +40,9 @@ public class LoginController {
 		String ID = loginCommand.getID();
 		String password = loginCommand.getPassword();
 		String res = "";
-		
-	    System.out.println(ID);
-		System.out.println(password);
-		//String string = managerService.findByID(ID).getID();
-		//String string2 = managerService.findByID(ID).getPassword();
-		//System.out.println(string);
-		//System.out.println(string2);
-		//httpServletResponse.getWriter().write("admin");
-		/*if(studentService.findByID(ID) != null) {
+	    //System.out.println(ID);
+		//System.out.println(password);
+		if(studentService.findByID(ID) != null) {
 			if (Md5Hash.toMD5(password).equals(studentService.findByID(ID).getPassword())) {
 				res = "student";
 			}
@@ -68,7 +61,6 @@ public class LoginController {
 		else if(managerService.findByID(ID) != null) {
 			if (Md5Hash.toMD5(password).equals(managerService.findByID(ID).getPassword())) {
 				res = "admin";
-				System.out.println("go");
 			}
 			else {
 				res = "error";
@@ -76,13 +68,16 @@ public class LoginController {
 		}
 		else {
 			res = "noexist";
-		}*/
-		httpServletResponse.getWriter().write("error");
-		//return null;
+		}
+		httpServletResponse.getWriter().write(res);	
 	}
 	
-	@RequestMapping(value = "/adminIndex.html", method = RequestMethod.GET)
-	public ModelAndView adminIndex() {
-		return new ModelAndView("admin/adminIndex");
+	@RequestMapping(value = "/adminIndex/{adminID}.html", method = RequestMethod.GET)
+	public ModelAndView adminIndex(@PathVariable("adminID") String ID) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/adminIndex");
+		String adminName = managerService.findByID(ID).getName();
+		mv.addObject("adminName", adminName);
+		return mv;
 	}
 }

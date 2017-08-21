@@ -89,7 +89,7 @@
 
         var ID = document.getElementById("ID").value;
         var password = document.getElementById("password").value;
-
+                
         if (ID == "" || password == "") {
             alert("账户或者密码不能为空!");
             return;
@@ -108,7 +108,6 @@
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 ) {
                     var res = xmlhttp.responseText.toString();
-                    alert(res);
                     switch (res) {
                         case "error": {
 
@@ -124,7 +123,7 @@
                             break;
                         }
                         case "admin": {
-                            window.location.href = '${ctx}/login/adminIndex.html';
+                            window.location.href = '${ctx}/login/adminIndex/' + ID + '.html';
                             break;
                         }
                         case "student": {

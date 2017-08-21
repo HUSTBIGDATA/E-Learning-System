@@ -28,7 +28,12 @@
 	</delete>
 	
 	<select id="findByID" parameterType="String" resultType="Manager">
-		select * from tb_manager where managerID = #{ID}
+		select 
+			managerID as "ID",
+			password as "password",
+			managerName as "name",
+			managerImage as "image"
+		from tb_manager where managerID = #{ID}
 	</select>
 	
 	<resultMap type="Manager" id="managerMap">
