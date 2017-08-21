@@ -30,7 +30,7 @@
 
     <div class="box-login">
         <!-- adminLogin -->
-        <form id="adminlog" role="form" class="form-horizontal">
+        <div id="adminlog" role="form" class="form-horizontal">
             <div class="form-group">
                 <label class="col-sm-3 control-label"><span class="glyphicon glyphicon-user"></span>&nbsp帐号:</label>
                 <div class="col-sm-7">
@@ -45,23 +45,22 @@
             </div>
 
 
-            <div class="alert alert-warning alert-dismissable" id="alertinfo">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <font color="red"><span id="reconnmendInfo"></span></font>
+             <div class="alert alert-warning alert-dismissable" id="alertinfo">
+                <button type="button" onclick="changeAl()" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <font color="red"><span id="reconnmendInfo" font-color="color"></span></font>
             </div>
+
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-8">
-                    <button type="submit" id="btn1" class="btn btn-default" onclick="admincheck('login/loginCheck.html');">
+                    <button id="btn1" class="btn btn-default" onclick="admincheck('login/loginCheck.html')">
                         登录
                     </button>
-                    <button type="reset" class="btn btn-default">重置</button>
+                    <button type="button" onclick="clearaaaa()" class="btn btn-default">重置</button>
                 </div>
             </div>
-            <div class="ahff">
-                <a class="box-switcher" href="#" onclick="userr()">我是用户 </a>
-            </div>
-        </form>
+
+        </div>
     </div>
 	<div id="res"></div>
 </div>
@@ -70,15 +69,21 @@
 
     function scan() {
         //  document.getElementById("userloginDiv").style.display = "";
-        document.getElementById("adminlogDiv").style.display = "";
+        document.getElementById("alertinfo").style.display = "none";
     }
-    function admin() {
-        document.getElementById("userloginDiv").style.display = "none";
-        document.getElementById("adminlogDiv").style.display = "";
+    function clearaaaa() {
+
+        document.getElementById("ID").value="";
+        document.getElementById("password").value="";
     }
-    function user() {
-        document.getElementById("userloginDiv").style.display = "";
-        document.getElementById("adminlogDiv").style.display = "none";
+    function changeAl() {
+
+         if(document.getElementById(alertinfo).style.display=="none"){
+             document.getElementById(alertinfo).style.display=="";
+         }else{
+             document.getElementById(alertinfo).style.display=="none"
+         }
+
     }
     function admincheck(url) {
 
@@ -101,13 +106,15 @@
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
             xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if (xmlhttp.readyState == 4 ) {
                     var res = xmlhttp.responseText.toString();
+                    alert(res);
                     switch (res) {
                         case "error": {
+
                             document.getElementById("alertinfo").style.display = "";
-                            var info = document.getElementById("reconnmendInfo");
-                            info.innerText = "密码错误";
+
+                            document.getElementById("reconnmendInfo").innerText = "密码错误";
                             break;
                         }
                         case "noexist": {

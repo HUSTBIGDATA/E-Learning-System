@@ -36,7 +36,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/loginCheck.html", method = RequestMethod.POST)
-	public String loginCheck(HttpServletResponse httpServletResponse, LoginCommand loginCommand) throws IOException {
+	public void loginCheck(HttpServletResponse httpServletResponse, LoginCommand loginCommand) throws IOException {
 		
 		String ID = loginCommand.getID();
 		String password = loginCommand.getPassword();
@@ -78,7 +78,7 @@ public class LoginController {
 			res = "noexist";
 		}*/
 		httpServletResponse.getWriter().write("error");
-		return null;
+		//return null;
 	}
 	
 	@RequestMapping(value = "/adminIndex.html", method = RequestMethod.GET)
