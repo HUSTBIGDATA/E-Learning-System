@@ -52,7 +52,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-8">
-                    <button type="submit" id="btn1" class="btn btn-default" onclick="admincheck('loginCheck.html');">
+                    <button type="submit" id="btn1" class="btn btn-default" onclick="admincheck('login/loginCheck.html');">
                         登录
                     </button>
                     <button type="reset" class="btn btn-default">重置</button>
@@ -63,14 +63,14 @@
             </div>
         </form>
     </div>
-
+	<div id="res"></div>
 </div>
 
 <script language="javascript" type="text/javascript">
 
     function scan() {
         //  document.getElementById("userloginDiv").style.display = "";
-        document.getElementById("adminlogDiv").style.display = "none";
+        document.getElementById("adminlogDiv").style.display = "";
     }
     function admin() {
         document.getElementById("userloginDiv").style.display = "none";
@@ -101,8 +101,8 @@
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
             xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4) {
-                    var res = xmlHttp.responseText;   //结果返回一个字符串
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var res = xmlhttp.responseText.toString();
                     switch (res) {
                         case "error": {
                             document.getElementById("alertinfo").style.display = "";
@@ -117,7 +117,7 @@
                             break;
                         }
                         case "admin": {
-                            window.location.href = '/admin/adminindex.html';
+                            window.location.href = '${ctx}/login/adminIndex.html';
                             break;
                         }
                         case "student": {
@@ -132,13 +132,11 @@
                             alert("返回数据出错!");
                         }
                     }
-
                 }
             }
             xmlhttp.open("POST", reUrl, true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send("ID=" + ID + "&" + "password=" + password);
-
         }
     }
 </script>
