@@ -19,10 +19,21 @@ body {
 }
 #alertinfo{
 
-	width:340px;
-	height:50px;
+	width:300px;
+	height:30px;
 	text-align:center;
+	border: 1px solid #dff0d8;
+	background:#dff0d8;
+	border-radius: 2px;
+	margin-bottom: 5px;
+	padding: 3px;
 
+}
+#altBtn{
+	float: right;
+	text-align: center;
+	border: none;
+	background-color:#CC0000 ;
 }
 
 #btn{
@@ -60,20 +71,18 @@ body {
 	margin-bottom:10px;
 }
 
-.box-login{
+.box-login {
 
-	padding:0;
-	margin-top:100px;
-	position:absolute;
-	width:350px;
-	height:250px;
-	left:50%;
-	top:50%;
+	padding: 0;
+	margin-top: 100px;
+	position: absolute;
+	width: 350px;
+	height: 250px;
+	left: 50%;
+	top: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	-o-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	border:none;
-
 }

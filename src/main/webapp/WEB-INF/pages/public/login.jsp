@@ -45,9 +45,9 @@
             </div>
 
 
-             <div class="alert alert-warning alert-dismissable" id="alertinfo">
-                <button type="button" onclick="changeAl()" data-dismiss="alert" aria-hidden="true">&times;</button>
+             <div id="alertinfo">
                 <font color="red"><span id="reconnmendInfo" font-color="color"></span></font>
+                 <button type="button"  class="btn btn-primary btn-xs" id="altBtn" onclick="changeAl()"  >&times;</button>
             </div>
 
 
@@ -78,12 +78,7 @@
     }
     function changeAl() {
 
-         if(document.getElementById(alertinfo).style.display=="none"){
-             document.getElementById(alertinfo).style.display=="";
-         }else{
-             document.getElementById(alertinfo).style.display=="none"
-         }
-
+        document.getElementById("alertinfo").style.display = "none";
     }
     function admincheck(url) {
 
@@ -112,7 +107,6 @@
                         case "error": {
 
                             document.getElementById("alertinfo").style.display = "";
-
                             document.getElementById("reconnmendInfo").innerText = "密码错误";
                             break;
                         }
