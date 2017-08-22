@@ -234,7 +234,7 @@
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>8080</port>
-                            <maxIdleTime>60000</maxIdleTime>
+                            <maxIdleTime>600</maxIdleTime>
                         </connector>
                     </connectors>
                     <contextPath>/ELearning</contextPath>
