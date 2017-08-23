@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="<%=basePath%>statics/css/admin.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-awesome.css">
 
+    <script src="<%=basePath%>statics/js/admin.js"></script>
+
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
