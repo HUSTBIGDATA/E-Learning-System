@@ -27,7 +27,7 @@ function clearAndadd(stdlist) {
 
     for (var i = 0; i < stdlist.length; i++) {
         str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="studentlist">' +
-            '</td><td>' + (i + 1) + '</td><td>' + stdlist[i].name + '</td><td class="ID">' + stdlist[i].ID + '</td><td>' + stdlist[i].preferences + '</td></tr>';
+            '</td><td>' + (i + 1) + '</td><td>' + stdlist[i].name + '</td><td class="ID">' + stdlist[i].studentID + '</td><td>' + stdlist[i].preferences + '</td></tr>';
 
     }
     em.innerHTML = str;
@@ -36,7 +36,7 @@ function clearAndadd(stdlist) {
 function flushStdList(basepath) {
 
     var stdName = document.getElementById("name").value;
-    reUrl = basepath + "/stduentList.html";
+    reUrl = basepath;
     $.ajax({
         url: reUrl,
         type: "POST",
@@ -56,50 +56,38 @@ function flushStdList(basepath) {
 
 function nengbunengxing(basepath) { //删除所选的学生
 
-    /* checklist[1].parentElement.parentElement.style.display = "none";
-     alert("aa");
-     var jj = [{
-     "name": "胡俊辉",
-     "ID": "干嘛"
-     }, {
-     "name": "吃饭没",
-     "ID": "好饿"
-     }];
-     clearAndadd(jj);*/
-
     var checklist = document.getElementsByClassName("studentlist");
     var IDlist = document.getElementsByClassName("ID");
     var delstdList = new Array();
-
+    
     var stdJson = [];
     var j = 0;
     for (var i = 0; i < IDlist.length; ++i) {
 
         if (checklist[i].checked) {
 
-            delstdList[j++] = IDlist[i].innerHTML;
+            delstdList[j++] = IDlist[i].innerHTML.toString();
         }
     }
-
 
     var str = "确认删除ID为：" + delstdList.join(",") + "这些学生吗？";
     if (confirm(str)) {
         var stdName = document.getElementById("name").value;
-        reUrl = basepath + "/deleteStudent.html";
+        reUrl = basepath;
         $.ajax({
             url: reUrl,
             type: "POST",
             dataType: "json",
             data: {
-                "stdlist":delstdList
+                "studentList": delstdList.join(",")
             },
             success: function(data) {
 
-                alert(data);
+                alert("删除成功");
 
             },
             error: function(err) {
-                alert(err);
+                alert("删除失败");
             }
         });
 
@@ -109,14 +97,9 @@ function nengbunengxing(basepath) { //删除所选的学生
 
 function findByname(basepath) {
 
-    /*private String ID;
-     private String password;
-     private String name;
-     private String image;
-     private String preferences;*/
 
     var stdName = document.getElementById("name").value;
-    reUrl = basepath + "/findByname.html";
+    reUrl = basepath;
     var Namejson = {
         "name": stdName
     };

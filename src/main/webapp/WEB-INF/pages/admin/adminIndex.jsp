@@ -29,6 +29,7 @@
     <!--script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css"-->
+    <script src="<%=basePath%>statics/js/admin.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -71,7 +72,7 @@
                         &nbsp; 个人中心 <span class="sr-only">(current)</span></a>
                     </li>
                     <ul id="info" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('adminInfo.html')"> 个人信息</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/adminInfo.do')"> 个人信息</a></li>
                     </ul>
                     <!-- 一级菜单 -->
                     <li ><a href="#studentMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
@@ -80,8 +81,8 @@
                     <!-- 二级菜单 -->
                     <!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
                     <ul id="studentMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('studentScan.html')"> 查看学生</a></li>
-                        <li><a href="###" onclick="showAtRight('${ctx}/manager/studentImport.html')"> 导入名单</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/studentScan.do')"> 查看学生</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/studentImport.do')"> 导入名单</a></li>
                     </ul>
 
                     <li ><a href="#teacherMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
@@ -227,6 +228,126 @@
             xmlHttp.open("GET", url, true);		//true表示异步处理
             xmlHttp.send();
         }
+        
+        
+        /*function allselect() {
+
+            var checklist = document.getElementsByClassName("studentlist");
+
+            if (document.getElementById("controllall").checked) {
+                for (var i = 0; i< checklist.length; i++) {
+                    checklist[i].checked = 1;
+                }
+            } else {
+                for (var j = 0; j< checklist.length; j++) {
+                    checklist[j].checked = 0;
+                }
+            }
+        }
+
+        function clearAndadd(stdlist) {
+
+            var str = "";
+            var em = document.getElementById("tablecontent");
+            while (em.hasChildNodes()) //当em下还存在子节点时 循环继续
+            {
+                em.removeChild(em.firstChild);
+            }
+
+            for (var i = 0; i < stdlist.length; i++) {
+                str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="studentlist">' +
+                    '</td><td>' + (i + 1) + '</td><td>' + stdlist[i].name + '</td><td class="ID">' + stdlist[i].studentID + '</td><td>' + stdlist[i].preferences + '</td></tr>';
+
+            }
+            em.innerHTML = str;
+        }
+
+        function flushStdList() {
+            var stdName = document.getElementById("name").value;
+            reUrl = "${ctx}/student/studentList.do";
+            $.ajax({
+                url: reUrl,
+                type: "POST",
+                dataType: "json",
+                success: function(data) {
+                    var res = JSON.parse(data); //res是json对象
+                    clearAndadd(res);
+                },
+                error: function(err) {
+                	alert("error");
+                    // alert(err);
+                }
+            });
+
+        }
+
+        function nengbunengxing() { //删除所选的学生
+
+            var checklist = document.getElementsByClassName("studentlist");
+            var IDlist = document.getElementsByClassName("ID");
+            var delstdList = new Array();
+
+            var stdJson = [];
+            var j = 0;
+            for (var i = 0; i < IDlist.length; ++i) {
+
+                if (checklist[i].checked) {
+
+                    delstdList[j++] = IDlist[i].innerHTML;
+                }
+            }
+
+
+            var str = "确认删除ID为：" + delstdList.join(",") + "这些学生吗？";
+            if (confirm(str)) {
+                var stdName = document.getElementById("name").value;
+                reUrl = "${pageContext.request.contextPath}/" + "deleteStudent.html";
+                $.ajax({
+                    url: reUrl,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "stdlist":delstdList
+                    },
+                    success: function(data) {
+
+                        alert(data);
+
+                    },
+                    error: function(err) {
+                        alert(err);
+                    }
+                });
+
+            }
+        }
+
+
+       function findByname() {
+
+            var stdName = document.getElementById("name").value;
+            reUrl = "${pageContext.request.contextPath}/" + "findByname.html";
+            var Namejson = {
+                "name": stdName
+            };
+
+            $.ajax({
+                url: reUrl,
+                type: "POST",
+                dataType: "json",
+                data: Namejson,
+                success: function(data) {
+
+                    var res = JSON.parse(data); //res是json对象
+                    clearAndadd(res);
+
+                },
+                error: function(err) {
+                    alert(err);
+                }
+            });
+
+        }*/
     </script>
 
 </body>

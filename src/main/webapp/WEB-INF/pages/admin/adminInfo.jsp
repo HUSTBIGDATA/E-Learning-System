@@ -52,7 +52,7 @@
                     <label class="sr-only" for="inputfile">文件输入</label>
                     <input type="file" id="inputfile" accept="image/*">
                 </div>
-                <button type="button" onclick="submitImg(,${adminID},${pageContext.request.contextPath})" class="btn btn-default btn-sm">提交</button>
+                <button type="button" onclick="submitImg('${adminID}','${pageContext.request.contextPath}')" class="btn btn-default btn-sm">提交</button>
             </div>
         </div>
     </div>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="input-group col-sm-offset-2 col-sm-8" id="btnGroup">
-                        <button onclick="SubmitchangePwd(${ID},${pageContext.request.contextPath})" class="btn btn-default">修改</button>
+                        <button onclick="SubmitchangePwd('${ID}','${pageContext.request.contextPath}')" class="btn btn-default">修改</button>
                         <button type="reset" class="btn btn-default" id="retBtn">重置</button>
 
                     </div>

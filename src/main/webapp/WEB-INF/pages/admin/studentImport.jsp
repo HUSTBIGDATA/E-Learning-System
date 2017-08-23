@@ -39,7 +39,7 @@
 <div class="all">
 
     <div id="dataimportDiv">
-        <form class="form-inline" role="form" id="formDIv" method="post" enctype="multipart/form-data" action="${ctx}/manager/upLoadFile.html">
+        <form class="form-inline" role="form" id="formDIv" method="post" enctype="multipart/form-data" action="${ctx}/upload/uploadFile.do">
 
             <div class="form-group">
                 <label class="sr-only" for="inputfile">文件输入</label>

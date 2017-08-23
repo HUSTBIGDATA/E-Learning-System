@@ -47,13 +47,13 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" placeholder="请输入学生姓名">
                     </div>
-                    <button type="button" onclick="findByname(${pageContext.request.contextPath})" class="btn btn-default">查询</button>
+                    <button type="button" onclick="findByname('${pageContext.request.contextPath}/student/findByName.do')" class="btn btn-default">查询</button>
                 </div>
 
             </div>
             <div id="tableHeadRight">
-                <button type="button" class="btn btn-default" onclick="flushStdList(${pageContext.request.contextPath})">刷新</button>
-                <button type="button" class="btn btn-default" onclick="nengbunengxing(${pageContext.request.contextPath})">删除所选</button>
+                <button type="button" class="btn btn-default" onclick="flushStdList('${pageContext.request.contextPath}/student/studentList.do')">刷新</button>
+                <button type="button" class="btn btn-default" onclick="nengbunengxing('${pageContext.request.contextPath}/student/deleteStudent.do')">删除所选</button>
             </div>
         </div>
         <div id="tableBody">
