@@ -4,28 +4,34 @@ use elearningdb;
 
 ## 创建学员表
 create table tb_student (
-	studentID 		varchar(30) primary key,
+	ID				integer auto_increment primary key,
+	studentID 		varchar(30),
 	password 		varchar(30),
     studentName 	varchar(10),
-    studenImage 	varchar(255),
-    preferences 	varchar(100)
+    studentImage 	varchar(255),
+    preferences 	varchar(100),
+    unique(studentID)
 )engine = InnoDB;
 
 
 ## 创建教师表
 create table tb_teacher (
-	teacherID 		varchar(30) primary key,
+	ID				integer auto_increment primary key,
+	teacherID 		varchar(30),
     password 		varchar(30),
     teacherName 	varchar(10),
-    teacherImage 	varchar(255)
+    teacherImage 	varchar(255),
+    unique(teacherID)
 )engine = InnoDB;
 
 ## 创建领导人员及管理人员表
 create table tb_manager (
-	managerID 		varchar(30) primary key,
+	ID				integer auto_increment primary key,
+	managerID 		varchar(30),
     password 		varchar(30),
     managerName 	varchar(10),
-    managerImage 	varchar(255)
+    managerImage 	varchar(255),
+    unique(managerID)
 )engine = InnoDB;
 
 ##创建课程信息表
