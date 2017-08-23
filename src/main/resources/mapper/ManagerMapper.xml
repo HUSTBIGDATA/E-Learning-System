@@ -29,7 +29,8 @@
 	
 	<select id="findByID" parameterType="String" resultType="Manager">
 		select 
-			managerID as "ID",
+			ID as "ID",
+			managerID as "managerID",
 			password as "password",
 			managerName as "name",
 			managerImage as "image"
