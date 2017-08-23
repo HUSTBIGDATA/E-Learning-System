@@ -33,10 +33,10 @@ function clearAndadd(stdlist) {
     em.innerHTML = str;
 }
 
-function flushStdList() {
+function flushStdList(basepath) {
 
     var stdName = document.getElementById("name").value;
-    reUrl = "${pageContext.request.contextPath}/" + "stduentList.html";
+    reUrl = basepath + "/stduentList.html";
     $.ajax({
         url: reUrl,
         type: "POST",
@@ -54,7 +54,7 @@ function flushStdList() {
 
 }
 
-function nengbunengxing() { //删除所选的学生
+function nengbunengxing(basepath) { //删除所选的学生
 
     /* checklist[1].parentElement.parentElement.style.display = "none";
      alert("aa");
@@ -85,7 +85,7 @@ function nengbunengxing() { //删除所选的学生
     var str = "确认删除ID为：" + delstdList.join(",") + "这些学生吗？";
     if (confirm(str)) {
         var stdName = document.getElementById("name").value;
-        reUrl = "${pageContext.request.contextPath}/" + "deleteStudent.html";
+        reUrl = basepath + "/deleteStudent.html";
         $.ajax({
             url: reUrl,
             type: "POST",
@@ -107,7 +107,7 @@ function nengbunengxing() { //删除所选的学生
 }
 
 
-function findByname() {
+function findByname(basepath) {
 
     /*private String ID;
      private String password;
@@ -116,7 +116,7 @@ function findByname() {
      private String preferences;*/
 
     var stdName = document.getElementById("name").value;
-    reUrl = "${pageContext.request.contextPath}/" + "findByname.html";
+    reUrl = basepath + "/findByname.html";
     var Namejson = {
         "name": stdName
     };
@@ -154,11 +154,11 @@ function changePwd() {
 }
 
 
-function submitImg() {
+function submitImg(ID,basepath) {
     //这里更换页面照片  并且该照片提交给服务器
     document.getElementById("inputImgDiv").style.display = "none";
 
-    reUrl = "${pageContext.request.contextPath}/" + "changePassword.html";
+    reUrl = basepath + "/changePassword.html";
     //这里修改密码
     $.ajax({
         url: reUrl,
@@ -166,12 +166,15 @@ function submitImg() {
         async: true,
         dataType: "json",
         secureuri: false,
+        data:{
+            "ID":ID
+        },
         fileElementId: "inputfile",
         success: function(data) {
             // data为照片的存储路径
             //alert(data);
             document.getElementById("changePwdDiv").style.display = "none";
-            $("#photo").attr("src", "${pageContext.request.contextPath}" + "/profile/readImage?imagePath=" + data.imagePath); //更改页面头像
+            $("#photo").attr("src", basepath + "/profile/readImage?imagePath=" + data.imagePath); //更改页面头像
         },
         error: function(err) {
             alert(err);
@@ -181,7 +184,7 @@ function submitImg() {
 
 
 
-function SubmitchangePwd() {
+function SubmitchangePwd(ID,basepath) {
     //这里提交密码数据
     var oldPwd = document.getElementById("oldPwd").value;
     var newPwd = document.getElementById("newPwd").value
@@ -197,7 +200,7 @@ function SubmitchangePwd() {
                 alert("请再次输入新密码!");
             } else {
                 if (newPwdSure == newPwd) {
-                    reUrl = "${pageContext.request.contextPath}/" + "changePassword.html";
+                  reUrl = basepath + "changePassword.html";
                     //这里修改密码
                     $.ajax({
                         url: reUrl,
@@ -206,7 +209,7 @@ function SubmitchangePwd() {
                         data: {
                             "oldPassword": oldPwd,
                             "newPassword": newPwd,
-                            "ID":${adminID}
+                            "ID":ID
                         },
                         success: function(data) {
                             // data为返回的字符串：密码修改成功或者密码修改失败
