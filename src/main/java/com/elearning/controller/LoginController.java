@@ -29,19 +29,18 @@ public class LoginController {
 	@Autowired
 	private ManagerService managerService;
 	
-	@RequestMapping(value = "/login.html", method = RequestMethod.GET)
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public ModelAndView login() {
 		return new ModelAndView("public/login");
 	}
 	
-	@RequestMapping(value = "/loginCheck.html", method = RequestMethod.POST)
+	@RequestMapping(value = "/loginCheck.do", method = RequestMethod.POST)
 	public void loginCheck(HttpServletResponse httpServletResponse, LoginCommand loginCommand) throws IOException {
 		
 		String ID = loginCommand.getID();
 		String password = loginCommand.getPassword();
 		String res = "";
-	    //System.out.println(ID);
-		//System.out.println(password);
+		
 		if(studentService.findByID(ID) != null) {
 			if (Md5Hash.toMD5(password).equals(studentService.findByID(ID).getPassword())) {
 				res = "student";
@@ -72,7 +71,7 @@ public class LoginController {
 		httpServletResponse.getWriter().write(res);	
 	}
 	
-	@RequestMapping(value = "/adminIndex/{adminID}.html", method = RequestMethod.GET)
+	@RequestMapping(value = "/adminIndex/{adminID}.do", method = RequestMethod.GET)
 	public ModelAndView adminIndex(@PathVariable("adminID") String ID) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/adminIndex");

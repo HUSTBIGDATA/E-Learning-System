@@ -2,33 +2,41 @@ package com.elearning.entity;
 
 public class Teacher {
 	
-	private String ID;
+	private int ID;
+	private String teacherID;
 	private String password;
 	private String name;
 	private String image;
 	
-	public String getID() {
-		return this.ID;
+	public int getID() {
+		return ID;
 	}
-	public void setID(String ID) {
+	public void setID(int ID) {
 		this.ID = ID;
 	}
+	public String getTeacherID() {
+		return teacherID;
+	}
+	public void setTeacherID(String teacherID) {
+		this.teacherID = teacherID;
+	}
 	public String getPassword() {
-		return this.password;
+		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	public String getName() {
-		return this.name;
+		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
 	public String getImage() {
-		return this.image;
+		return image;
 	}
 	public void setImage(String image) {
 		this.image = image;
 	}
+	
 }

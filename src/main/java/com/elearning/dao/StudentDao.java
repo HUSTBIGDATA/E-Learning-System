@@ -26,5 +26,7 @@ public interface StudentDao {
 	
 	public Student findByID(String ID);
 	
+	public List<Student> findByName(String name);
+	
 	public List<Student> findAll();
 }

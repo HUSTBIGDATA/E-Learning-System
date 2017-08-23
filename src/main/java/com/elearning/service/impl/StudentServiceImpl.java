@@ -50,6 +50,10 @@ public class StudentServiceImpl implements StudentService {
 	public Student findByID(String ID) {
 		return studentDao.findByID(ID);
 	}
+	
+	public List<Student> findByName(String name) {
+		return studentDao.findByName(name);
+	}
 
 	public List<Student> findAll() {
 		return studentDao.findAll();
