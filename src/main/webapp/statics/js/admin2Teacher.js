@@ -1,11 +1,12 @@
 /**
  * Created by hujunhui on 2017/8/24.
  */
+/*****************用于 teacherScan 的 js  ******************/
 function teacherallselect() {
 
     var checklist = document.getElementsByClassName("teacherlist");
 
-    if (document.getElementById("controllall").checked) {
+    if (document.getElementById("teacherControllall").checked) {
         for (var i = 0; i < checklist.length; i++) {
             checklist[i].checked = 1;
         }
@@ -33,13 +34,14 @@ function teacherclearAndadd(stdlist) {
     em.innerHTML = str;
 }
 
-function teacherflushStdList(basepath) {
-
-    var stdName = document.getElementById("name").value;
-    reUrl = basepath;
+function teacherflushStdList(adminID, basepath) {
+    //用于刷新整个页面教师名单
     $.ajax({
-        url: reUrl,
+        url: basepath,
         type: "POST",
+        data: {
+            "adminID": adminID
+        },
         dataType: "json",
         success: function (data) {
 
@@ -72,18 +74,20 @@ function deleteTeacherlist(basepath) { //删除所选的学生
 
     var str = "确认删除ID为：" + delstdList.join(",") + "这些教师吗？";
     if (confirm(str)) {
-        var stdName = document.getElementById("name").value;
-        reUrl = basepath;
+
         $.ajax({
-            url: reUrl,
+            url: basepath,
             type: "POST",
             dataType: "json",
             data: {
                 "studentList": delstdList.join(",")
             },
             success: function (data) {
+                // 成功后会返回 目前还存在的教师名单 用于刷新页面
+                var res = JSON.parse(data); //res是json对象
+                clearAndadd(res);
 
-                alert("删除成功");
+
 
             },
             error: function (err) {
@@ -99,18 +103,18 @@ function teacherfindByname(basepath) {
 
 
     var teachername = document.getElementById("teachername").value;
-    var Namejson = {
-        "name": teachername
-    };
 
     $.ajax({
         url: basepath,
         type: "POST",
         dataType: "json",
-        data: Namejson,
+        data: {
+            "name": teachername
+        },
         success: function (data) {
 
-            var res = JSON.parse(data); //res是json对象
+            var res = JSON.parse(data);
+            //res是json对象
             clearAndadd(res);
 
         },
@@ -120,8 +124,15 @@ function teacherfindByname(basepath) {
     });
 
 }
+
+
+
+/**********************************************/
+
+
 function imoortTeacherList(basepath) {
 
+    //alert(basepath);
     var pic = $("#inputfile").get(0).files[0];
     var formData = new FormData();
     formData.append("file", pic);
@@ -146,10 +157,11 @@ function imoortTeacherList(basepath) {
         }
     });
 }
+
 function onprogress(evt) {
-    var loaded = evt.loaded;                  //已经上传大小情况
-    var tot = evt.total;                      //附件总大小
-    var per = Math.floor(100 * loaded / tot);      //已经上传的百分比
+    var loaded = evt.loaded; //已经上传大小情况
+    var tot = evt.total; //附件总大小
+    var per = Math.floor(100 * loaded / tot); //已经上传的百分比
     $("#uploadscoll").html(per + "%");
     $("#uploadscoll").css("width", per + "%");
 }
