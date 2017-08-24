@@ -36,7 +36,7 @@
     <title>学生名单管理</title>
 </head>
 
-<body onload="flushStdList()">
+<body onload="flushStdList('${pageContext.request.contextPath}/student/studentList.do')">
 <div class="all" id="stdScan">
     <h2>学生名单</h2><br>
     <div id="studentTable">

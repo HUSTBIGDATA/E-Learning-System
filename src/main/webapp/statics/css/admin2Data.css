@@ -1,0 +1,82 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.all {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+/**   dataImport css***/
+#dataImportDiv {
+    margin: 200px;
+    text-align: left;
+    width: 400px;
+    border: 1px solid #2e6da4;
+    padding: 2px;
+
+}
+
+#dataformDIv {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+}
+
+#uploadscoll {
+
+}
+
+/***********   dataScan css  ************/
+
+#dataScan {
+    text-align: center;
+    width: 100%;
+}
+
+#dataTable {
+    padding: 0;
+    text-align: center;
+    width: 80%;
+}
+
+#tabHead {
+
+    padding: 0;
+    width: 80%;
+    height: 40px;
+}
+
+#tableHeadLeft {
+
+    padding: 0;
+    width: 40%;
+    text-align: left;
+    float: left;
+}
+
+#tableHeadRight {
+
+    padding: 0;
+    width: 40%;
+    text-align: right;
+    float: right;
+}
+
+#tableBody {
+    overflow-y: auto;
+    width: 80%;
+    padding: 0;
+    height: 100%;
+    text-align: center;
+}

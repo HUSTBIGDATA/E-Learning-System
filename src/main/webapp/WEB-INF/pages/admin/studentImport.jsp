@@ -41,9 +41,7 @@
 <div class="all">
 
     <div id="dataimportDiv">
-        <form class="form-inline" role="form" id="formDIv" method="post" enctype="multipart/form-data"
-              action="${ctx}/upload/uploadFile.do">
-
+        <form class="form-inline" role="form" id="formDIv">
             <div class="form-group">
                 <label class="sr-only" for="inputfile">学生名单文件输入</label>
                 <input type="file" id="inputfile" name="inputfile" accept=".xls,.xlsx">
