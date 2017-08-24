@@ -45,7 +45,7 @@
             </div>
 
 
-             <div class="alert alert-warning alert-dismissable" id="alertinfo">
+            <div class="alert alert-warning alert-dismissable" id="alertinfo">
                 <button type="button" onclick="changeAl()" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <font color="red"><span id="reconnmendInfo" font-color="color"></span></font>
             </div>
@@ -62,7 +62,7 @@
 
         </div>
     </div>
-	<div id="res"></div>
+    <div id="res"></div>
 </div>
 
 <script language="javascript" type="text/javascript">
@@ -73,23 +73,23 @@
     }
     function clearaaaa() {
 
-        document.getElementById("ID").value="";
-        document.getElementById("password").value="";
+        document.getElementById("ID").value = "";
+        document.getElementById("password").value = "";
     }
     function changeAl() {
 
-         if(document.getElementById(alertinfo).style.display=="none"){
-             document.getElementById(alertinfo).style.display=="";
-         }else{
-             document.getElementById(alertinfo).style.display=="none"
-         }
+        if (document.getElementById(alertinfo).style.display == "none") {
+            document.getElementById(alertinfo).style.display == "";
+        } else {
+            document.getElementById(alertinfo).style.display == "none"
+        }
 
     }
     function admincheck(url) {
 
         var ID = document.getElementById("ID").value;
         var password = document.getElementById("password").value;
-                
+
         if (ID == "" || password == "") {
             alert("账户或者密码不能为空!");
             return;
@@ -106,7 +106,7 @@
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
             xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 ) {
+                if (xmlhttp.readyState == 4) {
                     var res = xmlhttp.responseText.toString();
                     switch (res) {
                         case "error": {

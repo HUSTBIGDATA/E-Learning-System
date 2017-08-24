@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: hujunhui
-  Date: 2017/8/22
-  Time: 20:22
+  Date: 2017/8/24
+  Time: 9:24
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -23,84 +23,81 @@
     <!-- 引入各种CSS样式表 -->
 
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-change.css">
-    <link rel="stylesheet" href="<%=basePath%>statics/css/admin.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-awesome.css">
 
-    <script src="<%=basePath%>statics/js/admin.js"></script>
+    <script src="<%=basePath%>statics/js/admin2Teacher.js"></script>
+    <link rel="stylesheet" href="<%=basePath%>statics/css/admin2Teacher.css">
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-    <title>学生名单管理</title>
+    <title>教师名单管理</title>
+
 </head>
 
 <body onload="flushStdList()">
-<div class="all" id="stdScan">
-    <h2>学生名单</h2><br>
-    <div id="studentTable">
-        <div id="tabHead">
-            <div id="tableHeadLeft">
+<div class="all" id="TeacherScan">
+    <h2>教师名单</h2><br>
+    <div id="teachTable">
+        <div id="teacherHead">
+            <div id="teachertableHeadLeft">
 
                 <div class="form-inline" role="form">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="请输入学生姓名">
+                        <input type="text" class="form-control" id="teachername" placeholder="请输入教师姓名">
                     </div>
                     <button type="button"
-                            onclick="findByname('${pageContext.request.contextPath}/student/findByName.do')"
+                            onclick="teacherfindByname('${pageContext.request.contextPath}/teacher/findByName.do')"
                             class="btn btn-default">查询
                     </button>
                 </div>
 
             </div>
-            <div id="tableHeadRight">
+            <div id="teachertableHeadRight">
                 <button type="button" class="btn btn-default"
-                        onclick="flushStdList('${pageContext.request.contextPath}/student/studentList.do')">刷新
+                        onclick="teacherflushStdList('${pageContext.request.contextPath}/teacher/teacherList.do')">刷新
                 </button>
                 <button type="button" class="btn btn-default"
-                        onclick="nengbunengxing('${pageContext.request.contextPath}/student/deleteStudent.do')">删除所选
+                        onclick="deleteTeacherlist('${pageContext.request.contextPath}/teacher/deleteTeacher.do')">删除所选
                 </button>
             </div>
         </div>
-        <div id="tableBody">
+        <div id="teachertableBody">
             <table class="table table-striped table-bordered table-condensed">
                 <thead>
                 <tr>
                     <td style="width:8%">
-                        <input type="checkbox" id="controllall" onclick="allselect()">&nbsp;&nbsp;全选
+                        <input type="checkbox" id="teacherControllall" onclick="teacherallselect()">&nbsp;&nbsp;全选
                     </td>
                     <td style="width:5%">序号</td>
-                    <td style="width:17%">学生姓名</td>
+                    <td style="width:17%">教师姓名</td>
                     <td style="width:30%">ID</td>
-                    <td style="width:40%">偏好</td>
                 </tr>
                 </thead>
-                <tbody id="tablecontent">
-                <!-- <tr name="Oneofstd">
-                     <td><input type="checkbox" class="studentlist"></td>
-                     <td>1</td>
-                     <td>Tanmay</td>
-                     <td class="ID">Bangalore</td>
-                     <td>560001</td>
-                 </tr>
-                 <tr name="Oneofstd">
-                     <td><input type="checkbox" class="studentlist"></td>
-                     <td>2</td>
-                     <td>Sachin</td>
-                     <td class="ID">Mumbai</td>
-                     <td>400003</td>
-                 </tr>-->
+                <tbody id="teachertablecontent">
+                <!--  <tr name="Oneofstd">
+                      <td><input type="checkbox" class="studentlist"></td>
+                      <td>1</td>
+                      <td>Tanmay</td>
+                      <td class="ID">Bangalore</td>
+                      <td>560001</td>
+                  </tr>
+                  <tr name="Oneofstd">
+                      <td><input type="checkbox" class="studentlist"></td>
+                      <td>2</td>
+                      <td>Sachin</td>
+                      <td class="ID">Mumbai</td>
+                      <td>400003</td>
+                  </tr>-->
+
 
                 </tbody>
             </table>
         </div>
 
-
     </div>
 </div>
-
-<script language="javascript" type="text/javascript">
-</script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <html lang="zh-CN">
@@ -47,12 +47,15 @@
             </div>
         </div>
         <div id="inputImgDiv">
-            <div class="form-inline" role="form" action="#" method="">
+            <div class="form-inline" role="form">
                 <div class="form-group">
                     <label class="sr-only" for="inputfile">文件输入</label>
                     <input type="file" id="inputfile" accept="image/*">
                 </div>
-                <button type="button" onclick="submitImg('${adminID}','${pageContext.request.contextPath}')" class="btn btn-default btn-sm">提交</button>
+                <button type="button"
+                        onclick="submitImg('${adminID}','${pageContext.request.contextPath}/admin/adminInfo.do')"
+                        class="btn btn-default btn-sm">提交
+                </button>
             </div>
         </div>
     </div>
@@ -77,7 +80,8 @@
             </table>
             <div id="changePwdDiv">
 
-                <div role="form" id="changePwdForm" name="changePwdForm" class="form-horizontal" action="changePwd" method="post">
+                <div role="form" id="changePwdForm" name="changePwdForm" class="form-horizontal" action="changePwd"
+                     method="post">
                     <div class="input-group">
                         <span class="input-group-addon">原始密码</span>
                         <input id="oldPwd" name="oldPwd" type="text" class="form-control" placeholder="原始密码">
@@ -91,11 +95,14 @@
                     <br>
                     <div class="input-group">
                         <span class="input-group-addon">确认密码</span>
-                        <input id="newPwdSure" name="newPwdSure" type="password" class="form-control" placeholder="再一次输入修改后的密码">
+                        <input id="newPwdSure" name="newPwdSure" type="password" class="form-control"
+                               placeholder="再一次输入修改后的密码">
                     </div>
 
                     <div class="input-group col-sm-offset-2 col-sm-8" id="btnGroup">
-                        <button onclick="SubmitchangePwd('${ID}','${pageContext.request.contextPath}')" class="btn btn-default">修改</button>
+                        <button onclick="SubmitchangePwd('${adminID}','${pageContext.request.contextPath}/admin/adminInfo.do')"
+                                class="btn btn-default">修改
+                        </button>
                         <button type="reset" class="btn btn-default" id="retBtn">重置</button>
 
                     </div>

@@ -1,0 +1,76 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.all {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#TeacherScan {
+    text-align: center;
+    width: 100%;
+
+}
+
+#teachTable {
+    padding: 0;
+    text-align: center;
+    width: 80%;
+}
+
+#teacherHead {
+
+    padding: 0;
+    width: 80%;
+    height: 40px;
+
+}
+
+#teachertableHeadLeft {
+
+    padding: 0;
+    width: 40%;
+    text-align: left;
+    float: left;
+}
+
+#teachertableHeadRight {
+
+    padding: 0;
+    width: 40%;
+    text-align: right;
+    float: right;
+
+}
+
+#teachertableBody {
+    overflow-y: auto;
+    width: 80%;
+    padding: 0;
+    height: 100%;
+    text-align: center;
+}
+
+#teacherImportDiv {
+    margin: 200px;
+    text-align: center;
+    width: 400px;
+    height: 200px;
+    border: 1px solid #2e6da4;
+
+}
+
+#teacherformDIv {
+    text-align: center;
+    padding: 80px 20px 20px 20px;
+}

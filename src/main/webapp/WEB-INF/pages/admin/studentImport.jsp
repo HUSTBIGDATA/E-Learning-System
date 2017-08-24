@@ -12,7 +12,7 @@
 <html lang="zh-CN">
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <head>
@@ -27,25 +27,31 @@
     <link rel="stylesheet" href="<%=basePath%>/statics/css/admin.css">
     <link rel="stylesheet" href="<%=basePath%>/statics/css/font-awesome.css">
 
+    <script src="<%=basePath%>statics/js/admin.js"></script>
+
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-    <title>个人信息</title>
+    <title>上传学生名单</title>
 </head>
 
 <body>
 <div class="all">
 
     <div id="dataimportDiv">
-        <form class="form-inline" role="form" id="formDIv" method="post" enctype="multipart/form-data" action="${ctx}/upload/uploadFile.do">
+        <form class="form-inline" role="form" id="formDIv" method="post" enctype="multipart/form-data"
+              action="${ctx}/upload/uploadFile.do">
 
             <div class="form-group">
-                <label class="sr-only" for="inputfile">文件输入</label>
+                <label class="sr-only" for="inputfile">学生名单文件输入</label>
                 <input type="file" id="inputfile" name="inputfile" accept=".xls,.xlsx">
             </div>
-            <button type="submit" class="btn btn-default">提交</button>
+            <button type="button"
+                    onclick="studentImport('${pageContext.request.contextPath}/student/studentImportList.do')"
+                    class="btn btn-default">提交
+            </button>
         </form>
     </div>
 </div>

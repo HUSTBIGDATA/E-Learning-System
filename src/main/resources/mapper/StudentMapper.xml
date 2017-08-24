@@ -1,55 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-       
+
 <mapper namespace="com.elearning.dao.StudentDao">
-	<insert id="insertBasicInformation" parameterType="String" useGeneratedKeys="false">
-		insert into tb_student(studentID,password,studentName,studentName,preferences) values(#{ID},null,#{name},null,null)
-	</insert>
-	
-	<!--  update id="register" parameterType="String">
-		update tb_student set password = ${password} where studentID = #{ID}
-	</update -->
-	
-	<update id="register" parameterType="Student">
-		update tb_student set password = #{password}, studentName = #{image}, preferences = #{preferences} where studentID = #{ID}
-	</update>
-	
-	<update id="modifyPassword" parameterType="String">
-		update tb_student set password = #{password} where studentID = #{ID}
-	</update>
-	
-	<update id="editInfomation" parameterType="String">
-		update tb_student set studentName = #{name},studentName = #{image},preferences = #{preferences}
-		where studentID = #{ID}
-	</update>
-	
-	<select id="getPassword" parameterType="String">
-		select password from tb_student where studentID = #{ID}
-	</select>
-	
-	<delete id="delete" parameterType="String">
-		delete from tb_student where studentID = #{ID}
-	</delete>
-	
-	<select id="findByID" parameterType="String" resultType="Student">
-		select * from tb_student where studentID = #{ID}
-	</select>
-	
-	<resultMap type="Student" id="studentMap">
-		<id column="ID" property="ID"/>
-		<result column="studentID" property="studentID"/>
-		<result column="studentName" property="name"/>
-		<result column="password" property="password"/>
-		<result column="studentName" property="image"/>
-		<result column="preferences" property="preferences"/>
-	</resultMap>
-	
-	<select id="findByName" parameterType="String" resultMap="studentMap">
-		select * from tb_student where studentName = #{name}
-	</select>
-	
-	<select id="findAll" resultMap="studentMap">
-		select * from tb_student
-	</select>
+    <insert id="insertBasicInformation" parameterType="String" useGeneratedKeys="false">
+        insert into tb_student(studentID,password,studentName,studentName,preferences)
+        values(#{ID},null,#{name},null,null)
+    </insert>
+
+    <!--  update id="register" parameterType="String">
+        update tb_student set password = ${password} where studentID = #{ID}
+    </update -->
+
+    <update id="register" parameterType="Student">
+        update tb_student set password = #{password}, studentName = #{image}, preferences = #{preferences} where
+        studentID = #{ID}
+    </update>
+
+    <update id="modifyPassword" parameterType="String">
+        update tb_student set password = #{password} where studentID = #{ID}
+    </update>
+
+    <update id="editInfomation" parameterType="String">
+        update tb_student set studentName = #{name},studentName = #{image},preferences = #{preferences}
+        where studentID = #{ID}
+    </update>
+
+    <select id="getPassword" parameterType="String">
+        select password from tb_student where studentID = #{ID}
+    </select>
+
+    <delete id="delete" parameterType="String">
+        delete from tb_student where studentID = #{ID}
+    </delete>
+
+    <select id="findByID" parameterType="String" resultType="Student">
+        select * from tb_student where studentID = #{ID}
+    </select>
+
+    <resultMap type="Student" id="studentMap">
+        <id column="ID" property="ID"/>
+        <result column="studentID" property="studentID"/>
+        <result column="studentName" property="name"/>
+        <result column="password" property="password"/>
+        <result column="studentName" property="image"/>
+        <result column="preferences" property="preferences"/>
+    </resultMap>
+
+    <select id="findByName" parameterType="String" resultMap="studentMap">
+        select * from tb_student where studentName = #{name}
+    </select>
+
+    <select id="findAll" resultMap="studentMap">
+        select * from tb_student
+    </select>
 </mapper>
