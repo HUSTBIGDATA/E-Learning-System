@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <button type="button" onclick="imoortData('${pageContext.request.contextPath}/data/importData.do')" class="btn btn-default">上传
+            <button type="button" onclick="importData('${pageContext.request.contextPath}/data/importData.do')" class="btn btn-default">上传
             </button>
 
         </div>

@@ -3,7 +3,7 @@
  */
 // 用于 dataImport js
 
-function imoortData(rel) {
+function importData(rel) {
 
 
     var fileclass = document.getElementById("dataclass").value;

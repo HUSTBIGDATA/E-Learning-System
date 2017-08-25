@@ -127,7 +127,7 @@ function findByname(basepath) {
 // 以下为 adminInfo Javascript*****************************************************   adminInfo
 
 function see() {
-    alert("执行初始化666666666666666666666666");
+
     document.getElementById("inputImgDiv").style.display = "none";
     document.getElementById("changePwdDiv").style.display = "none";
 }
@@ -170,7 +170,7 @@ function submitImg(ID, basepath) {
 function SubmitchangePwd(ID, basepath) {
     //这里提交密码数据
     var oldPwd = document.getElementById("oldPwd").value;
-    var newPwd = document.getElementById("newPwd").value
+    var newPwd = document.getElementById("newPwd").value;
     var newPwdSure = document.getElementById("newPwdSure").value;
 
     if (oldPwd == "") {
@@ -183,16 +183,16 @@ function SubmitchangePwd(ID, basepath) {
                 alert("请再次输入新密码!");
             } else {
                 if (newPwdSure == newPwd) {
-                    reUrl = basepath + "changePassword.html";
+
                     //这里修改密码
                     $.ajax({
-                        url: reUrl,
+                        url: basepath,
                         type: "POST",
                         dataType: "json",
                         data: {
-                            "oldPassword": oldPwd,
-                            "newPassword": newPwd,
-                            "ID": ID
+                            "oldPassword":oldPwd,
+                            "newPassword":newPwd,
+                            "ID":ID
                         },
                         success: function (data) {
                             // data为返回的字符串：密码修改成功或者密码修改失败
