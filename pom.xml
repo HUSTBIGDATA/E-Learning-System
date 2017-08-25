@@ -8,6 +8,23 @@
   <name>ELearning Maven Webapp</name>
   <url>http://maven.apache.org</url>
 <dependencies>
+
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.7.4</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+    <version>2.7.4</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-annotations</artifactId>
+    <version>2.7.4</version>
+</dependency>
+
 		<dependency>
            <groupId>commons-fileupload</groupId>
            <artifactId>commons-fileupload</artifactId>
@@ -234,7 +251,7 @@
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>8080</port>
-                            <maxIdleTime>600</maxIdleTime>
+                            <maxIdleTime>60000</maxIdleTime>
                         </connector>
                     </connectors>
                     <contextPath>/ELearning</contextPath>
