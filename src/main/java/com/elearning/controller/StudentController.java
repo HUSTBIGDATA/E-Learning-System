@@ -1,25 +1,26 @@
 package com.elearning.controller;
 
-import com.elearning.entity.Student;
-import com.elearning.service.StudentService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.io.IOException;
-import java.io.StringWriter;
-import java.util.List;
+import com.elearning.entity.Student;
+import com.elearning.service.StudentService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 @RequestMapping(value = "/student")
 public class StudentController {
-
-    @Autowired
-    private StudentService studentService;
-
+	
+	@Autowired
+	private StudentService studentService;
+	
 	/*@RequestMapping(value = "/studentList.html", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> studentList() {
@@ -29,60 +30,61 @@ public class StudentController {
 		studentMap.put("data", studentList);
 		return studentMap;
 	}*/
-
-    @RequestMapping(value = "/studentList.do", produces = "application/json;charset=UTF-8")
-    @ResponseBody
-    public String studentList() {
-        List<Student> studentList = studentService.findAll();
-        ObjectMapper mapper = new ObjectMapper();
-        StringWriter writer = new StringWriter();
-
-        try {
-            mapper.writeValue(writer, studentList);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return writer.toString();
-    }
-
-    @RequestMapping(value = "/findByName.do", produces = "application/json;charset=UTF-8")
-    @ResponseBody
-    public String findByName(String name) {
-        List<Student> studentList = studentService.findByName(name);
-        ObjectMapper mapper = new ObjectMapper();
-        StringWriter writer = new StringWriter();
-
-        try {
-            mapper.writeValue(writer, studentList);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return writer.toString();
-    }
-
-    @RequestMapping(value = "/deleteStudent.do", produces = "application/json;charset=UTF-8")
-    @ResponseBody
-    public String deleteStudent(String studentList) {
-        String[] studentIDList = studentList.split(",");
-        for (int i = 0; i < studentIDList.length; i++) {
-            studentService.delete(studentIDList[i]);
-        }
-        ObjectMapper mapper = new ObjectMapper();
-        StringWriter writer = new StringWriter();
-
-        try {
-            mapper.writeValue(writer, "success");
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return writer.toString();
-    }
+	
+	@RequestMapping(value = "/studentList.do", produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String studentList() {
+		List<Student> studentList = studentService.findAll();
+		ObjectMapper mapper = new ObjectMapper();
+		StringWriter writer = new StringWriter();
+		
+		try {
+			mapper.writeValue(writer, studentList);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return writer.toString();
+	}
+	
+	@RequestMapping(value = "/findByName.do", produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String findByName(String name) {
+		List<Student> studentList = studentService.findByName(name);	
+		ObjectMapper mapper = new ObjectMapper();
+		StringWriter writer = new StringWriter();
+		
+		try {
+			mapper.writeValue(writer, studentList);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return writer.toString();
+	}
+	
+	@RequestMapping(value = "/deleteStudent.do", produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String deleteStudent(String studentList) {
+		String[] studentIDList = studentList.split(",");
+		for(int i = 0;i<studentIDList.length;i++) {
+			studentService.delete(studentIDList[i]);
+		}
+		ObjectMapper mapper = new ObjectMapper();
+		StringWriter writer = new StringWriter();
+		
+		try {
+			mapper.writeValue(writer, studentService.findAll());
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return writer.toString();
+	}
 	
 	/*@RequestMapping(value = "/studentList.html")
 	public ModelAndView studentList() {
