@@ -14,6 +14,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ID" value="${adminID}"></c:set>
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,6 +31,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css"-->
     <script src="<%=basePath%>statics/js/admin.js"></script>
+    <script src="<%=basePath%>statics/js/admin2Teacher.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -72,7 +74,7 @@
                         &nbsp; 个人中心 <span class="sr-only">(current)</span></a>
                     </li>
                     <ul id="info" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/manager/adminInfo.do')"> 个人信息</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/adminInfo/${ID}.do')"> 个人信息</a></li>
                     </ul>
                     <!-- 一级菜单 -->
                     <li><a href="#studentMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
@@ -91,8 +93,8 @@
                     <!-- 二级菜单 -->
                     <!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
                     <ul id="teacherMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('teacherScan.html')"> 查看教师</a></li>
-                        <li><a href="###" onclick="showAtRight('teacherImport.html')"> 导入名单</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/teacherScan.do')"> 查看教师</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/teacherImport.do')"> 导入名单</a></li>
                     </ul>
 
                     <li><a href="#productMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
@@ -225,7 +227,6 @@
         xmlHttp.open("GET", url, true);		//true表示异步处理
         xmlHttp.send();
     }
-
 
     /*function allselect() {
 

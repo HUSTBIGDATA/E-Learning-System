@@ -84,8 +84,8 @@ function nengbunengxing(basepath) { //删除所选的学生
             },
             success: function (data) {
 
-                alert("删除成功");
-
+                var res = JSON.parse(data); //res是json对象
+                clearAndadd(res);
             },
             error: function (err) {
                 alert("删除失败");
@@ -126,18 +126,23 @@ function findByname(basepath) {
 
 // 以下为 adminInfo Javascript*****************************************************   adminInfo
 
-function see() {
-
+/*function see() {
     document.getElementById("inputImgDiv").style.display = "none";
     document.getElementById("changePwdDiv").style.display = "none";
-}
+}*/
 
 function updateImg() {
-    document.getElementById("inputImgDiv").style.display = "";
+	if(document.getElementById("inputImgDiv").style.display == "none")
+		document.getElementById("inputImgDiv").style.display = "";
+	else
+		document.getElementById("inputImgDiv").style.display = "none";
 }
 
 function changePwd() {
-    document.getElementById("changePwdDiv").style.display = "";
+	if(document.getElementById("changePwdDiv").style.display == "none")
+		document.getElementById("changePwdDiv").style.display = "";
+	else
+		document.getElementById("changePwdDiv").style.display = "none";
 }
 
 

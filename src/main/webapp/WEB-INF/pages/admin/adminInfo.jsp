@@ -36,7 +36,7 @@
     <title>管理员个人信息管理</title>
 </head>
 
-<body onload="see()">
+<body>
 <div id="adminINFO">
     <div id="adminImg">
 
@@ -46,7 +46,7 @@
                 <button type="button" onclick="updateImg()" style="width:160px">点击更换照片</button>
             </div>
         </div>
-        <div id="inputImgDiv">
+        <div id="inputImgDiv"  style="display:none">
             <div class="form-inline" role="form">
                 <div class="form-group">
                     <label class="sr-only" for="inputfile">文件输入</label>
@@ -78,7 +78,7 @@
                     </td>
                 </tr>
             </table>
-            <div id="changePwdDiv">
+            <div id="changePwdDiv" style="display:none">
 
                 <div role="form" id="changePwdForm" name="changePwdForm" class="form-horizontal" action="changePwd"
                      method="post">
@@ -100,7 +100,7 @@
                     </div>
 
                     <div class="input-group col-sm-offset-2 col-sm-8" id="btnGroup">
-                        <button onclick="SubmitchangePwd('${adminID}','${pageContext.request.contextPath}/admin/adminInfo.do')"
+                        <button onclick="SubmitchangePwd('${adminID}','${pageContext.request.contextPath}/manager/modifyPassword.do')"
                                 class="btn btn-default">修改
                         </button>
                         <button type="reset" class="btn btn-default" id="retBtn">重置</button>

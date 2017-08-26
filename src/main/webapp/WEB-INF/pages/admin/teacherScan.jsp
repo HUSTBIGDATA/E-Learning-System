@@ -99,5 +99,6 @@
 
     </div>
 </div>
+<iframe style="display:none" onload="javascript:teacherflushStdList('${pageContext.request.contextPath}/teacher/teacherList.do')">
 </body>
 </html>

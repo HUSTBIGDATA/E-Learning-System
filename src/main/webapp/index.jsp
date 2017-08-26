@@ -9,7 +9,7 @@
 </head>
 <body>
 <script language="javascript">
-    window.document.location.href = "${ctx}/login/login.do";
+	window.document.location.href="${ctx}/login/login.do";
 </script>
 </body>
 </html>

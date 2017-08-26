@@ -28,25 +28,25 @@ function teacherclearAndadd(stdlist) {
 
     for (var i = 0; i < stdlist.length; i++) {
         str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="teacherlist">' +
-            '</td><td>' + (i + 1) + '</td><td>' + stdlist[i].name + '</td><td class="ID">' + stdlist[i].studentID + '</td></tr>';
+            '</td><td>' + (i + 1) + '</td><td>' + stdlist[i].name + '</td><td class="ID">' + stdlist[i].teacherID + '</td></tr>';
 
     }
     em.innerHTML = str;
 }
 
-function teacherflushStdList(adminID, basepath) {
+function teacherflushStdList(basepath) {
     //用于刷新整个页面教师名单
     $.ajax({
         url: basepath,
         type: "POST",
         data: {
-            "adminID": adminID
+            "adminID": "fuck"
         },
         dataType: "json",
         success: function (data) {
 
             var res = JSON.parse(data); //res是json对象
-            clearAndadd(res);
+            teacherclearAndadd(res);
 
         },
         error: function (err) {
@@ -80,15 +80,12 @@ function deleteTeacherlist(basepath) { //删除所选的学生
             type: "POST",
             dataType: "json",
             data: {
-                "studentList": delstdList.join(",")
+                "teacherList": delstdList.join(",")
             },
             success: function (data) {
                 // 成功后会返回 目前还存在的教师名单 用于刷新页面
                 var res = JSON.parse(data); //res是json对象
-                clearAndadd(res);
-
-
-
+                teacherclearAndadd(res);
             },
             error: function (err) {
                 alert("删除失败");
@@ -115,7 +112,7 @@ function teacherfindByname(basepath) {
 
             var res = JSON.parse(data);
             //res是json对象
-            clearAndadd(res);
+            teacherclearAndadd(res);
 
         },
         error: function (err) {

@@ -11,7 +11,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <html lang="zh-CN">
@@ -36,7 +36,7 @@
     <title>学生名单管理</title>
 </head>
 
-<body onload="flushStdList('${pageContext.request.contextPath}/student/studentList.do')">
+<body onload="flushStdList()">
 <div class="all" id="stdScan">
     <h2>学生名单</h2><br>
     <div id="studentTable">
@@ -47,20 +47,13 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" placeholder="请输入学生姓名">
                     </div>
-                    <button type="button"
-                            onclick="findByname('${pageContext.request.contextPath}/student/findByName.do')"
-                            class="btn btn-default">查询
-                    </button>
+                    <button type="button" onclick="findByname('${pageContext.request.contextPath}/student/findByName.do')" class="btn btn-default">查询</button>
                 </div>
 
             </div>
             <div id="tableHeadRight">
-                <button type="button" class="btn btn-default"
-                        onclick="flushStdList('${pageContext.request.contextPath}/student/studentList.do')">刷新
-                </button>
-                <button type="button" class="btn btn-default"
-                        onclick="nengbunengxing('${pageContext.request.contextPath}/student/deleteStudent.do')">删除所选
-                </button>
+                <button type="button" class="btn btn-default" onclick="flushStdList('${pageContext.request.contextPath}/student/studentList.do')">刷新</button>
+                <button type="button" class="btn btn-default" onclick="nengbunengxing('${pageContext.request.contextPath}/student/deleteStudent.do')">删除所选</button>
             </div>
         </div>
         <div id="tableBody">
@@ -71,7 +64,7 @@
                         <input type="checkbox" id="controllall" onclick="allselect()">&nbsp;&nbsp;全选
                     </td>
                     <td style="width:5%">序号</td>
-                    <td style="width:17%">学生姓名</td>
+                    <td style="width:17%">姓名</td>
                     <td style="width:30%">ID</td>
                     <td style="width:40%">偏好</td>
                 </tr>
@@ -99,7 +92,8 @@
 
     </div>
 </div>
-
+<iframe style="display:none" onload="javascript:flushStdList('${pageContext.request.contextPath}/student/studentList.do')">
+</script>"
 <script language="javascript" type="text/javascript">
 </script>
 </body>
