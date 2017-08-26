@@ -219,32 +219,27 @@ function SubmitchangePwd(ID, basepath) {
 
 // 以下为 studentImport的 Javascript*****************************************************   studentImport
 
-function imoortTeacherList(basepath) {
+function importStudentList(basepath) {
 
-    var pic = $("#inputfile").get(0).files[0];
-    var formData = new FormData();
-    formData.append("file", pic);
-
-    /**
-     * 必须false才会避开jQuery对 formdata 的默认处理
-     * XMLHttpRequest会对 formdata 进行正确的处理
-     */
+    var formData =newFormData();
+    formData.append("file", $("#inputfile")[0].files);
     $.ajax({
-        type: "POST",
-        url: basepath,
+        url:basepath,
+        type:"POST",
         data: formData,
-        processData: false,
-        //必须false才会自动加上正确的Content-Type
-        contentType: false,
-        xhr: function () {
-            var xhr = $.ajaxSettings.xhr();
-            if (onprogress && xhr.upload) {
-                xhr.upload.addEventListener("progress", onprogress, false);
-                return xhr;
-            }
+        processData:false,
+        contentType:false,
+        success:function(response){
+            //根据返回结果提示，，response为字符串 ‘上传成功’
+            alert(response);
+        },
+        error:function(){
+            alert("上传学生名单失败!");
         }
     });
+
 }
+/*
 function onprogress(evt) {
     var loaded = evt.loaded;                  //已经上传大小情况
     var tot = evt.total;                      //附件总大小
@@ -252,5 +247,6 @@ function onprogress(evt) {
     $("#uploadscoll").html(per + "%");
     $("#uploadscoll").css("width", per + "%");
 }
+*/
 
 

@@ -92,9 +92,8 @@
 
     </div>
 </div>
-<iframe style="display:none" onload="javascript:flushStdList('${pageContext.request.contextPath}/student/studentList.do')">
-</script>"
-<script language="javascript" type="text/javascript">
+<iframe style="display:none" onload="javascript:flushStdList('${pageContext.request.contextPath}/student/studentList.do')"/>
+</script language="javascript" type="text/javascript">
 </script>
 </body>
 </html>

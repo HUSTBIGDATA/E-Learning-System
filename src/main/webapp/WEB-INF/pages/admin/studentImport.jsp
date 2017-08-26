@@ -19,13 +19,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Author" content="Dreamer-1.">
-
-    <!-- 引入各种CSS样式表 -->
 
     <link rel="stylesheet" href="<%=basePath%>/statics/css/font-change.css">
     <link rel="stylesheet" href="<%=basePath%>/statics/css/admin.css">
     <link rel="stylesheet" href="<%=basePath%>/statics/css/font-awesome.css">
+    <script src="<%=basePath%>statics/js/admin.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -39,18 +37,12 @@
 <div class="all">
 
     <div id="dataimportDiv">
-        <form class="form-inline" role="form" id="formDIv" method="post" enctype="multipart/form-data" action="${ctx}/manager/uploadStudentList.do">
-
-            <div class="form-group">
+        <form class="form-inline" role="form" id="formDIv" method="post" enctype="multipart/form-data">
                 <label class="sr-only" for="inputfile">文件输入</label>
                 <input type="file" id="inputfile" name="inputfile" accept=".xls,.xlsx">
-            </div>
-            <button type="submit" class="btn btn-default">提交</button>
+            <button type="button" class="btn btn-default" onclick="importStudentList('${ctx}/manager/uploadStudentList.do')">提交</button>
         </form>
     </div>
 </div>
-<script type="text/javascript">
-</script>
-
 </body>
 </html>

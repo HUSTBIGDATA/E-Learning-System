@@ -7,26 +7,32 @@
 --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="zh-CN">
-
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- 引入各种CSS样式表 -->
 
-    <script src="js/admin2Data.js"></script>
-    <link rel="stylesheet" href="css/admin2Data.css">
+    <link rel="stylesheet" href="<%=basePath%>/statics/css/font-change.css">
+    <link rel="stylesheet" href="<%=basePath%>/statics/css/admin.css">
+    <link rel="stylesheet" href="<%=basePath%>/statics/css/font-awesome.css">
+    <script src="<%=basePath%>statics/js/admin2Data.js"></script>
 
-
-    <link rel="stylesheet" href="css/font-change.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-    <title>上传资料</title>
+    <title>资料上传</title>
 </head>
 
 <body>

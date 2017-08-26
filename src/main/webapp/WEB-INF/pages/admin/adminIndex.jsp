@@ -201,7 +201,7 @@
                     //xmlHttp.status == 200		——	服务器反馈正常
 
                     document.getElementById("content").innerHTML = xmlHttp.responseText;	//重设页面中id="content"的div里的内容
-                    executeScript(xmlHttp.responseText);	//执行从服务器返回的页面内容里包含的JavaScript函数
+                   // executeScript(xmlHttp.responseText);	//执行从服务器返回的页面内容里包含的JavaScript函数
                 }
                 //错误状态处理
                 else if (xmlHttp.status == 404) {
@@ -228,124 +228,6 @@
         xmlHttp.send();
     }
 
-    /*function allselect() {
-
-     var checklist = document.getElementsByClassName("studentlist");
-
-     if (document.getElementById("controllall").checked) {
-     for (var i = 0; i< checklist.length; i++) {
-     checklist[i].checked = 1;
-     }
-     } else {
-     for (var j = 0; j< checklist.length; j++) {
-     checklist[j].checked = 0;
-     }
-     }
-     }
-
-     function clearAndadd(stdlist) {
-
-     var str = "";
-     var em = document.getElementById("tablecontent");
-     while (em.hasChildNodes()) //当em下还存在子节点时 循环继续
-     {
-     em.removeChild(em.firstChild);
-     }
-
-     for (var i = 0; i < stdlist.length; i++) {
-     str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="studentlist">' +
-     '</td><td>' + (i + 1) + '</td><td>' + stdlist[i].name + '</td><td class="ID">' + stdlist[i].studentID + '</td><td>' + stdlist[i].preferences + '</td></tr>';
-
-     }
-     em.innerHTML = str;
-     }
-
-     function flushStdList() {
-     var stdName = document.getElementById("name").value;
-     reUrl = "${ctx}/student/studentList.do";
-     $.ajax({
-     url: reUrl,
-     type: "POST",
-     dataType: "json",
-     success: function(data) {
-     var res = JSON.parse(data); //res是json对象
-     clearAndadd(res);
-     },
-     error: function(err) {
-     alert("error");
-     // alert(err);
-     }
-     });
-
-     }
-
-     function nengbunengxing() { //删除所选的学生
-
-     var checklist = document.getElementsByClassName("studentlist");
-     var IDlist = document.getElementsByClassName("ID");
-     var delstdList = new Array();
-
-     var stdJson = [];
-     var j = 0;
-     for (var i = 0; i < IDlist.length; ++i) {
-
-     if (checklist[i].checked) {
-
-     delstdList[j++] = IDlist[i].innerHTML;
-     }
-     }
-
-
-     var str = "确认删除ID为：" + delstdList.join(",") + "这些学生吗？";
-     if (confirm(str)) {
-     var stdName = document.getElementById("name").value;
-     reUrl = "${pageContext.request.contextPath}/" + "deleteStudent.html";
-     $.ajax({
-     url: reUrl,
-     type: "POST",
-     dataType: "json",
-     data: {
-     "stdlist":delstdList
-     },
-     success: function(data) {
-
-     alert(data);
-
-     },
-     error: function(err) {
-     alert(err);
-     }
-     });
-
-     }
-     }
-
-
-     function findByname() {
-
-     var stdName = document.getElementById("name").value;
-     reUrl = "${pageContext.request.contextPath}/" + "findByname.html";
-     var Namejson = {
-     "name": stdName
-     };
-
-     $.ajax({
-     url: reUrl,
-     type: "POST",
-     dataType: "json",
-     data: Namejson,
-     success: function(data) {
-
-     var res = JSON.parse(data); //res是json对象
-     clearAndadd(res);
-
-     },
-     error: function(err) {
-     alert(err);
-     }
-     });
-
-     }*/
 </script>
 
 </body>
