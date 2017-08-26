@@ -221,12 +221,13 @@ function SubmitchangePwd(ID, basepath) {
 
 function importStudentList(basepath) {
 
-    var formData =newFormData();
-    formData.append("file", $("#inputfile")[0].files);
+    var formData =new FormData($("#formDIv")[0]);
     $.ajax({
         url:basepath,
         type:"POST",
         data: formData,
+        async:false,
+        cache:false,
         processData:false,
         contentType:false,
         success:function(response){
