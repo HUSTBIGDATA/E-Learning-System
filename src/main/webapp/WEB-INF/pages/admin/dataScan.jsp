@@ -33,9 +33,8 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-    <title>管理员个人信息管理</title>
+    <title>查看资料</title>
 </head>
-
 
 <body onload="flushDataList('${pageContext.request.contextPath}/data/dataListFlush.do')">
 <div class="all" id="dataScan">
@@ -48,17 +47,17 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" placeholder="请输入资料类型">
                     </div>
-                    <button type="button" onclick="findByname('${pageContext.request.contextPath}/student/findByName.do')" class="btn btn-default">按类型查询
+                    <button type="button" onclick="dataFindByClass('${pageContext.request.contextPath}/data/datafindByClass.do')" class="btn btn-default">按类型查询
                     </button>
                 </div>
 
             </div>
             <div id="tableHeadRight">
-                <button type="button" class="btn btn-default" onclick="flushStdList('${pageContext.request.contextPath}/student/studentList.do')">刷新
+                <button type="button" class="btn btn-default" onclick="flushDatadList('${pageContext.request.contextPath}/data/datalist.do')">刷新
                 </button>
-                <button type="button" class="btn btn-default" onclick="nengbunengxing('${pageContext.request.contextPath}/student/deleteStudent.do')">批量下载
+                <button type="button" class="btn btn-default" onclick="setDownloadList('${pageContext.request.contextPath}/data/downloadlist.do')">批量下载
                 </button>
-                <button type="button" class="btn btn-default" onclick="nengbunengxing('${pageContext.request.contextPath}/student/deleteStudent.do')">批量删除
+                <button type="button" class="btn btn-default" onclick="setDeleteList('${pageContext.request.contextPath}/data/deletelist.do')">批量删除
                 </button>
             </div>
         </div>
@@ -81,40 +80,39 @@
                     <td><input type="checkbox" class="datalist"></td>
                     <td>1</td>
                     <td>机器学习</td>
-                    <td class="ID">西瓜书</td>
+                    <td class="fileName">西瓜书</td>
                     <td>
-                        <button class="btn btn-primary btn-sm">
-                            下载
-                        </button> |
-                        <button class="btn btn-danger btn-sm">
-                            删除
-                        </button>
-                    </td>
-                </tr>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="downloadAfile('${pageContext.request.contextPath}/data/downloadAfile.do',filenameUrl})">
+        下载
+                </button> |
+                <button class="btn btn-danger btn-sm" onclick="deleteAfile('${pageContext.request.contextPath}/data/deleteAfile.do',filenameUrl})">
+                删除
+                </button >
+                </td>
+                        </tr>
 
-                <tr name="Oneofstd">
-                    <td><input type="checkbox" class="datalist"></td>
-                    <td>2</td>
-                    <td>人工智能</td>
-                    <td>算法导论</td>
-                    <td><button class="btn btn-primary btn-sm">
-                        下载
-                    </button> |
-                        <button class="btn btn-danger btn-sm">
-                            删除
-                        </button> </td>
-                </tr>
+                        <tr name="Oneofstd">
+                <td><input type="checkbox" class="datalist"></td>
+                <td>2</td>
+                        <td>人工智能</td>
+                <td>算法导论</td>
+                <td><button class="btn btn-primary btn-sm" onclick="downloadAfile('${pageContext.request.contextPath}/data/downloadAfile',filenameUrl})">
+                下载
+                </button> |
+                <button class="btn btn-danger btn-sm" onclick="deleteAfile('${pageContext.request.contextPath}/data/deleteAfile.do',filenameUrl})">
+        删除
+        </button> </td>
+        </tr>
 
                 </tbody>
-            </table>
+                </table>
         </div>
 
+        </div>
+        </div>
 
-    </div>
-</div>
-
-<script language="javascript" type="text/javascript">
-</script>
-</body>
-</html>
+                <script language="javascript" type="text/javascript">
+        </script>
+        </body>
+        </html>
 

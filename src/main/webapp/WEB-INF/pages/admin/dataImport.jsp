@@ -39,7 +39,7 @@
 <div class="all">
 
     <div id="dataImportDiv">
-        <div class="form-horizontal" role="form" id="dataformDIv">
+        <form class="form-horizontal" role="form" id="dataformDIv">
 
             <div class="form-group">
                 <label  class="col-sm-2 control-label sr-only">文件</label>
@@ -59,7 +59,9 @@
             <button type="button" onclick="importData('${pageContext.request.contextPath}/data/importData.do')" class="btn btn-default">上传
             </button>
 
-        </div>
+        </form>
+
+        <!---以下为进度条-->
         <div class="progress progress-striped active">
             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" id="uploadscoll">
             </div>
