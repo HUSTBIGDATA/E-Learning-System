@@ -31,7 +31,6 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css"-->
     <script src="<%=basePath%>statics/js/admin.js"></script>
-    <script src="<%=basePath%>statics/js/admin2Teacher.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -66,9 +65,7 @@
         <!-- 左侧菜单选项========================================= -->
         <div id="navi" class="row-fluid">
             <div class="sidebar">
-                <div style="background-color:red">
 
-                </div>
                 <ul class="nav nav-sidebar">
                     <li class="active"><a href="#info" class="nav-header menu-first collapsed" data-toggle="collapse">
                         &nbsp; 个人中心 <span class="sr-only">(current)</span></a>
