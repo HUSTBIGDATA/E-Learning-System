@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
        
 <mapper namespace="com.elearning.dao.TeacherDao">
-	<insert id="insertBasicInformation" parameterType="String" useGeneratedKeys="true">
+	<insert id="insertBasicInformation" parameterType="java.lang.String" useGeneratedKeys="true">
 		insert into tb_teacher(teacherID,password,teacherName,teacherImage) values(#{ID},'49ba59abb',#{name},null)
 	</insert>
 	
@@ -11,23 +11,23 @@
 		update tb_teacher set password = #{password}, teacherImage = #{image} where teacherID = #{ID}
 	</update>
 	
-	<update id="modifyPassword" parameterType="String">
+	<update id="modifyPassword" parameterType="java.lang.String">
 		update tb_teacher set password = #{password} where teacherID = #{ID}
 	</update>
 	
-	<update id="editInfomation" parameterType="String">
+	<update id="editInfomation" parameterType="java.lang.String">
 		update tb_teacher set teacherName = #{name},teacherImage = #{image} where teacherID = #{ID}
 	</update>
 	
-	<select id="getPassword" parameterType="String">
+	<select id="getPassword" parameterType="java.lang.String">
 		select password from tb_teacher where teacherID = #{ID}
 	</select>
 	
-	<delete id="delete" parameterType="String">
+	<delete id="delete" parameterType="java.lang.String">
 		delete from tb_teacher where teacherID = #{ID}
 	</delete>
 	
-	<select id="findByID" parameterType="String" resultType="Teacher">
+	<select id="findByID" parameterType="java.lang.String" resultType="Teacher">
 		select * from tb_teacher where teacherID = #{ID}
 	</select>
 	
@@ -39,7 +39,7 @@
 		<result column="teacherImage" property="image"/>
 	</resultMap>
 	
-	<select id="findByName" parameterType="String" resultMap="teacherMap">
+	<select id="findByName" parameterType="java.lang.String" resultMap="teacherMap">
 		select * from tb_teacher where teacherName = #{name}
 	</select>
 	
