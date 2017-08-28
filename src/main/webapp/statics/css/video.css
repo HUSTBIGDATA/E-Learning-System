@@ -1,0 +1,79 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+.scollimg{
+    width: 600px;
+    height: 360px;
+}
+.videoAll {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+#videoHeader {
+    width: 100%;
+    height: 310px;
+    text-align: center;
+     background-color: antiquewhite;
+    
+}
+#myCarousel{
+    width: 550px;
+    margin-bottom: 0;
+}
+#videlList {
+    width:100%;
+
+}
+#vido{
+    width: 90%;      
+}
+.videoClass{
+    position: relative;
+    width: 100%;
+    
+}
+.videpClassTitle{
+    width: 100%;
+    height: 40px;
+    padding-left: 100px;
+    padding-right: 50px;
+    width: 100%;
+   
+}
+.titleLeft{
+   float: left;
+}
+.titleRight{
+    float: right;
+}
+.vdoTab{
+    height: 100%;
+    width: 85%;
+}
+.realName{
+     width: 240px;
+    height: 30px;
+    text-align: center;
+    background-color:azure;
+    resize: none;
+    margin-left: 5px;
+    line-height: 30px;
+}
+.vdoName{
+    width: 240px;
+    height: 180px;
+    margin-left: 5px;
+}
