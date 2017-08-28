@@ -21,16 +21,6 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
-	/*@RequestMapping(value = "/studentList.html", method = RequestMethod.POST)
-	@ResponseBody
-	public Map<String, Object> studentList() {
-		System.out.println("studentList");
-		List<Student> studentList = studentService.findAll();
-		Map<String, Object> studentMap = new HashMap<String, Object>();
-		studentMap.put("data", studentList);
-		return studentMap;
-	}*/
-	
 	@RequestMapping(value = "/studentList.do", produces = "application/json;charset=UTF-8")
 	@ResponseBody
 	public String studentList() {

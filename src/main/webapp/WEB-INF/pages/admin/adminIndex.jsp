@@ -31,6 +31,8 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css"-->
     <script src="<%=basePath%>statics/js/admin.js"></script>
+    <script src="<%=basePath%>statics/js/admin2Teacher.js"></script>
+    <script src="<%=basePath%>statics/js/admin2Data.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -65,7 +67,9 @@
         <!-- 左侧菜单选项========================================= -->
         <div id="navi" class="row-fluid">
             <div class="sidebar">
+                <div style="background-color:red">
 
+                </div>
                 <ul class="nav nav-sidebar">
                     <li class="active"><a href="#info" class="nav-header menu-first collapsed" data-toggle="collapse">
                         &nbsp; 个人中心 <span class="sr-only">(current)</span></a>
@@ -98,8 +102,8 @@
                         <i class="fa fa-globe"></i>&nbsp; 资料管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <ul id="productMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('dataScan.html')"> 查看资料</a></li>
-                        <li><a href="###" onclick="showAtRight('dataUpload.html')"> 资料上传</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/dataScan.do')"> 查看资料</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/dataImport.do')"> 资料上传</a></li>
                     </ul>
 
                     <li><a href="#recordMeun" class="nav-header menu-first collapsed" data-toggle="collapse">

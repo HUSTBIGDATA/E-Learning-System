@@ -45,19 +45,12 @@
 <body>
 <div class="all">
 
-    <div id="teacherImportDiv">
-        <div class="form-inline" role="form" id="teacherformDIv">
-            <div class="form-group">
-                <label class="sr-only" for="inputfile">教师名单文件</label>
+   <div id="dataimportDiv">
+        <form class="form-inline" role="form" id="uploadForm" method="post" enctype="multipart/form-data">
+                <label class="sr-only" for="inputfile">文件输入</label>
                 <input type="file" id="inputfile" name="inputfile" accept=".xls,.xlsx">
-            </div>
-            <button type="button" onclick="imoortTeacherList('${pageContext.request.contextPath}/teacher/teacherImportList.do')" class="btn btn-default">提交
-            </button>
-        </div>
-        <div class="progress progress-striped active">
-            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" id="uploadscoll">
-            </div>
-        </div>
+            <button type="button" class="btn btn-default" onclick="importTeacherList('${ctx}/manager/uploadTeacherList.do')">提交</button>
+        </form>
     </div>
 </div>
 </body>

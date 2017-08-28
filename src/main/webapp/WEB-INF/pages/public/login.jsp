@@ -33,16 +33,15 @@
         <div id="adminlog" role="form" class="form-horizontal">
             <div class="form-group">
                 <label class="col-sm-3 control-label"><span class="glyphicon glyphicon-user"></span>&nbsp帐号:</label>
-                <div class="col-sm-6">
+                <div class="col-sm-7">
                     <input type="text" class="form-control" id="ID" name="ID" placeholder="请输入帐号">
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-sm-3 control-label"><span class="glyphicon glyphicon-lock"></span>&nbsp密码:</label>
-                <div class="col-sm-6">
+                <div class="col-sm-7">
                     <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
                 </div>
-                <input type="checkbox" name="displayPs" onclick="displayPsw()">&nbsp;显示密码
             </div>
 
 
@@ -68,19 +67,6 @@
 
 <script language="javascript" type="text/javascript">
 
-    function displayPsw() {
-
-        if (document.getElementsByName("displayPs").checked) {
-
-            document.getElementById("password").type = "password";
-            document.getElementsByName("displayPs").checked=0;
-        } else {
-
-            document.getElementById("password").type = "text";
-            document.getElementsByName("displayPs").checked=1;
-        }
-
-    }
     function scan() {
         //  document.getElementById("userloginDiv").style.display = "";
         document.getElementById("alertinfo").style.display = "none";

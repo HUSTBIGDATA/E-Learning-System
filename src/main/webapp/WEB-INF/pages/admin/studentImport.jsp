@@ -37,7 +37,7 @@
 <div class="all">
 
     <div id="dataimportDiv">
-        <form class="form-inline" role="form" id="formDIv" method="post" enctype="multipart/form-data">
+        <form class="form-inline" role="form" id="uploadForm" method="post" enctype="multipart/form-data">
                 <label class="sr-only" for="inputfile">文件输入</label>
                 <input type="file" id="inputfile" name="inputfile" accept=".xls,.xlsx">
             <button type="button" class="btn btn-default" onclick="importStudentList('${ctx}/manager/uploadStudentList.do')">提交</button>

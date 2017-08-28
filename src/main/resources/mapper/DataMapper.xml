@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+       
+<mapper namespace="com.elearning.dao.DataDao">
+	<insert id="add" parameterType="Data" useGeneratedKeys="true">
+		insert into tb_data(dataName,dataImage,dataPath,dataAbstract,dataType) values(#{dataName},#{dataImage},#{dataPath},#{dataAbstract},#{dataType})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from tb_data where dataID = #{ID}
+	</delete>
+	
+	<resultMap type="Data" id="dataMap">
+		<id column="dataID" property="dataID"/>
+		<result column="dataName" property="dataName"/>
+		<result column="dataPath" property="dataPath"/>
+		<result column="dataAbstract" property="dataAbstract"/>
+		<result column="dataType" property="dataType"/>
+		<result column="dataDownloadSum" property="dataDownloadSum"/>
+	</resultMap>
+	
+	<select id="findAll" resultMap="dataMap">
+		select * from tb_data
+	</select>
+	
+	<select id="findByType" resultMap="dataMap">
+		select * from tb_data where dataType = #{type}
+	</select>
+</mapper>

@@ -29,18 +29,18 @@ body {
 }
 
 #sysName {
-width: 30%;
+    width: 30%;
     float: left;
-    text-align: left;
-    margin-left: 30px;
+    text-align: center;
+    margin-left: 0px;
 }
 
 #userName {
-width: 40%;
+    width: 40%;
     float: right;
     text-align: right;
     margin-right: 20px;
-    padding-top: 15px;
+    padding-top: 20px;
 }
 
 #navi {

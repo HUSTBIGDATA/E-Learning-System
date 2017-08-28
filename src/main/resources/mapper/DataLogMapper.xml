@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+       
+<mapper namespace="com.elearning.dao.DataLogDao">
+	<insert id="add" parameterType="DataLog" useGeneratedKeys="true">
+		insert into tb_datalog(dataID,downloaderID,downloadTime) values(#{dataID},#{downloaderID},#{downloadTime})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from tb_datalog where dataID = #{ID}
+	</delete>
+	
+	<select id="findByDownloaderID" parameterType="String" resultType="DataLog">
+		select * from tb_datalog where downloaderID = #{ID}
+	</select>
+	
+	<update id="updateDownloadTime">
+		update tb_datalog set downloadTime = #{date} where downloaderID = #{downloaderID}
+	</update>
+	
+	<resultMap type="Data" id="dataLogMap">
+		<id column="datalogID" property="datalogID"/>
+		<result column="dataID" property="dataID"/>
+		<result column="downloaderID" property="downloaderID"/>
+		<result column="downloadTime" property="downloadTime"/>
+	</resultMap>
+	
+	<select id="findAll" resultMap="dataLogMap">
+		select * from tb_datalog
+	</select>
+</mapper>

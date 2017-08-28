@@ -67,7 +67,7 @@ function dataallselect() {
 }
 
 
-function flushDatadList(basepath) {
+function flushDataList(basepath) {
 
     $.ajax({
         url: basepath,
@@ -80,7 +80,7 @@ function flushDatadList(basepath) {
 
         },
         error: function (err) {
-            // alert(err);
+            alert("查询失败!");
         }
     });
 
@@ -98,23 +98,22 @@ function dataclearAndadd(stdlist) {
     }
 
     for (var i = 0; i < stdlist.length; i++) {
-        str = str + '<tr name = "Oneofstd"><td><input type ="checkbox" class="datalist"></td><td >' + (i + 1) + '</td><td>' + stdlist[i].dataType + '</td><td class="fileName">' + stdlist[i].dataPath + '</td><td><button class="btn btn-primary btn-sm" onclick="downloadAfile("${pageContext.request.contextPath/data/downloadAfile.do",'+stdlist[i].dataPath+'})">下载 </button> | <button class = "btn btn-danger btn-sm" onclick="deleteAfile("${pageContext.request.contextPath/data/deleteAfile.do",'+stdlist[i].dataPath+'})">删除</button></td></tr>';
+        str = str + '<tr name = "Oneofstd"><td><input type ="checkbox" class="datalist"></td><td >' + (i + 1) + '</td><td>' + stdlist[i].dataType + '</td><td class="fileName">' + stdlist[i].dataName + '</td><td><button class="btn btn-primary btn-sm" onclick="downloadAfile("${pageContext.request.contextPath/data/downloadAfile.do",'+stdlist[i].dataPath+'})">下载 </button> | <button class = "btn btn-danger btn-sm" onclick="deleteAfile("${pageContext.request.contextPath/data/deleteAfile.do",'+stdlist[i].dataPath+'})">删除</button></td></tr>';
     }
     em.innerHTML = str;
 }
 
 
-function dataFindByClass(basepath) {
+function dataFindByType(basepath) {
 
-    var dataType = document.getElementById(name).value;
-
+    var dataType = document.getElementById("name").value;
 
     $.ajax({
         url: basepath,
         type: "POST",
         dataType: "json",
         data: {
-            "dataclass": dataType
+            "type": dataType
         },
         success: function (data) {
             //返回的是json字符串

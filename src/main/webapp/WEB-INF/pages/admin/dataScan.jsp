@@ -36,7 +36,7 @@
     <title>查看资料</title>
 </head>
 
-<body onload="flushDataList('${pageContext.request.contextPath}/data/dataListFlush.do')">
+<body>
 <div class="all" id="dataScan">
     <h2>学习资料</h2><br><br>
     <div id="dataTable">
@@ -47,17 +47,17 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" placeholder="请输入资料类型">
                     </div>
-                    <button type="button" onclick="dataFindByClass('${pageContext.request.contextPath}/data/datafindByClass.do')" class="btn btn-default">按类型查询
+                    <button type="button" onclick="dataFindByType('${pageContext.request.contextPath}/data/findByType.do')" class="btn btn-default">按类型查询
                     </button>
                 </div>
 
             </div>
             <div id="tableHeadRight">
-                <button type="button" class="btn btn-default" onclick="flushDatadList('${pageContext.request.contextPath}/data/datalist.do')">刷新
+                <button type="button" class="btn btn-default" onclick="flushDataList('${pageContext.request.contextPath}/data/dataList.do')">刷新
                 </button>
                 <button type="button" class="btn btn-default" onclick="setDownloadList('${pageContext.request.contextPath}/data/downloadlist.do')">批量下载
                 </button>
-                <button type="button" class="btn btn-default" onclick="setDeleteList('${pageContext.request.contextPath}/data/deletelist.do')">批量删除
+                <button type="button" class="btn btn-default" onclick="setDeleteList('${pageContext.request.contextPath}/data/deleteList.do')">批量删除
                 </button>
             </div>
         </div>
@@ -78,30 +78,7 @@
                 <tbody id="tablecontent">
                 <tr name="Oneofstd">
                     <td><input type="checkbox" class="datalist"></td>
-                    <td>1</td>
-                    <td>机器学习</td>
-                    <td class="fileName">西瓜书</td>
-                    <td>
-                        <button type="button" class="btn btn-primary btn-sm" onclick="downloadAfile('${pageContext.request.contextPath}/data/downloadAfile.do',filenameUrl})">
-        下载
-                </button> |
-                <button class="btn btn-danger btn-sm" onclick="deleteAfile('${pageContext.request.contextPath}/data/deleteAfile.do',filenameUrl})">
-                删除
-                </button >
-                </td>
-                        </tr>
-
-                        <tr name="Oneofstd">
-                <td><input type="checkbox" class="datalist"></td>
-                <td>2</td>
-                        <td>人工智能</td>
-                <td>算法导论</td>
-                <td><button class="btn btn-primary btn-sm" onclick="downloadAfile('${pageContext.request.contextPath}/data/downloadAfile',filenameUrl})">
-                下载
-                </button> |
-                <button class="btn btn-danger btn-sm" onclick="deleteAfile('${pageContext.request.contextPath}/data/deleteAfile.do',filenameUrl})">
-        删除
-        </button> </td>
+                    
         </tr>
 
                 </tbody>
@@ -113,6 +90,7 @@
 
                 <script language="javascript" type="text/javascript">
         </script>
+         <iframe style="display:none" onload="javascript:flushDataList('${pageContext.request.contextPath}/data/dataList.do')"/>
         </body>
         </html>
 

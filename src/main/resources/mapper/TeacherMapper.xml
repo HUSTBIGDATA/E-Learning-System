@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+       
 <mapper namespace="com.elearning.dao.TeacherDao">
-    <insert id="insertBasicInformation" parameterType="String">
-        insert into tb_teacher(teacherID,password,teacherName,teacherImage) values(#{ID},null,#{name},null)
-    </insert>
-
-    <update id="register" parameterType="Manager">
-        update tb_teacher set password = #{password}, teacherImage = #{image} where teacherID = #{ID}
-    </update>
-
-    <update id="modifyPassword" parameterType="String">
-        update tb_teacher set password = #{password} where teacherID = #{ID}
-    </update>
-
-    <update id="editInfomation" parameterType="String">
-        update tb_teacher set teacherName = #{name},teacherImage = #{image} where teacherID = #{ID}
-    </update>
-
-    <select id="getPassword" parameterType="String">
-        select password from tb_teacher where teacherID = #{ID}
-    </select>
-
-    <delete id="delete" parameterType="String">
-        delete from tb_teacher where teacherID = #{ID}
-    </delete>
-
-    <select id="findByID" parameterType="String" resultType="Manager">
-        select * from tb_teacher where teacherID = #{ID}
-    </select>
-
-    <resultMap type="Teacher" id="teacherMap">
-        <id column="teacherID" property="ID"/>
-        <result column="teacherName" property="name"/>
-        <result column="teacher" property="password"/>
-        <result column="teacherImage" property="image"/>
-    </resultMap>
-
-    <select id="findAll" resultMap="teacherMap">
-        select * from tb_teacher
-    </select>
+	<insert id="insertBasicInformation" parameterType="String" useGeneratedKeys="true">
+		insert into tb_teacher(teacherID,password,teacherName,teacherImage) values(#{ID},'49ba59abb',#{name},null)
+	</insert>
+	
+	<update id="register" parameterType="Teacher">
+		update tb_teacher set password = #{password}, teacherImage = #{image} where teacherID = #{ID}
+	</update>
+	
+	<update id="modifyPassword" parameterType="String">
+		update tb_teacher set password = #{password} where teacherID = #{ID}
+	</update>
+	
+	<update id="editInfomation" parameterType="String">
+		update tb_teacher set teacherName = #{name},teacherImage = #{image} where teacherID = #{ID}
+	</update>
+	
+	<select id="getPassword" parameterType="String">
+		select password from tb_teacher where teacherID = #{ID}
+	</select>
+	
+	<delete id="delete" parameterType="String">
+		delete from tb_teacher where teacherID = #{ID}
+	</delete>
+	
+	<select id="findByID" parameterType="String" resultType="Teacher">
+		select * from tb_teacher where teacherID = #{ID}
+	</select>
+	
+	<resultMap type="Teacher" id="teacherMap">
+		<id column="ID" property="ID"/>
+		<result column="teacherID" property="teacherID"/>
+		<result column="teacherName" property="name"/>
+		<result column="teacher" property="password"/>
+		<result column="teacherImage" property="image"/>
+	</resultMap>
+	
+	<select id="findByName" parameterType="String" resultMap="teacherMap">
+		select * from tb_teacher where teacherName = #{name}
+	</select>
+	
+	<select id="findAll" resultMap="teacherMap">
+		select * from tb_teacher
+	</select>
 </mapper>

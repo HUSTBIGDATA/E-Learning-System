@@ -1,6 +1,5 @@
 package com.elearning.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.List;
@@ -22,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.elearning.entity.PathConfig;
 import com.elearning.service.ManagerService;
 import com.elearning.service.StudentService;
+import com.elearning.service.TeacherService;
 import com.elearning.tools.POIUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -44,6 +44,9 @@ public class ManagerController {
 	
 	@Autowired
 	private StudentService studentService;
+	
+	@Autowired
+	private TeacherService teacherService;
 	
 	@RequestMapping(value = "/studentImport.do", method = RequestMethod.GET)
 	public ModelAndView studentImportLoad() {
@@ -72,6 +75,16 @@ public class ManagerController {
 	@RequestMapping(value = "/teacherImport.do", method = RequestMethod.GET)
 	public ModelAndView teacherImportLoad() {
 		return new ModelAndView("admin/teacherImport");
+	}
+	
+	@RequestMapping(value = "/dataScan.do", method = RequestMethod.GET)
+	public ModelAndView dataScanLoad() {
+		return new ModelAndView("admin/dataScan");
+	}
+	
+	@RequestMapping(value = "/dataImport.do", method = RequestMethod.GET)
+	public ModelAndView dataImportLoad() {
+		return new ModelAndView("admin/dataImport");
 	}
 	
 	@RequestMapping(value = "/modifyPassword.do", produces = "application/json;charset=UTF-8")
@@ -105,7 +118,8 @@ public class ManagerController {
 	} 
 	
 	@RequestMapping(value = "/uploadStudentList.do", method = RequestMethod.POST)
-	public ModelAndView uploadStudentList(HttpServletRequest httpServletRequest,
+	@ResponseBody
+	public String uploadStudentList(HttpServletRequest httpServletRequest,
 			@RequestParam(value = "inputfile") MultipartFile inputfile) {
 		/*String[] fileNameList = inputfile.getOriginalFilename().split("\\.");
 		String fileName = "studentList." + fileNameList[fileNameList.length - 1];
@@ -119,7 +133,6 @@ public class ManagerController {
 	    } catch (Exception e) {  
 	        e.printStackTrace();  
 	    }*/
-		
 		try {
 			List<String[]> studentList = POIUtil.readExcel(inputfile);
 			for (String[] info : studentList) {
@@ -128,6 +141,45 @@ public class ManagerController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new ModelAndView("admin/adminIndex");
+		
+		ObjectMapper mapper = new ObjectMapper();
+		StringWriter writer = new StringWriter();
+		
+		try {
+			mapper.writeValue(writer, "上传成功!");
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return writer.toString();
+	}
+	
+	@RequestMapping(value = "/uploadTeacherList.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String uploadTeacherList(HttpServletRequest httpServletRequest,
+			@RequestParam(value = "inputfile") MultipartFile inputfile) {
+		try {
+			List<String[]> studentList = POIUtil.readExcel(inputfile);
+			for (String[] info : studentList) {
+				teacherService.insertBasicInformation(info[0], info[1]);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		ObjectMapper mapper = new ObjectMapper();
+		StringWriter writer = new StringWriter();
+		
+		try {
+			mapper.writeValue(writer, "上传成功!");
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return writer.toString();
 	}
 }

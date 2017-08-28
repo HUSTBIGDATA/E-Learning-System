@@ -13,7 +13,7 @@ import com.elearning.tools.Md5Hash;
 
 @Service(value="managerServiceImpl")
 @Transactional
-public class ManagerServiceImpl implements ManagerService{
+public class ManagerServiceImpl implements ManagerService {
 
 	@Autowired
 	private ManagerDao managerDao;
