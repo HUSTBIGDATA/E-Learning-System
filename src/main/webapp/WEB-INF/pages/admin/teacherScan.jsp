@@ -71,9 +71,11 @@
                     <td style="width:8%">
                         <input type="checkbox" id="teacherControllall" onclick="teacherallselect()">&nbsp;&nbsp;全选
                     </td>
-                    <td style="width:5%">序号</td>
-                    <td style="width:17%">教师姓名</td>
-                    <td style="width:30%">ID</td>
+                    <td style="width:8%">序号</td>
+                    <td style="width:15%">教师姓名</td>
+                    <td style="width:20%">单位</td>
+                    <td style="width:20%">ID</td>
+                    <td style="width:37%">手机号</td>
                 </tr>
                 </thead>
                 <tbody id="teachertablecontent">

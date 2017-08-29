@@ -27,8 +27,13 @@ function teacherclearAndadd(stdlist) {
     }
 
     for (var i = 0; i < stdlist.length; i++) {
-        str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="teacherlist">' +
-            '</td><td>' + (i + 1) + '</td><td>' + stdlist[i].name + '</td><td class="ID">' + stdlist[i].teacherID + '</td></tr>';
+        str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="teacherlist">'
+            + '</td><td>' + (i + 1)
+            + '</td><td>' + stdlist[i].name
+            +'</td><td>' + stdlist[i].danwei
+            + '</td><td class="ID">' + stdlist[i].teacherID
+            +'</td><td>'+stdlist[i].phoneNumber
+            + '</td></tr>';
 
     }
     em.innerHTML = str;
