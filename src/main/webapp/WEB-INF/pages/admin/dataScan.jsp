@@ -88,8 +88,7 @@
         </div>
         </div>
 
-                <script language="javascript" type="text/javascript">
-        </script>
+
          <iframe style="display:none" onload="javascript:flushDataList('${pageContext.request.contextPath}/data/dataList.do')"/>
         </body>
         </html>

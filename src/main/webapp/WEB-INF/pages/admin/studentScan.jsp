@@ -63,10 +63,11 @@
                     <td style="width:8%">
                         <input type="checkbox" id="controllall" onclick="allselect()">&nbsp;&nbsp;全选
                     </td>
-                    <td style="width:5%">序号</td>
-                    <td style="width:17%">姓名</td>
-                    <td style="width:30%">ID</td>
-                    <td style="width:40%">偏好</td>
+                    <td style="width:8%">序号</td>
+                    <td style="width:15%">姓名</td>
+                    <td style="width:15%">学号</td>
+                    <td style="width:20%">ID</td>
+                    <td style="width:42%">偏好</td>
                 </tr>
                 </thead>
                 <tbody id="tablecontent">
@@ -74,13 +75,16 @@
                      <td><input type="checkbox" class="studentlist"></td>
                      <td>1</td>
                      <td>Tanmay</td>
+                         <td>1715202</td>
                      <td class="ID">Bangalore</td>
+
                      <td>560001</td>
                  </tr>
                  <tr name="Oneofstd">
                      <td><input type="checkbox" class="studentlist"></td>
                      <td>2</td>
                      <td>Sachin</td>
+                         <td>1715202</td>
                      <td class="ID">Mumbai</td>
                      <td>400003</td>
                  </tr>-->

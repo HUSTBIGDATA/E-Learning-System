@@ -99,21 +99,14 @@
                     </ul>
 
                     <li><a href="#productMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        <i class="fa fa-globe"></i>&nbsp; 资料管理 <span class="sr-only">(current)</span></a>
+                        <i class="fa fa-globe"></i>&nbsp; 课程管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <ul id="productMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/manager/dataScan.do')"> 查看资料</a></li>
-                        <li><a href="###" onclick="showAtRight('${ctx}/manager/dataImport.do')"> 资料上传</a></li>
-                    </ul>
+                            <li><a href="###" onclick="showAtRight('CourseScan.html')"> 所有课程</a></li>
+                            <li><a href="###" onclick="showAtRight('dataScan.html')"> 课程资料</a></li>
+                            <li><a href="###" onclick="showAtRight('videoScan.html')"> 课程视频</a></li>
 
-                    <li><a href="#recordMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp; 视频管理 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <ul id="recordMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('videoScan.html')"> 查看视频</a></li>
-                        <li><a href="###" onclick="showAtRight('videoUpload.html')"> 上传视频</a></li>
                     </ul>
-
                 </ul>
 
             </div>

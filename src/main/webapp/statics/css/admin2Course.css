@@ -1,0 +1,71 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.all {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+
+/***********   CourseScan css  ************/
+
+#dataScan {
+    text-align: center;
+    width: 100%;
+}
+
+#dataTable {
+    padding: 0;
+    text-align: center;
+    width: 80%;
+}
+
+#tabHead {
+
+    padding: 0;
+    width: 80%;
+    height: 40px;
+}
+
+#tableHeadLeft {
+
+    padding: 0;
+    width: 40%;
+    text-align: left;
+    float: left;
+}
+
+#tableHeadRight {
+
+    padding: 0;
+    width: 40%;
+    text-align: right;
+    float: right;
+}
+#newCourse{
+    width: 80%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 20px;
+    border: 1px solid cornflowerblue;
+}
+#tableBody {
+    margin-top: 20px;
+    overflow-y: auto;
+    width: 80%;
+    padding: 0;
+    height: 100%;
+    text-align: center;
+}
+
+
