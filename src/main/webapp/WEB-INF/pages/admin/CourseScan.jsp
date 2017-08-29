@@ -87,8 +87,6 @@
                 <thead>
                 <tr>
                     <td style="width:8%">
-                        <input type="checkbox" id="controllall" onclick="CourseAllselect()">&nbsp;&nbsp;全选
-                    </td>
                     <td style="width:5%">序号</td>
                     <td style="width:17%">课程ID</td>
                     <td style="width:30%">课程名</td>

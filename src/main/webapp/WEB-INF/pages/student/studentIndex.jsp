@@ -24,13 +24,13 @@
     <!-- 引入各种CSS样式表 -->
 
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-change.css">
-    <link rel="stylesheet" href="<%=basePath%>statics/css/admin.css">
+    <link rel="stylesheet" href="<%=basePath%>statics/css/student.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-awesome.css">
 
     <!--script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css"-->
-    <script src="<%=basePath%>statics/js/admin.js"></script>
+
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -73,27 +73,28 @@
                     </ul>
                     <!-- 一级菜单 -->
 
-                    <li><a href="#teacherMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
+                    <li><a href="#courseMenu" class="nav-header menu-first collapsed" data-toggle="collapse">
                         &nbsp;课程管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <!-- 二级菜单 -->
                     <!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
-                    <ul id="teacherMeun" class="nav nav-list collapse menu-second">
+                    <ul id="courseMenu" class="nav nav-list collapse menu-second">
                         <li><a href="###" onclick="showAtRight('${ctx}/student/myCourse.do')"> 我的课程</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/student/addCourse.do')"> 新增课程</a></li>
                     </ul>
 
-                    <li><a href="#productMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
+                    <li><a href="#dataMenu" class="nav-header menu-first collapsed" data-toggle="collapse">
                         &nbsp; 资料管理 <span class="sr-only">(current)</span></a>
                     </li>
-                    <ul id="productMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/student/data.do')"> 查看资料</a></li>
+                    <ul id="dataMenu" class="nav nav-list collapse menu-second">
+                        <li><a href="###" onclick="showAtRight('${ctx}/student/datalist.do')"> 查看资料</a></li>
                     </ul>
 
-                    <li><a href="#recordMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
+                    <li><a href="#videoMenv" class="nav-header menu-first collapsed" data-toggle="collapse">
                         &nbsp;观看视频 <span class="sr-only">(current)</span></a>
                     </li>
-                    <ul id="recordMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('videoScan.html')"> 视频列表</a></li>
+                    <ul id="videoMenv" class="nav nav-list collapse menu-second">
+                        <li><a href="###" onclick="showAtRight('/student/videoScan.html')"> 视频列表</a></li>
                     </ul>
 
                 </ul>

@@ -28,14 +28,14 @@ body {
     display: block;
 }
 
-#sysName {   //改成这样
+#sysName {
 width: 30%;
     float: left;
     text-align: left;
     margin-left: 30px;
 }
 
-#userName {  //改成这样
+#userName {
 width: 40%;
     float: right;
     text-align: right;
@@ -199,25 +199,26 @@ width: 40%;
     text-align: center;
     display: none;
 }
-/*********** 以下为studentImport.jsp样式**************/
-
-#dataimportDiv {
-
-    margin: 200px;
-    text-align: center;
-    width: 400px;
-    height: 200px;
-    border: 1px solid black;
-}
-
-#formDIv {
-    text-align: center;
-    padding: 80px 20px 20px 20px;
-}
-
 
 /*********** 以下为adminInfo.jsp样式**************/
 
+* {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.all {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
 #adminINFO {
 
     height: 100%;
@@ -267,7 +268,7 @@ width: 40%;
 #changePwdDiv {
     padding: 10px;
     width: 80%;
-    height: 290px;
+    height: 260px;
     border: 0.5px solid #B0C4DE;
     text-align: center;
 
@@ -282,20 +283,17 @@ width: 40%;
     margin-top: 20px;
 }
 
-/*********** 以下为studentScan.jsp样式**************/
+/*********** 以下为studentData.jsp样式**************/
 
-#stdScan {
+#dataScan {
     text-align: center;
     width: 100%;
-
 }
 
-#studentTable {
-
+#dataTable {
     padding: 0;
     text-align: center;
     width: 80%;
-
 }
 
 #tabHead {
@@ -303,7 +301,6 @@ width: 40%;
     padding: 0;
     width: 80%;
     height: 40px;
-
 }
 
 #tableHeadLeft {
@@ -320,7 +317,6 @@ width: 40%;
     width: 40%;
     text-align: right;
     float: right;
-
 }
 
 #tableBody {
