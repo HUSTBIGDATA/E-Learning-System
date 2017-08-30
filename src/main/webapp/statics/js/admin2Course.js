@@ -92,7 +92,7 @@ function courseclearAndadd(stdlist) {
 
 function dataFindByName(basepath) {
 
-    var dataType = document.getElementById(CourseNameFind).value;
+    var dataType = document.getElementById("CourseNameFind").value;
 
     $.ajax({
         url: basepath,
@@ -122,7 +122,7 @@ function deleteCourseSeleted(basepath) {
     var delstdList = new Array();
 
     var j = 0;
-    for (var i = 0; i < IDlist.length; ++i) {
+    for (var i = 0; i < checklist.length; ++i) {
 
         if (checklist[i].checked) {
 
