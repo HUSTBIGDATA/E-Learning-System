@@ -26,12 +26,12 @@ function addNewCourse() {
 }
 
 
-function flushCourseList(basepath) {
+function flushCoursedList(basepath) {
 
     document.getElementById("newCourse").style.display = "none";
 
     $.ajax({
-        url: basepath,
+        url: basepath + '/course/courselist.do',
         type: "POST",
         dataType: "json",
         success: function (data) {
@@ -84,27 +84,28 @@ function courseclearAndadd(stdlist) {
     }
 
     for (var i = 0; i < stdlist.length; i++) {
-        str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="datalist"></td><td>' + (i + 1) + '</td><td class="courseid">' + stdlist[i].courseID + '</td><td>' + stdlist[i].courseName + '</td><td>' + stdlist[i].courseTeacher + '</td></tr>';
+        str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="datalist"></td><td>' + (i + 1) + '</td><td class="courseid">' + stdlist[i].courseID + '</td><td>' + stdlist[i].teacherName + '</td><td>' + stdlist[i].teacherID + '</td></tr>';
     }
     em.innerHTML = str;
 }
 
 
-function courseFindByName(basepath) {
+function dataFindByName(basepath) {
 
-    var courseType = document.getElementById("CourseNameFind").value;
+    var dataType = document.getElementById("CourseNameFind").value;
 
     $.ajax({
         url: basepath,
         type: "POST",
         dataType: "json",
         data: {
-            "name": courseType
+            "courseName":dataType
         },
         success: function (data) {
             //返回的是json字符串        
             var res = JSON.parse(data); //res是json对象
-            dataclearAndadd(res);
+           // dataclearAndadd(res);
+            courseclearAndadd(res);
 
         },
         error: function (err) {
@@ -145,7 +146,7 @@ function deleteCourseSeleted(basepath) {
             success: function (data) {
                 alert("删除成功");
                 var res = JSON.parse(data); //res是json对象
-                dataclearAndadd(res);
+                courseclearAndadd(res);
             },
             error: function (err) {
                 alert("删除失败");

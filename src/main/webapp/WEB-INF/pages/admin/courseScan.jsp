@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="<%=basePath%>statics/css//admin2Course.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-awesome.css">
 
-    <script src="<%=basePath%>statics/js/admin2Course.js"></script>
+    <script src="<%=basePath%>statics/js/amdin2Course.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -38,9 +38,9 @@
 </head>
 
 <body >
-<div class="all" id="courseScan">
+<div class="all" id="dataScan">
     <h2>学习资料</h2><br><br>
-    <div id="courseTable">
+    <div id="dataTable">
         <div id="tabHead">
             <div id="tableHeadLeft">
 
@@ -48,15 +48,15 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="CourseNameFind" placeholder="请输入课程名">
                     </div>
-                    <button type="button" onclick="courseFindByName('${pageContext.request.contextPath}/course/findByName.do')" class="btn btn-default">按课程名查询
+                    <button type="button" onclick="dataFindByName('${pageContext.request.contextPath}/course/coursefindByName.do')" class="btn btn-default">按课程名查询
                     </button>
                 </div>
 
             </div>
             <div id="tableHeadRight">
-                <button type="button" class="btn btn-default" onclick="deleteCourseSeleted('${pageContext.request.contextPath}/course/deleteCourse.do')">删除所选
+                <button type="button" class="btn btn-default" onclick="deleteCourseSeleted('${pageContext.request.contextPath}')">删除所选
                 </button>
-                <button type="button" class="btn btn-default" onclick="flushCourseList('${pageContext.request.contextPath}/course/courseList.do')">刷新
+                <button type="button" class="btn btn-default" onclick="flushCoursedList('${pageContext.request.contextPath}')">刷新
                 </button>
 
                 <button type="button" class="btn btn-default" onclick="addNewCourse()">添加新课程
@@ -87,8 +87,6 @@
                 <thead>
                 <tr>
                     <td style="width:8%">
-                        <input type="checkbox" id="controllall" onclick="CourseAllselect()">&nbsp;&nbsp;全选
-                    </td>
                     <td style="width:5%">序号</td>
                     <td style="width:17%">课程ID</td>
                     <td style="width:30%">课程名</td>
@@ -96,14 +94,14 @@
                 </tr>
                 </thead>
                 <tbody id="tablecontent">
-                <!--tr name="Oneofstd">
+                <tr name="Oneofstd">
                     <td><input type="checkbox" class="datalist"></td>
                     <td>1</td>
                     <td class="courseid">1001</td>
                     <td>机器学习</td>
                     <td>王小二
                     </td>
-                </tr-->
+                </tr>
 
                 </tbody>
             </table>
@@ -111,6 +109,6 @@
 
     </div>
 </div>
-<iframe style="display:none" onload="javascript:flushCourseList('${pageContext.request.contextPath}/course/courseList.do')"/>
+<iframe style="display:none" onload="javascript:flushCoursedList('${pageContext.request.contextPath}/course/courselist.do')"/>
 </body>
 </html>

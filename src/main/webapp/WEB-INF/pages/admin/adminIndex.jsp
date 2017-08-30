@@ -33,7 +33,6 @@
     <script src="<%=basePath%>statics/js/admin.js"></script>
     <script src="<%=basePath%>statics/js/admin2Teacher.js"></script>
     <script src="<%=basePath%>statics/js/admin2Data.js"></script>
-    <script src="<%=basePath%>statics/js/admin2Course.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -103,9 +102,9 @@
                         <i class="fa fa-globe"></i>&nbsp; 课程管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <ul id="productMeun" class="nav nav-list collapse menu-second">
-                            <li><a href="###" onclick="showAtRight('${ctx}/manager/courseScan.do')"> 所有课程</a></li>
-                            <li><a href="###" onclick="showAtRight('${ctx}/manager/dataScan.do')"> 课程资料</a></li>
-                            <li><a href="###" onclick="showAtRight('${ctx}/manager/videoScan.do')"> 课程视频</a></li>
+                            <li><a href="###" onclick="showAtRight('CourseScan.html')"> 所有课程</a></li>
+                            <li><a href="###" onclick="showAtRight('dataScan.html')"> 课程资料</a></li>
+                            <li><a href="###" onclick="showAtRight('videoScan.html')"> 课程视频</a></li>
 
                     </ul>
                 </ul>
