@@ -26,12 +26,12 @@ function addNewCourse() {
 }
 
 
-function flushCoursedList(basepath) {
+function flushCourseList(basepath) {
 
     document.getElementById("newCourse").style.display = "none";
 
     $.ajax({
-        url: basepath + '/course/courselist.do',
+        url: basepath,
         type: "POST",
         dataType: "json",
         success: function (data) {
@@ -84,22 +84,22 @@ function courseclearAndadd(stdlist) {
     }
 
     for (var i = 0; i < stdlist.length; i++) {
-        str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="datalist"></td><td>' + (i + 1) + '</td><td class="courseid">' + stdlist[i].courseID + '</td><td>' + stdlist[i].teacherName + '</td><td>' + stdlist[i].teacherID + '</td></tr>';
+        str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="datalist"></td><td>' + (i + 1) + '</td><td class="courseid">' + stdlist[i].courseID + '</td><td>' + stdlist[i].courseName + '</td><td>' + stdlist[i].courseTeacher + '</td></tr>';
     }
     em.innerHTML = str;
 }
 
 
-function dataFindByName(basepath) {
+function courseFindByName(basepath) {
 
-    var dataType = document.getElementById("CourseNameFind").value;
+    var courseType = document.getElementById("CourseNameFind").value;
 
     $.ajax({
         url: basepath,
         type: "POST",
         dataType: "json",
         data: {
-            "courseName": dataType
+            "name": courseType
         },
         success: function (data) {
             //返回的是json字符串        

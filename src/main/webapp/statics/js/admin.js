@@ -30,9 +30,9 @@ function clearAndadd(stdlist) {
 
         str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="studentlist">' +
             '</td><td>' + (i + 1) + '</td><td>' +
-            stdlist[i].name + '</td><td>'+stdlist[i].studyNum
-            +'</td><td>'+ stdlist[i].phoneNumber+'</td><td class="ID">' + stdlist[i].studentID
-            + '</td><td>' + stdlist[i].danwei +'</td><td>'+stdlist[i].preferences + '</td></tr>';
+            stdlist[i].name + /*'</td><td>'+stdlist[i].studyNum
+            +*/'</td><td>'+ stdlist[i].phonenumber+'</td><td class="ID">' + stdlist[i].studentID
+            + '</td><td>' + stdlist[i].department +'</td><td>'+stdlist[i].preferences + '</td></tr>';
 
     }
     em.innerHTML = str;
