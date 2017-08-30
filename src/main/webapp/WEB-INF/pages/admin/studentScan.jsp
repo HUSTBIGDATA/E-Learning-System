@@ -65,7 +65,7 @@
                     </td>
                     <td style="width:8%">序号</td>
                     <td style="width:15%">姓名</td>
-                    <td style="width:15%">学号</td>
+                    <!--td style="width:15%">学号</td -->
                     <td style="width:15%">手机号</td>
                     <td style="width:20%">ID</td>
                     <td style="width:20%">单位</td>
