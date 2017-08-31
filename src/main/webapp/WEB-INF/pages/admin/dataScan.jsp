@@ -72,14 +72,15 @@
                     <td style="width:17%">资料类型</td>
                     <!-- 机器学习 人工智能什么的-->
                     <td style="width:30%">资料名</td>
-                    <td style="width:40%">操作</td>
+                    <td style="width:40%">
+                    </td>
                 </tr>
                 </thead>
                 <tbody id="tablecontent">
                 <tr name="Oneofstd">
                     <td><input type="checkbox" class="datalist"></td>
                     
-        </tr>
+                </tr>
 
                 </tbody>
                 </table>

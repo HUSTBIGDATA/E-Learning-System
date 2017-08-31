@@ -90,6 +90,8 @@ function flushDataList(basepath) {
 
 function dataclearAndadd(stdlist) {
 
+
+
     var str = "";
     var em = document.getElementById("tablecontent");
     while (em.hasChildNodes()) //当em下还存在子节点时 循环继续
@@ -98,7 +100,7 @@ function dataclearAndadd(stdlist) {
     }
 
     for (var i = 0; i < stdlist.length; i++) {
-        str = str + '<tr name = "Oneofstd"><td><input type ="checkbox" class="datalist"></td><td >' + (i + 1) + '</td><td>' + stdlist[i].dataType + '</td><td class="fileName">' + stdlist[i].dataName + '</td><td><button class="btn btn-primary btn-sm" onclick="downloadAfile("${pageContext.request.contextPath/data/downloadAfile.do",'+stdlist[i].dataPath+'})">下载 </button> | <button class = "btn btn-danger btn-sm" onclick="deleteAfile("${pageContext.request.contextPath/data/deleteAfile.do",'+stdlist[i].dataPath+'})">删除</button></td></tr>';
+        str = str + '<tr name = "Oneofstd"><td><input type ="checkbox" class="datalist"></td><td >' + (i + 1) + '</td><td>' + stdlist[i].dataType + '</td><td class="fileName">' + stdlist[i].dataName + '</td><td><a onclick="readOnline("${pageContext.request.contextPath/readOnline.do",' + stdlist[i].dataPath +'})">预览</a></td></tr>';
     }
     em.innerHTML = str;
 }
@@ -126,6 +128,24 @@ function dataFindByType(basepath) {
             // alert(err);
         }
     });
+
+}
+function readOnline(basepath,filepath) {         // 在线阅读跳转方法
+
+    //这里进行预览跳转   不用ajax请求，使用form请求，并且打开新的标签页
+    var form = $("<form>");   //定义一个form表单
+    form.attr('style', 'display:none');   //在form表单中添加查询参数
+    form.attr('target', '_blank');
+    form.attr('method', 'get');
+    form.attr('action', basepath);
+
+    var input1 = $('<input>');
+    input1.attr('type', 'hidden');
+    input1.attr('name', 'filepath');
+    input1.attr('value', filepath);
+    $('body').append(form);  //将表单放置在web中
+    form.append(input1);   //将查询参数控件提交到表单上
+    form.submit();
 
 }
 function downloadAfile(basepath,fileUrl){
