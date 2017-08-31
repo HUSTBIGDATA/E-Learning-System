@@ -10,6 +10,8 @@ create table tb_student (
     studentName 	varchar(10),
     studentImage 	varchar(255),
     preferences 	varchar(100),
+    department		varchar(30),
+    phonenumber		varchar(20),
     unique(studentID)
 )engine = InnoDB;
 
@@ -21,6 +23,8 @@ create table tb_teacher (
     password 		varchar(30),
     teacherName 	varchar(10),
     teacherImage 	varchar(255),
+	department		varchar(30),
+    phonenumber		varchar(20),
     unique(teacherID)
 )engine = InnoDB;
 
@@ -37,6 +41,7 @@ create table tb_manager (
 ##创建课程信息表
 create table tb_course (
 	courseID 		integer auto_increment primary key,
+    courseName		varchar(50),
     courseTeacher	varchar(30),
     plan 			varchar(255),
     schedule 		float,
@@ -79,8 +84,7 @@ create table tb_postlog (
     visitorID 		varchar(30),
     visitTime 		datetime,
     
-    foreign key (postID) references tb_post(postID),
-    foreign key (visitorID) references tb_student(studentID)
+    foreign key (postID) references tb_post(postID)
 )engine = InnoDB;
 
 ##创建资料信息表
@@ -90,6 +94,7 @@ create table tb_data (
     dataImage 		varchar(255),
     dataPath 		varchar(255),
     dataAbstract 	varchar(255),
+    dataType		varchar(20),
     dataDownloadSum integer
 )engine = InnoDB;
 
@@ -100,8 +105,7 @@ create table tb_datalog (
     downloaderID 	varchar(30),
     downloadTime 	datetime,
     
-    foreign key (dataID) references tb_data(dataID),
-    foreign key (downloaderID) references tb_student(studentID)
+    foreign key (dataID) references tb_data(dataID)
 )engine = InnoDB;
 
 ##创建新闻信息表
@@ -129,8 +133,7 @@ create table tb_newslog (
     visitorID 		varchar(30),
     visitTime 		datetime,
     
-    foreign key (newsID) references tb_news(newsID),
-    foreign key (visitorID) references tb_student(studentID)
+    foreign key (newsID) references tb_news(newsID)
 )engine = InnoDB;
 
 
