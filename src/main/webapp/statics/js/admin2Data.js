@@ -1,9 +1,9 @@
 /**
  * Created by hujunhui on 2017/8/24.
  */
-// 用于 dataImport js
+// 用于 dataImport
 
-function importData(rel) {
+/*function importData(rel) {
 
 
     var fileclass = document.getElementById("dataclass").value;
@@ -37,8 +37,32 @@ function importData(rel) {
             });
         }
     }
-}
+}*/
 
+
+
+function importData(basepath) {
+
+    var formData =new FormData($("#dataformDIv")[0]);
+
+    $.ajax({
+        url:basepath,
+        type:"POST",
+        data: formData,
+        async:false,
+        cache:false,
+        processData:false,
+        contentType:false,
+        success:function(response){
+            //根据返回结果提示，，response为字符串 ‘上传成功’
+            alert(response);
+        },
+        error:function(){
+            alert("上传学生名单失败!");
+        }
+    });
+
+}
 
 function onprogress(evt) {
     var loaded = evt.loaded; //已经上传大小情况
@@ -66,9 +90,12 @@ function dataallselect() {
     }
 }
 
-
+function  dataImport() {
+    document.getElementById("dataImportDiv").display="";
+}
 function flushDataList(basepath) {
 
+    document.getElementById("dataImportDiv").display="none";
     $.ajax({
         url: basepath,
         type: "POST",
@@ -100,7 +127,7 @@ function dataclearAndadd(stdlist) {
     }
 
     for (var i = 0; i < stdlist.length; i++) {
-        str = str + '<tr name = "Oneofstd"><td><input type ="checkbox" class="datalist"></td><td >' + (i + 1) + '</td><td>' + stdlist[i].dataType + '</td><td class="fileName">' + stdlist[i].dataName + '</td><td><a onclick="readOnline("${pageContext.request.contextPath/readOnline.do",' + stdlist[i].dataPath +'})">预览</a></td></tr>';
+        str = str + '<tr name = "Oneofstd"><td><input type ="checkbox" class="datalist"></td><td >' + (i + 1) + '</td><td>' + stdlist[i].dataType + '</td><td class="fileName">' + stdlist[i].dataName + '</td><td><a onclick="readOnline("/readOnline.do",' + stdlist[i].dataPath +')">预览</a></td></tr>';
     }
     em.innerHTML = str;
 }
@@ -132,12 +159,16 @@ function dataFindByType(basepath) {
 }
 function readOnline(basepath,filepath) {         // 在线阅读跳转方法
 
+
+    var ori = document.getElementById("PageContext").value;
+
+
     //这里进行预览跳转   不用ajax请求，使用form请求，并且打开新的标签页
     var form = $("<form>");   //定义一个form表单
     form.attr('style', 'display:none');   //在form表单中添加查询参数
     form.attr('target', '_blank');
     form.attr('method', 'get');
-    form.attr('action', basepath);
+    form.attr('action', ori + basepath);
 
     var input1 = $('<input>');
     input1.attr('type', 'hidden');

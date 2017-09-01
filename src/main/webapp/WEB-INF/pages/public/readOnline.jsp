@@ -27,7 +27,9 @@
     <link rel="stylesheet" href="<%=basePath%>statics/css//admin2Course.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-awesome.css">
 
-    <script src="<%=basePath%>statics/js/amdin2Course.js"></script>
+      <script src="<%=basePath%>statics/js/online.css"></script>
+      <script src="<%=basePath%>statics/js/pdf.js"></script>
+      <script src="<%=basePath%>statics/js/pdf.worker.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -67,9 +69,7 @@
 
     var url = "${ctx}statics/img/test.pdf";      //这里要不要在｛ctx｝后面加斜杠呢？
 
-    //var url = '${filePath}'    这里是设置文件路径的地方
-
-    PDFJS.workerSrc = 'pdf.worker.js';
+    PDFJS.workerSrc = '${ctx}statics/js/pdf.worker.js';
 
     var pdfDoc = null,
         pageNum = 1, //初始页码
@@ -177,7 +177,7 @@
         var sec = 0;
         setInterval(function() {
             sec++;
-            var date = new Date(0, 0)
+            var date = new Date(0, 0);
             date.setSeconds(sec);
             var h = date.getHours(),
                 m = date.getMinutes(),

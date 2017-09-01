@@ -59,8 +59,47 @@
                 </button>
                 <button type="button" class="btn btn-default" onclick="setDeleteList('${pageContext.request.contextPath}/data/deleteList.do')">批量删除
                 </button>
+                </button>
+                <button type="button" class="btn btn-default" onclick="dataImport()">上传资料
+                </button>
+
             </div>
         </div>
+
+
+        <div id="dataImportDiv">
+            <form class="form-horizontal" role="form" id="dataformDIv">
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label ">文件</label>
+                    <div class="col-sm-5">
+                        <input type="file" id="inputfile" name="inputfile">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">分类</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="dataclass" placeholder="请输入资料种类">
+                    </div>
+                </div>
+
+                <button type="button " onclick="importData('${pageContext.request.contextPath}/data/importData.do')" class="btn btn-default">上传
+                </button>
+
+            </form>
+
+            <!---以下为进度条-->
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" id="uploadscoll">
+                </div>
+            </div>
+        </div>
+
+
+
+
         <div id="tableBody">
             <table class="table table-striped table-bordered table-condensed">
                 <thead>

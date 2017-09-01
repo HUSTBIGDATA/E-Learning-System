@@ -16,27 +16,6 @@ body {
     position: relative;
 }
 
-/**   dataImport css***/
-#dataImportDiv {
-    margin: 200px;
-    text-align: left;
-    width: 400px;
-    border: 1px solid #2e6da4;
-    padding: 2px;
-
-}
-
-#dataformDIv {
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-
-}
-
-#uploadscoll {
-
-}
-
 /***********   dataScan css  ************/
 
 #dataScan {
@@ -78,5 +57,14 @@ body {
     width: 80%;
     padding: 0;
     height: 100%;
+    text-align: center;
+}
+#dataImportDiv{
+    width: 80%;
+    height: 180px;
+    border: 1px solid cornflowerblue;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     text-align: center;
 }
