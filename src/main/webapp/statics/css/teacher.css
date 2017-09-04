@@ -319,7 +319,62 @@ body {
     text-align: center;
     
 }
+/************teacherCourse css*************/
+
+#htmTitle {
+    margin-left: 100px;
+}
+
+/*大层*/
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/*瀑布流层*/
+
+.waterfall {
+    -moz-column-count: 3;
+    /* Firefox */
+    -webkit-column-count: 3;
+    /* Safari 和 Chrome */
+    column-count: 3;
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+    column-gap: 1px;
+}
 
 
+
+/*一个内容层*/
+
+.item {
+    padding-top: 15px;
+    margin: 0 0 1px 0;
+    -moz-page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+    background-color: #BABABA;
+    width: 300px;
+    height: 360px;
+    text-align: center;
+    margin: 0;
+
+
+}
+.courceinfo{
+    width: 300px;
+    height: 90px;
+    text-align: left;
+    text-indent:2em;
+    overflow:auto
+}
+.courseplan{
+    width: 300px;
+    height: 130px;
+    text-align: left;
+    text-indent:2em;
+    overflow:auto
+}
 
 

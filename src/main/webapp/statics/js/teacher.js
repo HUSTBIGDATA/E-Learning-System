@@ -309,6 +309,33 @@ function setDownloadList(basepath) {
 
 }
 
+
+function onloadTeacherCourse(basepath) {
+
+
+    $.ajax({
+        url: basepath,
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            var res = JSON.parse(data);
+            str = "";
+
+            for (var i = 0; i < res.length; i++) {
+
+                str = str + '<div class = "item" ><h4>课程编号'+res[i].courseID+'&nbsp;&nbsp;'+res[i].courseName+'</h4><hr><div><span>教师:'+res[i].teacherName+'<br></span><span style = "float:left;">课程信息： </span><br><div class = "courceinfo">'+res[i].courseInfo+'</div><span style = "float:left;" > 教学计划： </span><br><div class = "courseplan" >'+res[i].coursePlan+'</div></div></div>';
+            }
+            document.getElementById("waterfall").innerHTML=str;
+        },
+        error: function (err) {
+            // alert(err);
+        }
+    });
+
+
+}
+
 /*function setDeleteList(basepath) {
    教师不可以删除文件，，只能上传文件
     var checklist = document.getElementsByClassName("datalist");
