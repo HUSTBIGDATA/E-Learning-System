@@ -52,6 +52,9 @@ function addNewCourse(basepath) {
     var courseID = document.getElementById("courseID").value;
     var courseName = document.getElementById("courseName").value;
     var teacherID = document.getElementById("teacherID").value;
+    var courseInfo = document.getElementById("cosinfo").value;
+    var coursePlan = document.getElementById("cosplan").value;
+
 
     $.ajax({
         url: basepath,
@@ -60,7 +63,9 @@ function addNewCourse(basepath) {
         data: {
             "courseID": courseID,
             "courseName": courseName,
-            "teacherID": teacherID
+            "teacherID": teacherID,
+            "courseInfo":courseInfo,
+            "coursePlan":coursePlan
         },
         success: function (data) {
             document.getElementById("newCourse").style.display = "none";

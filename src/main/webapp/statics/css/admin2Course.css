@@ -67,5 +67,26 @@ body {
     height: 100%;
     text-align: center;
 }
+#courseinfo{
+    width: 48%;
+    float:left;
+    height: 150px;
 
+    margin-top: 10px;
+}
+#courseplan{
+    width: 48%;
+    float:right;
+    height: 150px;
+
+    margin-top: 10px;
+}
+textarea{
+    height:140px;
+    width: 80%;
+    border: 2px solid #555;
+    float: right;
+    resize: none;
+
+}
 
