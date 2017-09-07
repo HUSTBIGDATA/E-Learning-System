@@ -69,17 +69,15 @@
 </div>
 <script type="text/javascript">
 
-    var url = "D:/test/test.pdf";      //这里要不要在｛ctx｝后面加斜杠呢？
+    var url = "${ctx}statics/js/test.pdf";      //这里要不要在｛ctx｝后面加斜杠呢？
 
-    //var url = '${filePath}'    这里是设置文件路径的地方
-		//alert('${path}statics/js/admin2Course.js');
-    PDFJS.workerSrc = '${path}statics/js/admin2Course.js';
+    PDFJS.workerSrc = '${ctx}statics/js/pdf.worker.js';
 
     var pdfDoc = null,
         pageNum = 1, //初始页码
         pageRendering = false,
         pageNumPending = null,
-        scale = 2.5,
+        scale = 2,
         canvas = document.getElementById('the-canvas'),
         ctx = canvas.getContext('2d');
 
