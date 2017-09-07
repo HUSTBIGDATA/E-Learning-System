@@ -47,16 +47,16 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" placeholder="请输入资料类型">
                     </div>
-                    <button type="button" onclick="dataFindByType('${pageContext.request.contextPath}/student/findByType.do')" class="btn btn-default">按类型查询
+                    <button type="button" onclick="dataFindByType('${pageContext.request.contextPath}/data/findByType.do')" class="btn btn-default">按类型查询
                     </button>
                 </div>
 
             </div>
             <div id="tableHeadRight">
-                <button type="button" class="btn btn-default" onclick="flushDataList('${pageContext.request.contextPath}/student/dataList.do')">刷新
+                <button type="button" class="btn btn-default" onclick="flushDataList('${pageContext.request.contextPath}/data/dataList.do')">刷新
                 </button>
-                <button type="button" class="btn btn-default" onclick="setDownloadList('${pageContext.request.contextPath}/student/downloadlist.do')">批量下载
-                </button>
+                <!-- button type="button" class="btn btn-default" onclick="setDownloadList('${pageContext.request.contextPath}/student/downloadlist.do')">批量下载
+                </button-->
 
             </div>
         </div>
@@ -65,28 +65,21 @@
                 <thead>
                 <tr>
                     <td style="width:8%">
-                        <input type="checkbox" id="controllall" onclick="dataAllselect()">&nbsp;&nbsp;全选
+                        <input type="checkbox" id="controllall" onclick="dataallselect()">&nbsp;&nbsp;全选
                     </td>
                     <td style="width:5%">序号</td>
-                    <td style="width:17%">资料类别</td>
+                    <td style="width:17%">资料类型</td>
                     <!-- 机器学习 人工智能什么的-->
-                    <td style="width:50%">资料名</td>
-                    <td style="width:20%">操作</td>
+                    <td style="width:30%">资料名</td>
+                    <td style="width:20%">
+                    <td style="width:20%">
+                    </td>
                 </tr>
                 </thead>
                 <tbody id="tablecontent">
                 <tr name="Oneofstd">
-                    <td><input type="checkbox" class="datalist">
-                    </td>
-                    <td>1</td>
-                    <td>机器学习</td>
-                    <td class="filename">西瓜书</td>
-                    <td><a onclick="downloadOne('${pageContext.request.contextPath}/student/downloadOne.do','adfjdsfsd.rar')">下载 |</a>
-
-                        <a onclick="browseOnline('${pageContext.request.contextPath}/student/downloadOne.do','adfjdsfsd.rar')">预览</a>
-
-
-                    </td>
+                    <td><input type="checkbox" class="datalist"></td>
+                    
                 </tr>
 
                 </tbody>
@@ -95,8 +88,8 @@
 
     </div>
 </div>
-
-<iframe style="display:none" onload="javascript:flushDataList('${pageContext.request.contextPath}/s/dataList.do')" />
+<input id="PageContext" type="hidden" value="${pageContext.request.contextPath}"/>
+<iframe style="display:none" onload="javascript:flushDataList('${pageContext.request.contextPath}/data/dataList.do')" />
 </body>
 
 </html>

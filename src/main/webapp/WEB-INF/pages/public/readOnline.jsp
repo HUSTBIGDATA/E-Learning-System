@@ -15,6 +15,7 @@
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <c:set var="ID" value="${studentID}"></c:set>
+<c:set var="path" value="<%=basePath%>"></c:set>
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,16 +25,17 @@
     <!-- 引入各种CSS样式表 -->
 
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-change.css">
-    <link rel="stylesheet" href="<%=basePath%>statics/css//admin2Course.css">
+    <link rel="stylesheet" href="<%=basePath%>statics/css/online.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-awesome.css">
-
-      <script src="<%=basePath%>statics/js/online.css"></script>
-      <script src="<%=basePath%>statics/js/pdf.js"></script>
-      <script src="<%=basePath%>statics/js/pdf.worker.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script src="<%=basePath%>statics/js/admin2Course.js"></script>
+    <script src="<%=basePath%>statics/js/pdf.js"></script>
+    <script src="<%=basePath%>statics/js/pdf.worker.js"></script>
+    
 
     <title>学习视频</title>
 </head>
@@ -67,9 +69,11 @@
 </div>
 <script type="text/javascript">
 
-    var url = "${ctx}statics/img/test.pdf";      //这里要不要在｛ctx｝后面加斜杠呢？
+    var url = "D:/test/test.pdf";      //这里要不要在｛ctx｝后面加斜杠呢？
 
-    PDFJS.workerSrc = '${ctx}statics/js/pdf.worker.js';
+    //var url = '${filePath}'    这里是设置文件路径的地方
+		//alert('${path}statics/js/admin2Course.js');
+    PDFJS.workerSrc = '${path}statics/js/admin2Course.js';
 
     var pdfDoc = null,
         pageNum = 1, //初始页码

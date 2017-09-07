@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="CourseNameFind" placeholder="请输入课程名">
                     </div>
-                    <button type="button" onclick="dataFindByName('${pageContext.request.contextPath}/course/coursefindByName.do')" class="btn btn-default">按课程名查询
+                    <button type="button" onclick="dataFindByName('${pageContext.request.contextPath}/course/findByName.do')" class="btn btn-default">按课程名查询
                     </button>
                 </div>
 

@@ -55,9 +55,9 @@
             <div id="tableHeadRight">
                 <button type="button" class="btn btn-default" onclick="flushDataList('${pageContext.request.contextPath}/data/dataList.do')">刷新
                 </button>
-                <button type="button" class="btn btn-default" onclick="setDownloadList('${pageContext.request.contextPath}/data/downloadlist.do')">批量下载
-                </button>
-                <button type="button" class="btn btn-default" onclick="setDeleteList('${pageContext.request.contextPath}/data/deleteList.do')">批量删除
+                <!--button type="button" class="btn btn-default" onclick="setDownloadList('${pageContext.request.contextPath}/manager/downloadData.do')">批量下载
+                </button-->
+                <button type="button" class="btn btn-default" onclick="setDeleteList('${pageContext.request.contextPath}')">批量删除
                 </button>
                 </button>
                 <button type="button" class="btn btn-default" onclick="dataImport()">上传资料
@@ -67,29 +67,30 @@
         </div>
 
 
-        <div id="dataImportDiv">
-            <form class="form-horizontal" role="form" id="dataformDIv">
+        <div id="dataImportDiv" style="display:none">
+            <form class="form-horizontal" role="form" id="dataformDIv" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label class="col-sm-1 control-label ">文件</label>
                     <div class="col-sm-5">
                         <input type="file" id="inputfile" name="inputfile">
                     </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-1 control-label">分类</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="dataclass" placeholder="请输入资料种类">
-                    </div>
-                </div>
-
-                <button type="button " onclick="importData('${pageContext.request.contextPath}/data/importData.do')" class="btn btn-default">上传
-                </button>
-
+                </div>  
             </form>
+			
+			<div class="form-group">
+                 <label class="col-sm-1 control-label">分类</label>
+                    <div class="col-sm-5">
+                        <input name="datatype" type="text" class="form-control" id="datatype" placeholder="请输入资料种类">
+                    </div>
+            </div>
+                
+                
 
+            <button name="upload" type="button " onclick="importData('${pageContext.request.contextPath}/data/uploadData/')" class="btn btn-default">上传
+            </button>
+				
+				<!--input id="qq" name="qq" value="1" type="hidden"-->
             <!---以下为进度条-->
             <div class="progress progress-striped active">
                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" id="uploadscoll">
@@ -97,7 +98,7 @@
             </div>
         </div>
 
-
+		
 
 
         <div id="tableBody">
@@ -111,7 +112,8 @@
                     <td style="width:17%">资料类型</td>
                     <!-- 机器学习 人工智能什么的-->
                     <td style="width:30%">资料名</td>
-                    <td style="width:40%">
+                    <td style="width:20%">
+                    <td style="width:20%">
                     </td>
                 </tr>
                 </thead>
@@ -128,7 +130,7 @@
         </div>
         </div>
 
-
+		<input id="PageContext" type="hidden" value="${pageContext.request.contextPath}"/>
          <iframe style="display:none" onload="javascript:flushDataList('${pageContext.request.contextPath}/data/dataList.do')"/>
         </body>
         </html>

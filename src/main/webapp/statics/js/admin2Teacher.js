@@ -30,9 +30,9 @@ function teacherclearAndadd(stdlist) {
         str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="teacherlist">'
             + '</td><td>' + (i + 1)
             + '</td><td>' + stdlist[i].name
-            +'</td><td>' + stdlist[i].danwei
+            +'</td><td>' + stdlist[i].department
             + '</td><td class="ID">' + stdlist[i].teacherID
-            +'</td><td>'+stdlist[i].phoneNumber
+            +'</td><td>'+stdlist[i].phonenumber
             + '</td></tr>';
 
     }

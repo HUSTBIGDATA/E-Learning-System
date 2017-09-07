@@ -22,7 +22,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- 引入各种CSS样式表 -->
-
+	
+	<script src="<%=basePath%>statics/js/student.js"></script>
+	
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-change.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/student.css">
     <link rel="stylesheet" href="<%=basePath%>statics/css/font-awesome.css">
@@ -50,7 +52,7 @@
                     <span id="studentName">
 					       <c:if test="${!empty studentName}">
                                <font color="blue"><c:out value="${studentName}"/></font>
-                           </c:if>胡俊辉
+                           </c:if>
                     </span>
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;欢迎进入大数据学习系统&nbsp;&nbsp;
@@ -87,7 +89,7 @@
                         &nbsp; 资料管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <ul id="dataMenu" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/student/datalist.do')"> 查看资料</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/student/dataScan.do')"> 查看资料</a></li>
                     </ul>
 
                     <li><a href="#videoMenv" class="nav-header menu-first collapsed" data-toggle="collapse">

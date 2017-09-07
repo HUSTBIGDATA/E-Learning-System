@@ -66,7 +66,7 @@
                 </tr>
                 <tr>
                     <td>手机号</td>
-                    <td><span id="studentPhoneNumber">${studentPhoneNumber}</span></td>
+                    <td><span id="studentPhonenumber">${studentPhonenumber}</span></td>
                 </tr>
                 <tr>
                     <td>ID</td>
@@ -74,7 +74,7 @@
                 </tr>
                 <tr>
                     <td>单位</td>
-                    <td><span id="studentDanwei">${studentDanwei}</span></td>
+                    <td><span id="studentDepartment">${studentDepartment}</span></td>
                 </tr>
                 <tr>
                     <td>密码</td>

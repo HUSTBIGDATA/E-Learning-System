@@ -134,13 +134,34 @@ function dataclearAndadd(stdlist) {
     {
         em.removeChild(em.firstChild);
     }
-
+    //"/readOnline.do",' + stdlist[i].dataPath +'
     for (var i = 0; i < stdlist.length; i++) {
-
-        str = str + '<tr name ="Oneofstd">'+
-            '<td><input type = "checkbox" class = "datalist"></td><td >' +(i+1)+ '</td><td>'+stdlist[i].fileclass+'</td><td class = "filename">'+ stdlist[i].fileName+'</td><td ><a onclick="downloadOne("${pageContext.request.contextPath}/student/downloadOne.do",'+stdlist[i].fileName+')" > 下载 | </a><a onclick = "browseOnline("${pageContext.request.contextPath}/student/downloadOne.do",'+stdlist[i].filepath+',${studentID}'+')">预览</a></td></tr>';
+        str = str + '<tr name = "Oneofstd"><td><input type ="checkbox" class="datalist"></td><td >' + (i + 1) + '</td><td>' + stdlist[i].dataType + '</td><td class="fileName">' 
+        + stdlist[i].dataName + '</td><td><button type="button" class="btn btn-default" onclick="readOnline()">预览</button></td>' 
+        + '<td><button type="button" class="btn btn-default" onclick="download(' + stdlist[i].dataID + ')">下载</button></td>'
+        + '<td class="dataID" style="display:none">' + stdlist[i].dataID + '</td></tr>';
     }
     em.innerHTML = str;
+}
+
+function download(ID) {
+	
+	//var ID = document.getElementsByClassName("dataID").value;
+	var ori = document.getElementById("PageContext").value;
+	
+	 var form = $("<form>");   //定义一个form表单
+	    form.attr('style', 'display:none');   //在form表单中添加查询参数
+	    form.attr('target', '');
+	    form.attr('method', 'post');
+	    form.attr('action', ori + '/data/downloadData.do');
+
+	    var input1 = $('<input>');
+	    input1.attr('type', 'hidden');
+	    input1.attr('name', 'ID');
+	    input1.attr('value', ID);
+	    $('body').append(form);  //将表单放置在web中
+	    form.append(input1);   //将查询参数控件提交到表单上
+	    form.submit();
 }
 
 function downloadOne(basepath, filename) {

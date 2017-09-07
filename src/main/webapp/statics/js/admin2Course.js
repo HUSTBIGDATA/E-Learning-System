@@ -31,7 +31,7 @@ function flushCoursedList(basepath) {
     document.getElementById("newCourse").style.display = "none";
 
     $.ajax({
-        url: basepath + '/course/courselist.do',
+        url: basepath + '/course/courseList.do',
         type: "POST",
         dataType: "json",
         success: function (data) {
@@ -142,7 +142,7 @@ function deleteCourseSeleted(basepath) {
     if (confirm(str)) {
 
         $.ajax({
-            url: basepath + '/course/deleteCourseSeleted.do',
+            url: basepath + '/course/deleteCourse.do',
             type: "POST",
             dataType: "json",
             data: {

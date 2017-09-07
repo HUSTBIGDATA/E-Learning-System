@@ -143,11 +143,11 @@
                             break;
                         }
                         case "student": {
-                            window.location.href = '/student/studentindex.html';
+                            window.location.href = '${ctx}/login/studentIndex/' + ID + '.do';
                             break;
                         }
                         case "teacher": {
-                            window.location.href = '/teacher/teachetindex.html';
+                            window.location.href = '${ctx}/login/teacherIndex/' + ID + '.do';
                             break;
                         }
                         default: {
