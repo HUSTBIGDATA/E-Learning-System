@@ -203,9 +203,7 @@ function dataFindByType(basepath) {
     });
 
 }
-function readOnline(basepath,filepath) {         // 在线阅读跳转方法
-
-
+function readOnline(filepath) {         // 在线阅读跳转方法
     var ori = document.getElementById("PageContext").value;
 
 
@@ -214,7 +212,7 @@ function readOnline(basepath,filepath) {         // 在线阅读跳转方法
     form.attr('style', 'display:none');   //在form表单中添加查询参数
     form.attr('target', '_blank');
     form.attr('method', 'get');
-    form.attr('action', ori + basepath);
+    form.attr('action', ori + '/read/readOnline.do');
 
     var input1 = $('<input>');
     input1.attr('type', 'hidden');

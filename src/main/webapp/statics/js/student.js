@@ -144,6 +144,29 @@ function dataclearAndadd(stdlist) {
     em.innerHTML = str;
 }
 
+function readOnline(filepath) {         // 在线阅读跳转方法
+
+
+    var ori = document.getElementById("PageContext").value;
+    alert(ori);
+
+    //这里进行预览跳转   不用ajax请求，使用form请求，并且打开新的标签页
+    var form = $("<form>");   //定义一个form表单
+    form.attr('style', 'display:none');   //在form表单中添加查询参数
+    form.attr('target', '_blank');
+    form.attr('method', 'get');
+    form.attr('action', ori + '/read/readOnline.do');
+
+    var input1 = $('<input>');
+    input1.attr('type', 'hidden');
+    input1.attr('name', 'filepath');
+    input1.attr('value', filepath);
+    $('body').append(form);  //将表单放置在web中
+    form.append(input1);   //将查询参数控件提交到表单上
+    form.submit();
+
+}
+
 function download(ID) {
 	
 	//var ID = document.getElementsByClassName("dataID").value;

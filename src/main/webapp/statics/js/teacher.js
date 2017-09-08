@@ -110,7 +110,7 @@ function importData(basepath) {
         },
         error:function(){
             
-            alert("上传学生名单失败!");
+            alert("上传失败!");
         }
     });
 
@@ -126,6 +126,47 @@ function onprogress(evt) {
 }
 */
 
+function importData(basepath) {
+
+    var formData = new FormData($("#dataformDIv")[0]);
+    var dataType = document.getElementById("datatype").value;
+
+    $.ajax({
+        url:basepath + dataType + '.do',
+        type:"POST",
+        data:formData,
+        async:true,
+        cache:false,
+        processData:false,
+        contentType:false,
+        success:function(response){
+            //根据返回结果提示，，response为字符串 ‘上传成功’
+            alert(response);
+        },
+        xhr: function(){
+      　　　　　　var xhr = $.ajaxSettings.xhr();
+      　　　　　　if(onprogress && xhr.upload) {
+      　　　　　　　　xhr.upload.addEventListener("progress" , onprogress, false);
+      　　　　　　　　return xhr;
+      　　　　　　}
+      　　  },
+        error:function(){
+            alert("上传失败!");
+        }
+    });
+
+}
+
+function onprogress(evt) {
+    var loaded = evt.loaded; //已经上传大小情况
+    var tot = evt.total; //附件总大小
+    var per = Math.floor(100 * loaded / tot); //已经上传的百分比
+    $("#uploadscoll").html(per + "%");
+    $("#uploadscoll").css("width", per + "%");
+}
+
+
+/**************  用于 dataScan   ******************/
 
 function dataallselect() {
 
@@ -142,15 +183,15 @@ function dataallselect() {
     }
 }
 
-function  dataImport() {
-   if (document.getElementById("dataImportDiv").style.display == "none")
-        document.getElementById("dataImportDiv").style.display = "";
-    else
-        document.getElementById("dataImportDiv").style.display = "none";
-      
+function dataImport() {
+	if(document.getElementById("dataImportDiv").style.display=="none")
+		document.getElementById("dataImportDiv").style.display="";
+	else
+		document.getElementById("dataImportDiv").style.display="none";
 }
 function flushDataList(basepath) {
 
+    document.getElementById("dataImportDiv").style.display="none";
     $.ajax({
         url: basepath,
         type: "POST",
@@ -162,7 +203,7 @@ function flushDataList(basepath) {
 
         },
         error: function (err) {
-            //alert("查询失败!");
+            alert("查询失败!");
         }
     });
 
@@ -172,21 +213,56 @@ function flushDataList(basepath) {
 
 function dataclearAndadd(stdlist) {
 
-
-
     var str = "";
     var em = document.getElementById("tablecontent");
     while (em.hasChildNodes()) //当em下还存在子节点时 循环继续
     {
         em.removeChild(em.firstChild);
     }
-
+    //"/readOnline.do",' + stdlist[i].dataPath +'
     for (var i = 0; i < stdlist.length; i++) {
-        str = str + '<tr name = "Oneofstd"><td><input type ="checkbox" class="datalist"></td><td >' + (i + 1) + '</td><td>' + stdlist[i].dataType + '</td><td class="fileName">' + stdlist[i].dataName + '</td><td><a onclick="readOnline("/readOnline.do",' + stdlist[i].dataPath +')">预览</a></td></tr>';
+        str = str + '<tr name = "Oneofstd"><td><input type ="checkbox" class="datalist"></td><td >' + (i + 1) + '</td><td>' + stdlist[i].dataType + '</td><td class="fileName">' 
+        + stdlist[i].dataName + '</td><td><button type="button" class="btn btn-default" onclick="readOnline()">预览</button></td>' 
+        + '<td><button type="button" class="btn btn-default" onclick="download(' + stdlist[i].dataID + ')">下载</button></td>'
+        + '<td class="dataID" style="display:none">' + stdlist[i].dataID + '</td></tr>';
     }
     em.innerHTML = str;
 }
 
+function download(ID) {
+	
+	//var ID = document.getElementsByClassName("dataID").value;
+	var ori = document.getElementById("PageContext").value;
+	
+	 var form = $("<form>");   //定义一个form表单
+	    form.attr('style', 'display:none');   //在form表单中添加查询参数
+	    form.attr('target', '');
+	    form.attr('method', 'post');
+	    form.attr('action', ori + '/data/downloadData.do');
+
+	    var input1 = $('<input>');
+	    input1.attr('type', 'hidden');
+	    input1.attr('name', 'ID');
+	    input1.attr('value', ID);
+	    $('body').append(form);  //将表单放置在web中
+	    form.append(input1);   //将查询参数控件提交到表单上
+	    form.submit();
+	/*alert(ID);
+        $.ajax({
+            url: ori + '/manager/downloadData.do',
+            type: "POST",
+            dataType: "json",
+            data: {
+                "ID": ID
+            },
+            success: function (res) {
+            	alert(res);
+            },
+            error: function (err) {
+                alert("下载失败");
+            }
+        });*/
+}
 
 function dataFindByType(basepath) {
 
@@ -212,8 +288,8 @@ function dataFindByType(basepath) {
     });
 
 }
-function readOnline(basepath,filepath) {         // 在线阅读跳转方法
-
+function readOnline(filepath) {         // 在线阅读跳转方法
+	alert(filepath);
 
     var ori = document.getElementById("PageContext").value;
 
@@ -223,7 +299,7 @@ function readOnline(basepath,filepath) {         // 在线阅读跳转方法
     form.attr('style', 'display:none');   //在form表单中添加查询参数
     form.attr('target', '_blank');
     form.attr('method', 'get');
-    form.attr('action', ori + basepath);
+    form.attr('action', ori + '/read/readOnline.do');
 
     var input1 = $('<input>');
     input1.attr('type', 'hidden');
@@ -273,14 +349,46 @@ function deleteAfile(basepath,fileUrl){
 }
 
 function setDownloadList(basepath) {
-
+	
     var checklist = document.getElementsByClassName("datalist");
+    var fileNamelist = document.getElementsByClassName("fileName");
+    var IDList = document.getElementsByClassName("dataID");
+    
+    var delNameList = new Array();
+    var delstdList = new Array();
+
+    var j=0;
+    for (var i = 0; i < checklist.length; ++i) {
+
+        if (checklist[i].checked) {
+            delstdList[j] = IDList[i].innerHTML.toString();  	
+            delNameList[j] = fileNamelist[i].innerHTML.toString();
+            j++;
+        }
+    } 
+
+        $.ajax({
+            url: basepath,
+            type: "POST",
+            dataType: "json",
+            data: {
+                "dataList": delstdList.join(",")
+            },
+            success: function (res) {
+            	alert(res);
+            },
+            error: function (err) {
+                alert("下载失败");
+            }
+        });
+
+   /* var checklist = document.getElementsByClassName("datalist");
     var fileNamelist = document.getElementsByClassName("fileName");
 
     var delDataList = new Array();
 
     var j=0;
-    for (var i = 0; i < IDlist.length; ++i) {
+    for (var i = 0; i < checklist.length; ++i) {
 
         if (checklist[i].checked) {
 
@@ -304,29 +412,77 @@ function setDownloadList(basepath) {
         form.append(input1);   //将查询参数控件提交到表单上
         form.submit();
 
+    }*/
+
+
+}
+
+function setDeleteList(basepath) {
+
+    var checklist = document.getElementsByClassName("datalist");
+    var fileNamelist = document.getElementsByClassName("fileName");
+    var IDList = document.getElementsByClassName("dataID");
+    
+    var delNameList = new Array();
+    var delstdList = new Array();
+
+    var j=0;
+    for (var i = 0; i < checklist.length; ++i) {
+
+        if (checklist[i].checked) {
+            delstdList[j] = IDList[i].innerHTML.toString();  	
+            delNameList[j] = fileNamelist[i].innerHTML.toString();
+            j++;
+        }
+    } 
+
+    var str = "确认删除名字为：" + delNameList.join(",") + "这些资料吗？";
+
+    if (confirm(str)) {
+
+        $.ajax({
+            url: basepath + '/data/deleteData.do',
+            type: "POST",
+            dataType: "json",
+            data: {
+                "dataList": delstdList.join(",")
+            },
+            success: function (res) {
+            	alert("删除成功!");
+            	flushDataList(basepath + '/data/dataList.do');
+            },
+            error: function (err) {
+                alert("删除失败");
+            }
+        });
+
     }
 
 
 }
 
 
-function onloadTeacherCourse(basepath) {
-
-
+function onloadTeacherCourse(basepath,ID) {
     $.ajax({
         url: basepath,
         type: "POST",
         dataType: "json",
+        data: {
+            "teacherID": ID
+        },
         success: function (data) {
 
             var res = JSON.parse(data);
+            var em =  document.getElementById("waterfall");
             str = "";
 
             for (var i = 0; i < res.length; i++) {
-
-                str = str + '<div class = "item" ><h4>课程编号'+res[i].courseID+'&nbsp;&nbsp;'+res[i].courseName+'</h4><hr><div><span>教师:'+res[i].teacherName+'<br></span><span style = "float:left;">课程信息： </span><br><div class = "courceinfo">'+res[i].courseInfo+'</div><span style = "float:left;" > 教学计划： </span><br><div class = "courseplan" >'+res[i].coursePlan+'</div></div></div>';
+                str = str + '<div class = "item" ><h4>课程编号'+res[i].courseID+'&nbsp;&nbsp;'+res[i].courseName+'</h4><hr><div><span>教师:'+res[i].courseTeacher+'<br></span><span style = "float:left;">课程信息： </span><br><div class = "courceinfo">'+res[i].courseInfo+'</div><span style = "float:left;" > 教学计划： </span><br><div class = "courseplan" >'+res[i].plan+'</div></div></div>';
             }
-            document.getElementById("waterfall").innerHTML=str;
+            alert(str);
+            //document.getElementsByClassName("waterfall").innerHTML=str;
+            
+            em.innerHTML = str;
         },
         error: function (err) {
             // alert(err);

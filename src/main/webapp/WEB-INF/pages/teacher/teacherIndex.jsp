@@ -1,6 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ID" value="${teacherID}"></c:set>
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,6 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- 引入各种CSS样式表 -->
+    <link rel="stylesheet" href="<%=basePath%>statics/css/teacher.css">
+    <script type="text/javascript" src="<%=basePath%>statics/js/teacher.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -26,10 +35,10 @@
         <div id="userName">
             <h5>教师：
                 <a class="" href="#">
-                    <span id="studentName">
+                    <span id="teacherName">
 					       <c:if test="${!empty teacherName}">
                                <font color="blue"><c:out value="${teacherName}"/></font>
-                           </c:if>胡俊辉
+                           </c:if>
                     </span>
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;欢迎进入大数据学习系统&nbsp;&nbsp;
@@ -60,14 +69,14 @@
                     <!-- 二级菜单 -->
                     <!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
                     <ul id="teacherMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/teacher/teacherCourse.do')"> 我的授课</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/teacher/courseListLoad/${ID}.do')"> 我的授课</a></li>
                     </ul>
 
                     <li><a href="#productMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
                         &nbsp; 资料管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <ul id="productMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/teacher/teacherData.do')"> 查看资料</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/teacher/dataScan.do')"> 查看资料</a></li>
                     </ul>
 
                     <li><a href="#recordMeun" class="nav-header menu-first collapsed" data-toggle="collapse">

@@ -8,6 +8,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ID" value="${teacherID}"></c:set>
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -32,7 +33,7 @@
 <h2><span id="htmTitle">我的授课课程</span></h2><br>
 
 <div class="container">
-    <div class="waterfall">
+    <div class="waterfall" id="waterfall">
 
         <!--<div class="item">
             <h4>课程编号1101&nbsp;&nbsp;这是课程名</h4>
@@ -65,7 +66,7 @@
 
 
 <input id="PageContext" type="hidden" value="${pageContext.request.contextPath}">
-<iframe style="display:none" onload="javascript:onloadTeacherCourse('${pageContext.request.contextPath}/teacher/teacherCourse.do')" />
+<iframe style="display:none" onload="javascript:onloadTeacherCourse('${pageContext.request.contextPath}/teacher/courseList.do','${ID}')" />
 </body>
 
 </html>

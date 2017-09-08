@@ -56,7 +56,7 @@
             <div id="tableHeadRight">
                 <button type="button" class="btn btn-default" onclick="deleteCourseSeleted('${pageContext.request.contextPath}')">删除所选
                 </button>
-                <button type="button" class="btn btn-default" onclick="flushCoursedList('${pageContext.request.contextPath}')">刷新
+                <button type="button" class="btn btn-default" onclick="flushCourseList('${pageContext.request.contextPath}')">刷新
                 </button>
 
                 <button type="button" class="btn btn-default" onclick="addNewCourse()">添加新课程
@@ -66,10 +66,10 @@
         </div>
         <div id="newCourse">
             <div class="form-inline" role="form">
-                <div class="form-group">
+                <!--div class="form-group">
                     <label>课程ID:</label>
                     <input type="text" class="form-control" id="courseID" placeholder="请输入课程ID">
-                </div>
+                </div-->
                 <div class="form-group">
                     <label>课程名称:</label>
                     <input type="text" class="form-control" id="courseName" placeholder="请输入课程名称">
@@ -94,7 +94,7 @@
                 </div>
             </div>
 
-                <button type="button" class="btn btn-default" onclick="addNewCourse('${pageContext.request.contextPath}/course/addNewCourse.do')">增加课程</button>
+                <button type="button" class="btn btn-default" onclick="add('${pageContext.request.contextPath}/course/add.do')">增加课程</button>
 
 
         </div>
@@ -111,12 +111,7 @@
                 </thead>
                 <tbody id="tablecontent">
                 <tr name="Oneofstd">
-                    <td><input type="checkbox" class="datalist"></td>
-                    <td>1</td>
-                    <td class="courseid">1001</td>
-                    <td>机器学习</td>
-                    <td>王小二
-                    </td>
+                   
                 </tr>
 
                 </tbody>
@@ -125,6 +120,6 @@
 
     </div>
 </div>
-<iframe style="display:none" onload="javascript:flushCoursedList('${pageContext.request.contextPath}/course/courselist.do')"/>
+<iframe style="display:none" onload="javascript:flushCourseList('${pageContext.request.contextPath}')"/>
 </body>
 </html>

@@ -32,9 +32,7 @@
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-    <script src="<%=basePath%>statics/js/admin2Course.js"></script>
     <script src="<%=basePath%>statics/js/pdf.js"></script>
-    <script src="<%=basePath%>statics/js/pdf.worker.js"></script>
     
 
     <title>学习视频</title>
@@ -69,9 +67,9 @@
 </div>
 <script type="text/javascript">
 
-    var url = "${ctx}statics/js/test.pdf";      //这里要不要在｛ctx｝后面加斜杠呢？
+    var url = "${ctx}/statics/js/test.pdf";      //这里要不要在｛ctx｝后面加斜杠呢？
 
-    PDFJS.workerSrc = '${ctx}statics/js/pdf.worker.js';
+    PDFJS.workerSrc = '${ctx}/statics/js/pdf.worker.js';
 
     var pdfDoc = null,
         pageNum = 1, //初始页码

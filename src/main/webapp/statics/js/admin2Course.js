@@ -21,12 +21,15 @@ function CourseAllselect() {
 }
 
 function addNewCourse() {
-
-    document.getElementById("newCourse").style.display = "";
+	if(document.getElementById("newCourse").style.display == "none")
+		document.getElementById("newCourse").style.display = "";
+	else
+		document.getElementById("newCourse").style.display = "none";
+    //document.getElementById("newCourse").style.display = "";
 }
 
 
-function flushCoursedList(basepath) {
+function flushCourseList(basepath) {
 
     document.getElementById("newCourse").style.display = "none";
 
@@ -47,9 +50,9 @@ function flushCoursedList(basepath) {
 
 }
 
-function addNewCourse(basepath) {
+function add(basepath) {
 
-    var courseID = document.getElementById("courseID").value;
+   // var courseID = document.getElementById("courseID").value;
     var courseName = document.getElementById("courseName").value;
     var teacherID = document.getElementById("teacherID").value;
     var courseInfo = document.getElementById("cosinfo").value;
@@ -61,15 +64,16 @@ function addNewCourse(basepath) {
         type: "POST",
         dataType: "json",
         data: {
-            "courseID": courseID,
+           // "courseID": courseID,
             "courseName": courseName,
-            "teacherID": teacherID,
+            "courseTeacher": teacherID,
             "courseInfo":courseInfo,
-            "coursePlan":coursePlan
+            "plan":coursePlan
         },
         success: function (data) {
             document.getElementById("newCourse").style.display = "none";
-
+            var res = JSON.parse(data); //res是json对象
+            courseclearAndadd(res);
         },
         error: function (err) {
             // alert(err);
@@ -89,7 +93,7 @@ function courseclearAndadd(stdlist) {
     }
 
     for (var i = 0; i < stdlist.length; i++) {
-        str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="datalist"></td><td>' + (i + 1) + '</td><td class="courseid">' + stdlist[i].courseID + '</td><td>' + stdlist[i].teacherName + '</td><td>' + stdlist[i].teacherID + '</td></tr>';
+        str = str + '<tr name="Oneofstd"><td><input type="checkbox" class="datalist"></td><td>' + (i + 1) + '</td><td class="courseid">' + stdlist[i].courseID + '</td><td>' + stdlist[i].courseName + '</td><td>' + stdlist[i].courseTeacher + '</td></tr>';
     }
     em.innerHTML = str;
 }
@@ -104,7 +108,7 @@ function dataFindByName(basepath) {
         type: "POST",
         dataType: "json",
         data: {
-            "courseName":dataType
+            "name":dataType
         },
         success: function (data) {
             //返回的是json字符串        
@@ -146,7 +150,7 @@ function deleteCourseSeleted(basepath) {
             type: "POST",
             dataType: "json",
             data: {
-                "courselist": courselist
+                "courseList": courselist
             },
             success: function (data) {
                 alert("删除成功");
