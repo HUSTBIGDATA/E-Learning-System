@@ -4,11 +4,9 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.elearning.entity.PathConfig;
 import com.elearning.service.ManagerService;
 import com.elearning.service.StudentService;
 import com.elearning.service.TeacherService;
@@ -29,7 +26,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Controller
 @RequestMapping(value = "/manager")
 public class ManagerController {
-	private String uploadPath;
+	/*private String uploadPath;
 	
 	@SuppressWarnings("resource")
 	@PostConstruct
@@ -37,7 +34,7 @@ public class ManagerController {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("pathconfig.xml");
 		PathConfig pathConfig = (PathConfig)context.getBean("pathConfig");
 		uploadPath = pathConfig.getUploadPath();
-	}
+	}*/
 	
 	@Autowired
 	private ManagerService managerService;
@@ -47,6 +44,9 @@ public class ManagerController {
 	
 	@Autowired
 	private TeacherService teacherService;
+	
+	//@Autowired
+	//private DataService dataService;
 	
 	@RequestMapping(value = "/studentImport.do", method = RequestMethod.GET)
 	public ModelAndView studentImportLoad() {
@@ -77,15 +77,25 @@ public class ManagerController {
 		return new ModelAndView("admin/teacherImport");
 	}
 	
+	@RequestMapping(value = "/courseScan.do", method = RequestMethod.GET)
+	public ModelAndView courseScanLoad() {
+		return new ModelAndView("admin/courseScan");
+	}
+	
 	@RequestMapping(value = "/dataScan.do", method = RequestMethod.GET)
 	public ModelAndView dataScanLoad() {
 		return new ModelAndView("admin/dataScan");
 	}
 	
-	@RequestMapping(value = "/dataImport.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/videoScan.do", method = RequestMethod.GET)
+	public ModelAndView videoScanLoad() {
+		return new ModelAndView("admin/videoScan");
+	}
+	
+	/*@RequestMapping(value = "/dataImport.do", method = RequestMethod.GET)
 	public ModelAndView dataImportLoad() {
 		return new ModelAndView("admin/dataImport");
-	}
+	}*/
 	
 	@RequestMapping(value = "/modifyPassword.do", produces = "application/json;charset=UTF-8")
 	@ResponseBody
@@ -119,8 +129,7 @@ public class ManagerController {
 	
 	@RequestMapping(value = "/uploadStudentList.do", method = RequestMethod.POST)
 	@ResponseBody
-	public String uploadStudentList(HttpServletRequest httpServletRequest,
-			@RequestParam(value = "inputfile") MultipartFile inputfile) {
+	public String uploadStudentList(HttpServletRequest httpServletRequest, MultipartFile inputfile) {
 		/*String[] fileNameList = inputfile.getOriginalFilename().split("\\.");
 		String fileName = "studentList." + fileNameList[fileNameList.length - 1];
 		File targetFile = new File(uploadPath + "\\namelist", fileName);
@@ -136,7 +145,33 @@ public class ManagerController {
 		try {
 			List<String[]> studentList = POIUtil.readExcel(inputfile);
 			for (String[] info : studentList) {
-				studentService.insertBasicInformation(info[0], info[1]);
+				studentService.insertBasicInformation(info[0], info[1], info[2], info[3]);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		ObjectMapper mapper = new ObjectMapper();
+		StringWriter writer = new StringWriter();
+		
+		try {
+			mapper.writeValue(writer, "上传成功!");
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return writer.toString();
+	}
+	
+	@RequestMapping(value = "/uploadTeacherList.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String uploadTeacherList(HttpServletRequest httpServletRequest,
+			@RequestParam(value = "inputfile") MultipartFile inputfile) {
+		try {
+			List<String[]> studentList = POIUtil.readExcel(inputfile);
+			for (String[] info : studentList) {
+				teacherService.insertBasicInformation(info[0], info[1], info[2], info[3]);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -156,19 +191,36 @@ public class ManagerController {
 		return writer.toString();
 	}
 	
-	@RequestMapping(value = "/uploadTeacherList.do", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/uploadData/{dataType}.do", method = RequestMethod.POST)
 	@ResponseBody
-	public String uploadTeacherList(HttpServletRequest httpServletRequest,
-			@RequestParam(value = "inputfile") MultipartFile inputfile) {
-		try {
-			List<String[]> studentList = POIUtil.readExcel(inputfile);
-			for (String[] info : studentList) {
-				teacherService.insertBasicInformation(info[0], info[1]);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public String uploadData(HttpServletRequest httpServletRequest, MultipartFile inputfile, 
+			@PathVariable(value = "dataType") String dataType) throws UnsupportedEncodingException {
+		dataType = new String(dataType.getBytes("ISO-8859-1"), "utf8");  
+
+		String[] fileNameList = inputfile.getOriginalFilename().split("\\.");
+		//String fileName = "studentList." + fileNameList[fileNameList.length - 1];
+		String fileName = inputfile.getOriginalFilename();
+		File targetFile = new File(uploadPath + "\\data", fileName);
 		
+		Data data = new Data();
+		
+		data.setDataAbstract(null);
+		data.setDataDownloadSum(0);
+		data.setDataImage(null);
+		data.setDataName(fileNameList[0]);
+		data.setDataPath(uploadPath + "\\data\\" + fileName);
+		data.setDataType(dataType);
+		
+		if(!targetFile.exists()) {  
+	       targetFile.mkdirs();
+	       dataService.add(data);
+	    }
+			
+		try {
+			inputfile.transferTo(targetFile);  
+	    } catch (Exception e) {  
+	        e.printStackTrace();  
+	    }
 		ObjectMapper mapper = new ObjectMapper();
 		StringWriter writer = new StringWriter();
 		
@@ -179,7 +231,28 @@ public class ManagerController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		System.out.println(writer.toString());
 		return writer.toString();
 	}
+	
+	@RequestMapping(value =  "/downloadData.do", method = RequestMethod.POST)
+    public void downloadData(@RequestParam(value = "ID") String ID, HttpServletRequest request, HttpServletResponse response) {
+		OutputStream os = null;
+        try {
+        	os = response.getOutputStream();
+        	File file = new File(dataService.findByID(Integer.parseInt(ID)).getDataPath());
+
+        	if(!file.exists()) {
+        		//System.out.println("下载失败,文件不存在");
+        	}
+        	response.reset();
+        	response.setHeader("Content-Disposition", "attachment;filename=" + new String(file.getName().getBytes("utf-8"),"iso-8859-1"));
+        	response.setContentType("application/octet-stream; charset=utf-8");
+            os.write(FileUtils.readFileToByteArray(file));
+        } catch (Exception e) {
+        	e.printStackTrace();
+        } finally{
+        	IOUtils.closeQuietly(os);
+        }
+    }*/
 }

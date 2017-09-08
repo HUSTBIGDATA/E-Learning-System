@@ -6,7 +6,7 @@ import com.elearning.entity.Student;
 
 public interface StudentService {
 	
-	public void insertBasicInformation(String ID, String name);
+	public void insertBasicInformation(String ID, String name, String department, String phonenumber);
 
 	//public void register(String ID, String password);
 	public void register(Student student);

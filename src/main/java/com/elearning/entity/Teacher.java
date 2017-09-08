@@ -7,7 +7,21 @@ public class Teacher {
 	private String password;
 	private String name;
 	private String image;
+	private String department;
+	private String phonenumber;
 	
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
 	public int getID() {
 		return ID;
 	}

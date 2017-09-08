@@ -28,6 +28,10 @@ public class DataServiceImpl implements DataService {
 	public List<Data> findAll() {
 		return dataDao.findAll();
 	}
+	
+	public Data findByID(int ID) {
+		return dataDao.findByID(ID);
+	}
 
 	public void delete(int ID) {
 		dataDao.delete(ID);

@@ -15,5 +15,7 @@ public interface DataDao {
 	
 	public List<Data> findAll();
 	
+	public Data findByID(int ID);
+	
 	public void delete(int ID);
 }

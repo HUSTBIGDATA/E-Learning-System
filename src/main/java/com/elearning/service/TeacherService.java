@@ -6,7 +6,7 @@ import com.elearning.entity.Teacher;
 
 public interface TeacherService {
 	
-	public void insertBasicInformation(String ID, String name);
+	public void insertBasicInformation(String ID, String name, String department, String phonenumber);
 
 	public void register(Teacher teacher);
 	
@@ -19,7 +19,7 @@ public interface TeacherService {
 	public void delete(String ID);
 	
 	public Teacher findByID(String ID);
-	
+
 	public List<Teacher> findByName(String name);
 	
 	public List<Teacher> findAll();

@@ -10,7 +10,8 @@ import com.elearning.entity.Teacher;
 @Repository(value = "teacherDao")
 public interface TeacherDao {
 	
-	public void insertBasicInformation(@Param("ID") String ID, @Param("name") String name);
+	public void insertBasicInformation(@Param("ID") String ID, @Param("name") String name, 
+			@Param("department") String department,@Param("phonenumber") String phonenumber);
 
 	public void register(Teacher teacher);
 	

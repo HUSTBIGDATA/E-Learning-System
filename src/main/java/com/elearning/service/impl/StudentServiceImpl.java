@@ -18,8 +18,8 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired
 	private StudentDao studentDao;
 
-	public void insertBasicInformation(String ID, String name) {
-		studentDao.insertBasicInformation(ID, name);
+	public void insertBasicInformation(String ID, String name, String department, String phonenumber) {
+		studentDao.insertBasicInformation(ID, name, department, phonenumber);
 	}
 
 	/*public void register(String ID, String password) {

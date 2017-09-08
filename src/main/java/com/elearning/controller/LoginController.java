@@ -80,4 +80,24 @@ public class LoginController {
 		mv.addObject("adminID",ID);
 		return mv;
 	}
+	
+	@RequestMapping(value = "/studentIndex/{studentID}.do", method = RequestMethod.GET)
+	public ModelAndView studentIndex(@PathVariable("studentID") String ID) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("student/studentIndex");
+		String studentName = studentService.findByID(ID).getName();
+		mv.addObject("studentName", studentName);
+		mv.addObject("studentID",ID);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/teacherIndex/{teacherID}.do", method = RequestMethod.GET)
+	public ModelAndView teacherIndex(@PathVariable("teacherID") String ID) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("teacher/teacherIndex");
+		String teacherName = teacherService.findByID(ID).getName();
+		mv.addObject("teacherName", teacherName);
+		mv.addObject("teacherID",ID);
+		return mv;
+	}
 }

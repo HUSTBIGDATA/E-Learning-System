@@ -6,8 +6,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.elearning.entity.Student;
 import com.elearning.service.StudentService;
@@ -20,6 +23,52 @@ public class StudentController {
 	
 	@Autowired
 	private StudentService studentService;
+	
+	@RequestMapping(value = "/dataScan.do", method = RequestMethod.GET)
+	public ModelAndView dataScanLoad() {
+		return new ModelAndView("student/studentData");
+	}
+	
+	@RequestMapping(value = "/studentInfo/{studentID}.do", method = RequestMethod.GET)
+	public ModelAndView studentInfoLoad(@PathVariable("studentID") String ID) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("student/studentInfo");
+		mv.addObject("studentID", ID);
+		mv.addObject("studentName", studentService.findByID(ID).getName());
+		mv.addObject("studentPhonenumber", studentService.findByID(ID).getPhonenumber());
+		mv.addObject("studentDepartment", studentService.findByID(ID).getDepartment());
+		return mv;
+	}
+	
+	@RequestMapping(value = "/modifyPassword.do", produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String modifyPassword(ModifyPasswordCommand modifyPasswordCommand) {
+		ObjectMapper mapper = new ObjectMapper();
+		StringWriter writer = new StringWriter();
+		String response = "";
+		
+		String ID = modifyPasswordCommand.getID();
+		String newPassword = modifyPasswordCommand.getNewPassword();
+		String oldPassword = modifyPasswordCommand.getOldPassword();
+		
+		studentService.modifyPassword(ID, newPassword);	
+		if(oldPassword!=studentService.getPassword(ID)) {
+			response = "修改成功!";
+		}
+		else {
+			response = "修改失败!";
+		}
+		
+		try {
+			mapper.writeValue(writer, response);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return writer.toString();
+	} 
 	
 	@RequestMapping(value = "/studentList.do", produces = "application/json;charset=UTF-8")
 	@ResponseBody
@@ -41,6 +90,7 @@ public class StudentController {
 	@RequestMapping(value = "/findByName.do", produces = "application/json;charset=UTF-8")
 	@ResponseBody
 	public String findByName(String name) {
+		System.out.println(name);
 		List<Student> studentList = studentService.findByName(name);	
 		ObjectMapper mapper = new ObjectMapper();
 		StringWriter writer = new StringWriter();
