@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
        
 <mapper namespace="com.elearning.dao.ManagerDao">
-	<insert id="insertBasicInformation" parameterType="java.lang.String">
+	<insert id="insertBasicInformation" parameterType="String">
 		insert into tb_manager(managerID,password,managerName,managerImage) values(#{ID},null,#{name},null)
 	</insert>
 	
@@ -11,23 +11,23 @@
 		update tb_manager set password = #{password}, managerImage = #{image} where managerID = #{ID}
 	</update>
 	
-	<update id="modifyPassword" parameterType="java.lang.String">
+	<update id="modifyPassword" parameterType="String">
 		update tb_manager set password = #{password} where managerID = #{ID}
 	</update>
 	
-	<update id="editInfomation" parameterType="java.lang.String">
+	<update id="editInfomation" parameterType="String">
 		update tb_manager set managerName = #{name},managerImage = #{image} where managerID = #{ID}
 	</update>
 	
-	<select id="getPassword" parameterType="java.lang.String" resultType="java.lang.String">
+	<select id="getPassword" parameterType="String" resultType="String">
 		select password from tb_manager where managerID = #{ID}
 	</select>
 	
-	<delete id="delete" parameterType="java.lang.String">
+	<delete id="delete" parameterType="String">
 		delete from tb_manager where managerID = #{ID}
 	</delete>
 	
-	<select id="findByID" parameterType="java.lang.String" resultType="Manager">
+	<select id="findByID" parameterType="String" resultType="Manager">
 		select 
 			ID as "ID",
 			managerID as "managerID",

@@ -11,7 +11,7 @@
 		delete from tb_datalog where dataID = #{ID}
 	</delete>
 	
-	<select id="findByDownloaderID" parameterType="java.lang.String" resultType="DataLog">
+	<select id="findByDownloaderID" parameterType="String" resultType="DataLog">
 		select * from tb_datalog where downloaderID = #{ID}
 	</select>
 	
@@ -19,7 +19,7 @@
 		update tb_datalog set downloadTime = #{date} where downloaderID = #{downloaderID}
 	</update>
 	
-	<resultMap type="DataLog" id="dataLogMap">
+	<resultMap type="Data" id="dataLogMap">
 		<id column="datalogID" property="datalogID"/>
 		<result column="dataID" property="dataID"/>
 		<result column="downloaderID" property="downloaderID"/>

@@ -38,8 +38,8 @@
   
   <!-- 扫描Dao接口下所有包名 -->
   <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-      <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-  	  <property name="basePackage" value="com.elearning.dao"/>
+  	<property name="basePackage" value="com.elearning.dao"/>
+  	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
   </bean>
   
   <!-- 添加事务管理 -->

@@ -4,7 +4,7 @@
        
 <mapper namespace="com.elearning.dao.DataDao">
 	<insert id="add" parameterType="Data" useGeneratedKeys="true">
-		insert into tb_data(dataName,dataImage,dataPath,dataAbstract,dataType) values(#{dataName},#{dataImage},#{dataPath},#{dataAbstract},#{dataType})
+		insert into tb_data(dataName,dataImage,dataPath,dataAbstract,dataType,dataDownloadSum) values(#{dataName},#{dataImage},#{dataPath},#{dataAbstract},#{dataType},#{dataDownloadSum})
 	</insert>
 	
 	<delete id="delete" parameterType="int">
@@ -19,6 +19,17 @@
 		<result column="dataType" property="dataType"/>
 		<result column="dataDownloadSum" property="dataDownloadSum"/>
 	</resultMap>
+	
+	<select id="findByID" resultType="Data">
+		select 
+			dataID as "dataID",
+			dataName as "dataName",
+			dataPath as "dataPath",
+			dataAbstract as "dataAbstract",
+			dataType as "dataType",
+			dataDownloadSum as "dataDownloadSum"
+		from tb_data where dataID = #{ID}
+	</select>
 	
 	<select id="findAll" resultMap="dataMap">
 		select * from tb_data

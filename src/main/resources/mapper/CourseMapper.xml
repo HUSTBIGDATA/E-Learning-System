@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+       
+<mapper namespace="com.elearning.dao.CourseDao">
+	<insert id="add" parameterType="Course" useGeneratedKeys="true">
+		insert into tb_course (courseTeacher,courseName,plan,schedule,courseInfo,itemBank)
+		values(#{courseTeacher},#{courseName},#{plan},#{schedule},#{courseInfo},#{itemBank})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from tb_course where courseID = #{ID}
+	</delete>
+	
+	<resultMap type="Course" id="courseMap">
+		<id column="courseID" property="courseID"/>
+		<result column="courseTeacher" property="courseTeacher"/>
+		<result column="courseName" property="courseName"/>
+		<result column="plan" property="plan"/>
+		<result column="schedule" property="schedule"/>
+		<result column="courseInfo" property="courseInfo"/>
+		<result column="itemBank" property="itemBank"/>
+	</resultMap>
+	
+	<select id="findByTeacher" resultMap="courseMap">
+		select * from tb_course where courseTeacher = #{teacherID}
+	</select>
+	
+	<select id="findAll" resultMap="courseMap">
+		select * from tb_course
+	</select>
+	
+	<select id="findByName" resultMap="courseMap">
+		select * from tb_course where courseName = #{name}
+	</select>
+</mapper>
