@@ -68,35 +68,51 @@
 
                 <ul class="nav nav-sidebar">
                     <li class="active"><a href="#info" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp; 个人中心 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-user" style="font-size:18px;"></span>
+                        &nbsp;&nbsp;个人中心 </a>
                     </li>
                     <ul id="info" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/student/studentInfo/${ID}.do')"> 个人信息</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/student/studentInfo/${ID}.do')">
+                            <span class="glyphicon glyphicon-cog" style="font-size: 14px;"></span>
+                            &nbsp;个人信息</a></li>
                     </ul>
                     <!-- 一级菜单 -->
 
                     <li><a href="#courseMenu" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp;课程管理 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-th-list" style=" font-size:18px;"> </span>
+                         &nbsp;&nbsp;课程管理</a>
                     </li>
                     <!-- 二级菜单 -->
                     <!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
                     <ul id="courseMenu" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/student/myCourse.do')"> 我的课程</a></li>
-                        <li><a href="###" onclick="showAtRight('${ctx}/student/addCourse.do')"> 新增课程</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/student/myCourse.do')">
+                            <span class="glyphicon glyphicon-align-left" style="font-size: 14px;"></span>
+                            &nbsp;我的课程</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/student/addCourse.do')">
+                            <span class="glyphicon glyphicon-plus" style="font-size: 14px;"></span>
+                            &nbsp;新增课程</a></li>
                     </ul>
 
                     <li><a href="#dataMenu" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp; 资料管理 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-folder-open" style="font-size: 18px;"></span>
+                        &nbsp;&nbsp;资料管理</a>
                     </li>
                     <ul id="dataMenu" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/student/dataScan.do')"> 查看资料</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/student/dataScan.do')">
+                            <span class="glyphicon glyphicon-align-left" style="font-size: 14px;"></span>
+                            &nbsp;查看资料</a>
+                        </li>
                     </ul>
 
                     <li><a href="#videoMenv" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp;观看视频 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-film" style="font-size: 18px;"></span>
+                        &nbsp;&nbsp;观看视频</a>
                     </li>
                     <ul id="videoMenv" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('/student/videoScan.html')"> 视频列表</a></li>
+                        <li><a href="###" onclick="showAtRight('/student/videoScan.html')">
+                            <span class="glyphicon glyphicon-align-left" style="font-size: 14px;"> </span>
+                            &nbsp;视频列表</a>
+                        </li>
                     </ul>
 
                 </ul>

@@ -47,7 +47,7 @@ body {
     position: fixed;
     height: 100%;
     width: 16%;
-    background-color: #555;
+    background-color: #BABABA;
     margin-top: 60px;
     z-index: 1;
 }
@@ -103,7 +103,7 @@ body {
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
     color: #fff;
-    background-color: #CC0000;
+    background-color:#545454;
 }
 
 #content {
@@ -170,7 +170,7 @@ body {
     background-color: #66c3ec;
     border-top: 1px solid #83ceed;
     border-bottom: 1px solid #83ceed;
-    border-right: 5px solid #FF7F00;
+    border-right: 5px solid #0000EE;
 }
 
 /*二级菜单选中状态*/
@@ -181,7 +181,7 @@ body {
     line-height: 31px;
     border-top: 1px solid #83ceed;
     border-bottom: 1px solid #83ceed;
-    border-right: 5px solid #FF7F00;
+    border-right: 5px solid #0000EE;
     text-align: center;
 }
 

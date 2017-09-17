@@ -56,34 +56,47 @@
                 </div>
                 <ul class="nav nav-sidebar">
                     <li class="active"><a href="#info" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp; 个人中心 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-user" style="font-size:18px;"></span>
+                        &nbsp;&nbsp;个人中心</a>
                     </li>
                     <ul id="info" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/teacher/teacherInfo/${ID}.do')"> 个人信息</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/teacher/teacherInfo/${ID}.do')">
+                            <span class="glyphicon glyphicon-cog" style="font-size: 14px;"> </span>
+                            &nbsp;个人信息</a></li>
                     </ul>
                     <!-- 一级菜单 -->
 
                     <li><a href="#teacherMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp;课程管理 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-th-list" style=" font-size:18px;"> </span>
+                        &nbsp;&nbsp;课程管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <!-- 二级菜单 -->
                     <!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
                     <ul id="teacherMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/teacher/courseListLoad/${ID}.do')"> 我的授课</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/teacher/courseListLoad/${ID}.do')">
+                            <span class="glyphicon glyphicon-align-left" style="font-size: 14px;"> </span>
+                            &nbsp;我的授课</a></li>
                     </ul>
 
                     <li><a href="#productMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp; 资料管理 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-folder-open" style="font-size: 18px;"></span>
+                        &nbsp;&nbsp;资料管理 <span class="sr-only">(current)</span></a>
                     </li>
                     <ul id="productMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/teacher/dataScan.do')"> 查看资料</a></li>
+
+                        <li><a href="###" onclick="showAtRight('${ctx}/teacher/dataScan.do')">
+                            <span class="glyphicon glyphicon-align-left" style="font-size: 14px;"></span>
+                            &nbsp;查看资料</a></li>
                     </ul>
 
                     <li><a href="#recordMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp;观看视频 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-film" style="font-size: 18px;"></span>
+                        &nbsp;&nbsp;观看视频</a>
                     </li>
                     <ul id="recordMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('videoScan.html')"> 视频列表</a></li>
+                        <li><a href="###" onclick="showAtRight('videoScan.html')">
+                            <span class="glyphicon glyphicon-align-left" style="font-size: 14px;"> </span>
+                            &nbsp;视频列表</a></li>
                     </ul>
 
                 </ul>

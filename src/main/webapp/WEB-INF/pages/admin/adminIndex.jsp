@@ -73,39 +73,59 @@
                 </div>
                 <ul class="nav nav-sidebar">
                     <li class="active"><a href="#info" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp; 个人中心 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-user" style="font-size:18px;"></span>
+                        &nbsp;&nbsp;个人中心 </a>
                     </li>
                     <ul id="info" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/manager/adminInfo/${ID}.do')"> 个人信息</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/adminInfo/${ID}.do')">
+                            <span class="glyphicon glyphicon-cog" style="font-size: 14px;"></span>
+                            &nbsp;个人信息</a></li>
                     </ul>
                     <!-- 一级菜单 -->
                     <li><a href="#studentMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        </i>&nbsp; 学生管理 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-th-list" style=" font-size:18px;"> </span>
+                        &nbsp;&nbsp;学生管理</a>
                     </li>
                     <!-- 二级菜单 -->
                     <!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
                     <ul id="studentMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/manager/studentScan.do')"> 查看学生</a></li>
-                        <li><a href="###" onclick="showAtRight('${ctx}/manager/studentImport.do')"> 导入名单</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/studentScan.do')">
+                            <span class="glyphicon glyphicon-list-alt" style="font-size: 14px;"> </span>
+                            &nbsp;查看学生</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/studentImport.do')">
+                            <span class="glyphicon glyphicon-import" style="font-size: 14px;"> </span>
+                            &nbsp;导入名单</a></li>
                     </ul>
 
                     <li><a href="#teacherMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        &nbsp; 教师管理 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-th-list" style=" font-size:18px;"> </span>
+                        &nbsp;&nbsp;教师管理</a>
                     </li>
                     <!-- 二级菜单 -->
                     <!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
                     <ul id="teacherMeun" class="nav nav-list collapse menu-second">
-                        <li><a href="###" onclick="showAtRight('${ctx}/manager/teacherScan.do')"> 查看教师</a></li>
-                        <li><a href="###" onclick="showAtRight('${ctx}/manager/teacherImport.do')"> 导入名单</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/teacherScan.do')">
+                            <span class="glyphicon glyphicon-list-alt" style="font-size: 14px;"> </span>
+                            查看教师</a></li>
+                        <li><a href="###" onclick="showAtRight('${ctx}/manager/teacherImport.do')">
+                            <span class="glyphicon glyphicon-import" style="font-size: 14px;"> </span>
+                            导入名单</a></li>
                     </ul>
 
                     <li><a href="#productMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
-                        <i class="fa fa-globe"></i>&nbsp; 课程管理 <span class="sr-only">(current)</span></a>
+                        <span class="glyphicon glyphicon-th-list" style=" font-size:18px;"> </span>
+                        &nbsp;&nbsp;课程管理</a>
                     </li>
                     <ul id="productMeun" class="nav nav-list collapse menu-second">
-                            <li><a href="###" onclick="showAtRight('${ctx}/manager/courseScan.do')"> 所有课程</a></li>
-                            <li><a href="###" onclick="showAtRight('${ctx}/manager/dataScan.do')"> 课程资料</a></li>
-                            <li><a href="###" onclick="showAtRight('${ctx}/manager/videoScan.do')"> 课程视频</a></li>
+                            <li><a href="###" onclick="showAtRight('${ctx}/manager/courseScan.do')">
+                                <span class="glyphicon glyphicon-align-left" style="font-size: 14px;"> </span>
+                                &nbsp;所有课程</a></li>
+                            <li><a href="###" onclick="showAtRight('${ctx}/manager/dataScan.do')">
+                                <span class="glyphicon glyphicon-folder-open" style="font-size: 14px;"></span>
+                                &nbsp;课程资料</a></li>
+                            <li><a href="###" onclick="showAtRight('${ctx}/manager/videoScan.do')">
+                                <span class="glyphicon glyphicon-film" style="font-size: 14px;"></span>
+                                &nbsp;课程视频</a></li>
 
                     </ul>
                 </ul>
