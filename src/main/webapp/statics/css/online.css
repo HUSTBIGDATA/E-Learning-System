@@ -10,13 +10,17 @@ allbody {
     height: 100%;
     text-align: center;
 }
-
+#fixhead{
+    width: 100%;
+    position:fixed;
+    background-color: darkgray;
+}
 #onlineHead {
     width: 70%;
-    height: 30px;
+    height: 40px;
     position: relative;
     margin: 0 auto;
-   
+
 }
 
 #leftDiv {
@@ -44,6 +48,7 @@ allbody {
 }
 
 #the-canvas {
+    margin-top: 80px;
     width: 70%;
     border: 2px solid #6B6B6B;
     padding: 0;

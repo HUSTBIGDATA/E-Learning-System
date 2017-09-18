@@ -39,32 +39,41 @@
 </head>
 
 <body onload="timeAndcontent()">
+
 <div id="allbody">
-    <br>
-    <h4><span>${fileName}</span></h4>
-    <hr>
-    <div id="onlineHead">
-        <div id="leftDiv">
-            <button class="btn btn-default btn-sm" id="prev" onclick="onPrevPage()">前一页</button>
-            <button class="btn btn-default btn-sm" id="next" onclick="onNextPage()">后一页</button>
-        </div>
-        <div id="rightDiv">
-            您已学习时间为：<span id="mytime">00:00:00</span>
-        </div>
-        <div id="centerDiv">
 
-            <div class="form-inline row">
-                <span>当前页数: <span id="page_num"></span> / <span id="page_count"></span></span>
-                &nbsp;&nbsp;
-                <input type="text" class="form-control input-sm" id="gotopages">
-                <button type="submit" class="btn btn-default btn-sm" onclick="gotoooPage()">转到</button>
+    <div id="fixhead">
+
+        <h4><span>${fileName}</span></h4>
+
+        <div id="onlineHead">
+            <div id="leftDiv">
+                <button class="btn btn-default btn-sm" id="prev" onclick="onPrevPage()">前一页</button>
+                <button class="btn btn-default btn-sm" id="next" onclick="onNextPage()">后一页</button>
             </div>
-        </div>
+            <div id="rightDiv">
+                您已学习时间为：<span id="mytime">00:00:00</span>
+            </div>
+            <div id="centerDiv">
 
+                <div class="form-inline row">
+                    <span>当前页数: <span id="page_num"></span> / <span id="page_count"></span></span>
+                    &nbsp;&nbsp;
+                    <input type="text" class="form-control input-sm" id="gotopages">
+                    <button type="submit" class="btn btn-default btn-sm" onclick="gotoooPage()">转到</button>
+                </div>
+            </div>
+
+        </div>
     </div>
+
     <br>
-    <canvas id="the-canvas"></canvas>
+    <div id="container"> <canvas id="the-canvas"></canvas></div>
+
 </div>
+
+
+
 <script type="text/javascript">
 
     var url = "${ctx}/statics/js/test.pdf";      //这里要不要在｛ctx｝后面加斜杠呢？
