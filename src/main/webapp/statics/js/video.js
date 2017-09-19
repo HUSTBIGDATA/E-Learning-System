@@ -22,8 +22,8 @@ function flushVideoList() {
             var vvideolist = JSON.parse(videolist);
 
             showHot(vhotVideoList);
-            showClass(vclassSum);
-            showVideoList(vvideolist);
+
+            showVideoList(vclassSum,vvideolist);
 
         },
         error: function (err) {
@@ -33,11 +33,29 @@ function flushVideoList() {
 
 }
 function showHot(vhotVideoList) {
-    
+       PageContext = document.getElementById("PageContext").value;
+       hotSrc_em = document.getElementsByClassName("scollimg");
+       hotInfo_em = document.getElementsByClassName("carousel-caption");
+
+       for(i = 0;i < 4;i++){
+
+           str = PageContext + vhotVideoList[i].videoSrc;
+           hotInfo_em[i].innerHTML = vhotVideoList[i].videoInfo;
+           hotSrc_em[i].src = str;
+
+       }
 }
-function showClass(vclassSum) {
-    
-}
-function showVideoList(vvideolist) {
+
+function showVideoList(vclassSum,vvideolist) {
+
+
+
+
+
+
+
+
+
+
 
 }

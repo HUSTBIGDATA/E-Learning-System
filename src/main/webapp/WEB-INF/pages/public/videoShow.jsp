@@ -39,19 +39,19 @@
             <!-- 轮播（Carousel）项目 -->
             <div class="carousel-inner" id="carousel-inner">
                 <div class="item active">
-                    <img src="img/4.jpg" alt="First slide" class="scollimg">
+                    <img src="<%=basePath%>statics/img/4.jpg" alt="First slide" class="scollimg">
                     <div class="carousel-caption">最热视频1</div>
                 </div>
                 <div class="item">
-                    <img src="img/1.jpg" alt="Second slide" class="scollimg">
+                    <img src="<%=basePath%>statics/img/4.jpg" alt="Second slide" class="scollimg">
                     <div class="carousel-caption">最热视频2</div>
                 </div>
                 <div class="item">
-                    <img src="img/2.jpg" alt="Third slide" class="scollimg">
+                    <img src="<%=basePath%>statics/img/4.jpg" alt="Third slide" class="scollimg">
                     <div class="carousel-caption">最热视频3</div>
                 </div>
                 <div class="item">
-                    <img src="img/3.jpg" alt="Third slide" class="scollimg">
+                    <img src="<%=basePath%>statics/img/4.jpg" alt="Third slide" class="scollimg">
                     <div class="carousel-caption">最热视频4</div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
     </div>
 </div>
 <footer>
-
+    <input id="PageContext" type="hidden" value="${pageContext.request.contextPath}"/>
 </footer>
 <iframe style="display:none" onload="javascript:flushVideoList('${pageContext.request.contextPath}/video/videoList.do')"/>
 <script type="text/javascript">

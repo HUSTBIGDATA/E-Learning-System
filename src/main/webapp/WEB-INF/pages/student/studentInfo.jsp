@@ -40,7 +40,7 @@
     <div id="adminImg">
 
         <div id="adminImgCon">
-            <img id="photo" src="${adminImg}" alt="这是学员头像"/>
+            <img id="photo" src="<%=basePath%>statics/img/default.jpg" alt="这是学员头像"/>
             <div>
                 <button type="button" onclick="updateImg()" style="width:160px">点击更换照片</button>
             </div>

@@ -477,7 +477,7 @@ function onloadTeacherCourse(basepath,ID) {
             str = "";
 
             for (var i = 0; i < res.length; i++) {
-                str = str + '<div class = "item" ><h4>课程编号'+res[i].courseID+'&nbsp;&nbsp;'+res[i].courseName+'</h4><hr><div><span>教师:'+res[i].courseTeacher+'<br></span><span style = "float:left;">课程信息： </span><br><div class = "courceinfo">'+res[i].courseInfo+'</div><span style = "float:left;" > 教学计划： </span><br><div class = "courseplan" >'+res[i].plan+'</div></div></div>';
+                str = str + '<div class="item"><h3>课程编号:'+res[i].courseID+'&nbsp;&nbsp;'+res[i].courseName+'</h3><div><span class="teac">教师:'+res[i].courseTeacher+'<br></span><hr><span class="ttle">课程信息:</span><br><div class="courceinfo">'+res[i].courceInfo+'</div><span  class="ttle">教学计划:</span><br><div class="courseplan">'+res[i].courcePlan+'</div></div></div>';
             }
             alert(str);
             //document.getElementsByClassName("waterfall").innerHTML=str;
