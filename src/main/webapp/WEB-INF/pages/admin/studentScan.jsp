@@ -52,8 +52,8 @@
 
             </div>
             <div id="tableHeadRight">
-                <button type="button" class="btn btn-default" onclick="flushStdList('${pageContext.request.contextPath}/student/studentList.do')">刷新</button>
-                <button type="button" class="btn btn-default" onclick="nengbunengxing('${pageContext.request.contextPath}/student/deleteStudent.do')">删除所选</button>
+                <button type="button" class="btn btn-default" style="background-color:  #B8B8B8" onclick="flushStdList('${pageContext.request.contextPath}/student/studentList.do')">刷新</button>
+                <button type="button" class="btn btn-default" style="background-color:  #FF8C00" onclick="nengbunengxing('${pageContext.request.contextPath}/student/deleteStudent.do')">删除所选</button>
             </div>
         </div>
         <div id="tableBody">

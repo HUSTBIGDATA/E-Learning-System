@@ -54,10 +54,12 @@
 
             </div>
             <div id="tableHeadRight">
-                <button type="button" class="btn btn-default" onclick="deleteCourseSeleted('${pageContext.request.contextPath}')">删除所选
+                <button type="button" class="btn btn-default" style="background-color:  #B8B8B8"  onclick="flushCourseList('${pageContext.request.contextPath}')">刷新
                 </button>
-                <button type="button" class="btn btn-default" onclick="flushCourseList('${pageContext.request.contextPath}')">刷新
+
+                <button type="button" class="btn btn-default" style="background-color:  #FF8C00"  onclick="deleteCourseSeleted('${pageContext.request.contextPath}')">删除所选
                 </button>
+
 
                 <button type="button" class="btn btn-default" onclick="addNewCourse()">添加新课程
                 </button>

@@ -53,11 +53,11 @@
 
             </div>
             <div id="tableHeadRight">
-                <button type="button" class="btn btn-default" onclick="flushDataList('${pageContext.request.contextPath}/data/dataList.do')">刷新
+                <button type="button" class="btn btn-default" style="background-color:  #B8B8B8" onclick="flushDataList('${pageContext.request.contextPath}/data/dataList.do')">刷新
                 </button>
-                <!--button type="button" class="btn btn-default" onclick="setDownloadList('${pageContext.request.contextPath}/manager/downloadData.do')">批量下载
+                <!--button type="button" class="btn btn-default" onclick="setDownloadList('{pageContext.request.contextPath}/manager/downloadData.do')">批量下载
                 </button-->
-                <button type="button" class="btn btn-default" onclick="setDeleteList('${pageContext.request.contextPath}')">批量删除
+                <button type="button" class="btn btn-default" style="background-color:  #FF8C00"  onclick="setDeleteList('${pageContext.request.contextPath}')">批量删除
                 </button>
                 </button>
                 <button type="button" class="btn btn-default" onclick="dataImport()">上传资料

@@ -101,27 +101,54 @@ function showVideoSubList(videoClassName,index) {
 
 function listmore(basepath,videoClassName){
 
+//打开一个新的网页，里面显示该类型的所有视频
+
+    // 创建Form
+    var form = $('<form></form>');
+    // 设置属性
+    form.attr('action', basepath);
+    form.attr('method', 'get');
+    // form的target属性决定form在哪个页面提交
+    // _self -> 当前页面 _blank -> 新页面
+    form.attr('target', '_blank');
+    // 创建Input
+    var my_input = $('<input type="text" name="videoClassName" />');
+    my_input.attr('value', videoClassName);
+    // 附加到Form
+    form.append(my_input);
+    // 提交表单
+    form.submit();
+    // 注意return false取消链接的默认动作
+    return false;
+
+}
+function flushListByClassName(basepath) {
+
+    PageContext = document.getElementById("PageContext").value;
+    em = document.getElementById("parent");
+    className = document.getElementById("videoClassName").value;
+    while (em.hasChildNodes()) //当em下还存在子节点时 循环继续
+    {
+        em.removeChild(em.firstChild);
+    }
+
     $.ajax({
         url: basepath,
         type: "POST",
         dataType: "json",
         data:{
-            "videoClassName": videoClassName
+            "videoClassName": className
         },
-        success: function (videolist) {
-            PageContext = document.getElementById("PageContext").value;
+        success: function (videoClasslist) {
 
-            var vhotVideoList = JSON.parse(videolist); //res是json对象
-            var str = '';
+            var videoClasslist = JSON.parse(videoClasslist);
+            str = '';
+            for(var i=0;i<videoClasslist.length;i++){
 
-            for(var i=0;i<videolist.length;i++){
-                 // 这里显示该类型下所有的视频
-
-                
+                str = str + '<div class="child"><textarea class="realName" disabled>'+videoClasslist[i].videpName+'</textarea><a href="'+PageContext+'/video/videoShow?videoName='+videolist[i].videoName+'" target="_blank"><img src="'+PageContext+'/statics/img/'+videolist[i].Picture+'" alt="视频截图" class="vdoName"></a></div>';
 
             }
 
-            ems.innerHTML = str;
         },
         error: function (err) {
             // alert("查询失败!");

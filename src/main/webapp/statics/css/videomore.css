@@ -1,0 +1,54 @@
+ html,
+ body {
+     margin: 0;
+     border: 0;
+     padding: 0;
+     width: 100%;
+     height: 100%;
+ }
+
+ .parent {
+     display: block;
+     width: 100%;
+ }
+
+ .parent {
+     -webkit-column-width: 240px;
+     -moz-column-width: 240px;
+     -webkit-column-gap: 0px;
+     -moz-column-gap: 0px;
+     writing-mode: tb-lr;
+     *white-space: nowrap;
+ }
+
+
+ .child {
+     display: inline-block;
+     *display: inline;
+     margin: 5px 5px 5px 5px;
+     padding: 0;
+     width: 240px;
+     height: 210px;
+     text-align: center;
+     background: darkgray;
+     writing-mode: lr-tb;
+     /*ie8 竖直排列*/
+ }
+
+ .realName {
+     width: 240px;
+     height: 30px;
+     text-align: center;
+     background-color: azure;
+     resize: none;
+     line-height: 30px;
+     border: 0;
+     padding: 0;
+ }
+
+ .vdoName {
+     width: 240px;
+     height: 180px;
+     margin-bottom: 0;
+     padding-bottom: 0;
+ }

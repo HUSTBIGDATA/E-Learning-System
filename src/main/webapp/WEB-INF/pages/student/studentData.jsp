@@ -53,9 +53,9 @@
 
             </div>
             <div id="tableHeadRight">
-                <button type="button" class="btn btn-default" onclick="flushDataList('${pageContext.request.contextPath}/data/dataList.do')">刷新
+                <button type="button" class="btn btn-default" style="background-color:  #B8B8B8" onclick="flushDataList('${pageContext.request.contextPath}/data/dataList.do')">刷新
                 </button>
-                <!-- button type="button" class="btn btn-default" onclick="setDownloadList('${pageContext.request.contextPath}/student/downloadlist.do')">批量下载
+                <!-- button type="button" class="btn btn-default" onclick="setDownloadList('{pageContext.request.contextPath}/student/downloadlist.do')">批量下载
                 </button-->
 
             </div>

@@ -56,10 +56,10 @@
 
             </div>
             <div id="teachertableHeadRight">
-                <button type="button" class="btn btn-default"
+                <button type="button" class="btn btn-default" style="background-color:  #B8B8B8"
                         onclick="teacherflushStdList('${pageContext.request.contextPath}/teacher/teacherList.do')">刷新
                 </button>
-                <button type="button" class="btn btn-default"
+                <button type="button" class="btn btn-default" style="background-color:  #FF8C00"
                         onclick="deleteTeacherlist('${pageContext.request.contextPath}/teacher/deleteTeacher.do')">删除所选
                 </button>
             </div>
