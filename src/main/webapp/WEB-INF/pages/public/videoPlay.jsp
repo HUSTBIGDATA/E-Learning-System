@@ -42,16 +42,18 @@
                     <div class="videoName">视频名字</div>
                 </div>
                 <div class="playContent">
-                    <div class="turnoff">
+                    <%--<div class="turnoff">
                         <ul>
                             <li><a href="#" title="喜欢" class="glyphicon glyphicon-heart-empty"></a></li>
                             <li><a href="#" title="关灯" class="btnLight on glyphicon glyphicon-sunglasses"></a></li>
                             <li><a href="#" title="分享" class="glyphicon glyphicon-share"></a></li>
                         </ul>
-                    </div>
+                    </div>--%>
 
                     <video width="100%" height="100%" id="playVideo">
                         <source src="<%=basePath%>statics/video/movie.mp4" type="video/mp4">
+                        <source src="<%=basePath%>statics/video/movie.webm" type="video/webm" />
+                        <source src="<%=basePath%>statics/video/movie.ogv" type="video/ogg" />
                     </video>
 
                     <div class="playTip glyphicon glyphicon-play"></div>
